@@ -14,4 +14,7 @@ TODO: install script that installs all dependencies
 TODO: why/what/how gnu stow
 
 ## Screenshots
-TODO: maybe, if I'm not lazy
+- [base](base-dotfiles/README.md)
+- [dracula](dracula-dotfiles/README.md)
+- [gruvbox](gruvbox-dotfiles/README.md)
+- [nordic](nordic-dotfiles/README.md)

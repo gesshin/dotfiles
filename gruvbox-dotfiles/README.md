@@ -1,3 +1,2 @@
 ## Screenshots
-TODO: just taken from dotfiles dir
-
+TODO: gruvbox screenshots

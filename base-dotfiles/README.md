@@ -1,2 +1,2 @@
 ## Screenshots
-TODO: just taken from dotfiles dir
+TODO: base theme screenshots

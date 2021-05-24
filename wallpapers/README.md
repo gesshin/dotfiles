@@ -1,2 +1,2 @@
 ## List of ArtStations Artists
-- TODO
+- TODO: add list of artists
