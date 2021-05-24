@@ -1,5 +1,5 @@
 ## Welcome to my dotfiles!
-These are the Arch Linux dotfiles for the rices I plan/have to make.
+These are the Arch Linux dotfiles for the rices I plan/have to make. Also included are wallpapers that I have saved and links to my favorited artists that I get from [ArtStation](https://www.artstation.com/).
 
 ## Rices
 - __base-dotfiles__: based on the current wallpaper using [wpgtk](https://github.com/deviantfero/wpgtk) as a color-scheme manager
