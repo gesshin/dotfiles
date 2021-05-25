@@ -4,9 +4,9 @@
 # Install status bar, application launcher, wallpaper manager, color-scheme manager, file manager
 yay polybar rofi nitrogen wpgtk-git nnn
 
-# Install shell and shell framework
+# Install shell and custom prompt
 sudo pacman -S fish
-curl -L https://get.oh-my.fish | fish
+curl -fsSL https://starship.rs/install.sh | bash
 
 # Install theme manager, gtk theme, icon theme, cursor theme, ui font, terminal font
 yay lxappearance nordic-theme-git qogir-icon-theme mcmojave-cursors ttf-roboto ttc-iosevka-ss04
