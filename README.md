@@ -37,4 +37,5 @@ TODO: add links to respective github repos
 - __cursor theme__: mcmojave
 - __ui font__: roboto medium 12
 - __terminal font__: iosevka ss04
-- __apps__: brave, spotify, discord, steam
+- __programs__: brave, spotify, discord, steam, zip, unzip
+- __misc programs__: neofetch, cbonsai, cmatrix,
