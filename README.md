@@ -27,7 +27,7 @@ TODO: add links to respective github repos
 - __status bar__: polybar
 - __application launcher__: rofi
 - __wallpaper manager__: nitrogen/wpgtk
-- __file manager__: nnn
+- __file manager__: ranger
 - __terminal__: alacritty
 - __shell__: fish
 - __editor__: neovim/vscode
