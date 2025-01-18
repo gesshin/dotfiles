@@ -1,18 +1,24 @@
-# Prompt Format ####
+## Prompt Format
 format = """
 $directory\
 $git_branch\
-$git_state\
 $git_status\
+$memory_usage\
+$cmd_duration\
+$fill\
+$c$java$lua$nodejs$ruby$rust\
+$aws\
+$time\
+$battery\
 $line_break\
 $character
 """
 
-# Prompt-Wide Config ####
+## Prompt-Wide Config
 palette = 'dracula'
 add_newline = false
 
-# Modules Config ####
+## Modules Config
 [directory]
 disabled = false
 format = '[$path]($style) '
@@ -21,15 +27,83 @@ truncation_length = 10
 
 [git_branch]
 disabled = false
-format = 'on [$symbol$branch]($style) '
+format = 'on [$symbol $branch ]($style)'
 style = 'bold purple'
-symbol = ' '
-
-[git_state]
-disabled = false
+symbol = ''
 
 [git_status]
 disabled = false
+style = 'bold orange'
+
+[cmd_duration]
+disabled = false
+format = 'took [$duration ]($style)'
+style = 'bold yellow'
+show_milliseconds = true
+
+[fill]
+disabled = false
+symbol = ' '
+
+[c]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold 149'
+symbol = 'c'
+
+[java]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold orange'
+symbol = 'java'
+
+[lua]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold blue'
+symbol = 'lua'
+
+[nodejs]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold green'
+symbol = 'nodejs' 
+
+[ruby]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold red'
+symbol = 'rb'
+detect_variables = []
+
+[rust]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold red'
+symbol = 'rs'
+
+[aws]
+disabled = false
+format = '[$symbol ($profile::)($region )(\[$duration\] )]($style)'
+style = 'bold pink'
+symbol = '󰒋'
+
+[time]
+disabled = false
+format = '[\[$time\] ]($style)'
+style = 'bold yellow'
+
+[battery]
+disabled = false
+format = '[\[$percentage\]]($style)'
+
+[[battery.display]]
+threshold = 100
+style = 'bold white'
+
+[[battery.display]]
+threshold = 15
+style = 'bold red'
 
 [line_break]
 disabled = false
@@ -40,7 +114,7 @@ format = '$symbol '
 success_symbol = '[](bold green)'
 error_symbol = '[](bold red)'
 
-# Palette Definitions ####
+## Palette Definitions
 [palettes.dracula]
 background = '#282a36'
 current_line = '#44475a'
