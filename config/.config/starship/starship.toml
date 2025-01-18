@@ -33,7 +33,21 @@ symbol = ''
 
 [git_status]
 disabled = false
+format = '([\[$all_status$ahead_behind\] ]($style))'
 style = 'bold orange'
+
+conflicted = '!'
+stashed = '$'
+deleted = '-'
+renamed = ''
+modified = '~'
+staged = '+'
+untracked = '?'
+
+diverged = ''
+ahead = ''
+behind = ''
+up_to_date = ''
 
 [cmd_duration]
 disabled = false
