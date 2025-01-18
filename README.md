@@ -4,16 +4,14 @@ These are the .config files for my MacOS rice. Also included are wallpapers that
 ## My Applications/Packages
 - **Package Manager:** homebrew
 - **Terminal:** iterm2
-- **Shell:** zsh + oh-my-zsh
+- **Shell:** zsh + antidote
 - **Text Editor:** neovim
-- **Font:**
+- **Font:** JetBrains Mono Nerd Font
 - **Misc Programs:** neofetch, cbonsai
 
 ## Installing Dependencies
-TODO: create a setup script
-
-The script `install.sh` will install the bare minimum packages and set up the AUR helper.
-The script `install_apps.sh` will install the other packages and basic applications.
+The script `install.sh` will install the apps/packages
+The script `stow.sh` will generate the symlinks
 
 ## Manual Installation
 ### Main Packages
@@ -25,7 +23,7 @@ The script `install_apps.sh` will install the other packages and basic applicati
     brew install --cask iterm2
   - **zsh + oh-my-zsh**
     ```bash
-    brew instal zsh && chsh -s $(which zsh) && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    brew instal zsh && chsh -s $(which zsh) && brew install antidote
   - **starship**
     ```bash
     brew install starship
