@@ -9,9 +9,16 @@ These are the .config files for my MacOS rice. Also included are wallpapers that
 - **Font:** JetBrains Mono Nerd Font
 - **Misc Programs:** neofetch, cbonsai
 
-## Installing Dependencies
-The script `install.sh` will install the apps/packages
-The script `stow.sh` will generate the symlinks
+## Installation
+1. Navigate to repo
+   ```bash
+   cd dotfiles
+2. Install the apps/packages
+   ```bash
+   ./install.sh
+3. Generate symlinks
+   ```bash
+   ./stow.sh
 
 ## Manual Installation
 ### Main Packages
