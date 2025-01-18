@@ -21,9 +21,12 @@ The script `stow.sh` will generate the symlinks
   - **iterm2**
     ```bash
     brew install --cask iterm2
-  - **zsh + oh-my-zsh**
+  - **zsh + antidote**
     ```bash
     brew instal zsh && chsh -s $(which zsh) && brew install antidote
+  - **tmux**
+    ```bash
+    brew install antidote
   - **starship**
     ```bash
     brew install starship
