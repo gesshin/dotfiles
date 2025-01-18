@@ -1,2 +1,0 @@
-## Screenshots
-TODO: dracula screenshots

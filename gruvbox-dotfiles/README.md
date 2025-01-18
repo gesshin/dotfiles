@@ -1,2 +1,0 @@
-## Screenshots
-TODO: gruvbox screenshots
