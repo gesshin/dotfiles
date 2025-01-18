@@ -44,10 +44,10 @@ modified = '~'
 staged = '+'
 untracked = '?'
 
-diverged = ''
-ahead = ''
-behind = ''
-up_to_date = ''
+diverged = '<>'
+ahead = '>'
+behind = '<'
+up_to_date = '='
 
 [cmd_duration]
 disabled = false
