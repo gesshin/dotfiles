@@ -1,3 +1,5 @@
 #!/bin/bash
 
-stow --target=$HOME config
+stow -t ~ zsh
+stow -t ~ tmux
+stow -t ~ config

@@ -6,8 +6,8 @@
 # Install terminal
 brew install --cask iterm2
 
-# Install shell and change default shell
-brew install zsh && chsh -s $(which zsh) && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install shell and change default shell and plugin manager
+brew install zsh && chsh -s $(which zsh) && brew install antidote
 
 # Install font
 brew install --cask font-jetbrains-mono-nerd-font
