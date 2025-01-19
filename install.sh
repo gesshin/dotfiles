@@ -6,8 +6,8 @@
 # Install terminal
 brew install --cask iterm2
 
-# Install shell and change default shell and plugin manager
-brew install zsh && chsh -s $(which zsh) && brew install antidote
+# Install shell and change default shell
+brew install zsh && chsh -s $(which zsh)
 
 # Install font
 brew install --cask font-jetbrains-mono-nerd-font
@@ -17,4 +17,8 @@ brew install neovim starship tmux
 
 # Install tools
 brew install stow neofetch cbonsai
+
+# Install plugin managers
+brew install antidote
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
