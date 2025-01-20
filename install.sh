@@ -16,7 +16,7 @@ brew install --cask font-jetbrains-mono-nerd-font
 brew install neovim starship tmux
 
 # Install tools
-brew install stow neofetch cbonsai
+brew install git stow neofetch cbonsai
 
 # Install plugin managers
 brew install antidote
