@@ -21,7 +21,7 @@ These are the .config files for my MacOS rice. Also included are wallpapers that
    ./install.sh
 4. Generate symlinks
    ```bash
-   ./stow.sh
+   stow -t ~ config
 5. (Optional) When adding new zsh plugins, you will need to manually regenerate the `.zsh_plugins.sh`
    ```base
    antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.sh
