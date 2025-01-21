@@ -19,13 +19,9 @@ These are the .config files for my MacOS rice. Also included are wallpapers that
 3. Install the apps/packages
     ```bash
     ./setup.sh
-4. Ensure the `~/.config` directory exists
-5. Generate symlinks
+4. Generate symlinks
     ```bash
     stow .
-6. Source the repo's `.zshrc' in `~/.zshrc`
-    ```bash
-    grep -qxF 'source ~/.config/zsh/.zshrc' ~/.zshrc || echo 'source ~/.config/zsh/.zshrc'
 
 ## Plugin Managers
 These are some snippets for using the plugin managers.
