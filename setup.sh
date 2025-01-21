@@ -13,12 +13,11 @@ brew install zsh && chsh -s $(which zsh)
 brew install --cask font-jetbrains-mono-nerd-font
 
 # Install apps
-brew install neovim starship tmux
+brew install starship tmux neovim
 
 # Install tools
-brew install git stow neofetch cbonsai
+brew install stow neofetch cbonsai
 
 # Install plugin managers
 brew install antidote
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-

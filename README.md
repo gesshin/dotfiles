@@ -11,22 +11,26 @@ These are the .config files for my MacOS rice. Also included are wallpapers that
 
 ## Installation
 1. Clone repo
-    ```bash
-    git clone git@github:RyanEweSeng/dotfiles.git
+   ```bash
+   git clone git@github:RyanEweSeng/dotfiles.git
+   ```
 2. Navigate to repo
-    ```bash
-    cd dotfiles
+   ```bash
+   cd dotfiles
+   ```
 3. Install the apps/packages
-    ```bash
-    ./setup.sh
+   ```bash
+   ./setup.sh
+   ```
 4. Generate symlinks
-    ```bash
-    stow .
+   ```bash
+   stow .
+   ```
 
 ## Plugin Managers
 These are some snippets for using the plugin managers.
 
-1. When adding new zsh plugins, you will need to manually regenerate the `.zsh_plugins.sh`
-   ```bash
-   antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.sh
-
+- When adding new zsh plugins, you will need to manually regenerate the `.zsh_plugins.sh`
+  ```bash
+  antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.sh
+  ```
