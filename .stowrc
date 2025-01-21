@@ -1,9 +1,6 @@
 # Sets the target stow directory 
 --target=~/.config
 
-# Handles dotfiles by replacing 'dot-' with a period '.'
---dotfiles
-
 # Ignore these files when generating symlinks
 --ignore=.stowrc
 --ignore=.gitignore
