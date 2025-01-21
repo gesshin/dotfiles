@@ -18,13 +18,12 @@ These are the .config files for my MacOS rice. Also included are wallpapers that
    cd dotfiles
 3. Install the apps/packages
    ```bash
-   ./install.sh
-4. Generate symlinks
+   ./setup.sh
+4. Ensure the `~/.config` directory exists
+5. Generate symlinks
    ```bash
-   stow -t ~ config
-5. (Optional) When adding new zsh plugins, you will need to manually regenerate the `.zsh_plugins.sh`
+   stow .
+6. (Optional) When adding new zsh plugins, you will need to manually regenerate the `.zsh_plugins.sh`
    ```bash
    antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.sh
 
-## Screenshots
-TODO
