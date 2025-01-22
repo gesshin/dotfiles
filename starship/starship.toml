@@ -8,8 +8,6 @@ $cmd_duration\
 $fill\
 $c$java$lua$nodejs$ruby$rust\
 $aws\
-$time\
-$battery\
 $line_break\
 $character
 """
@@ -101,23 +99,6 @@ disabled = false
 format = '[$symbol ($profile::)($region )(\[$duration\] )]($style)'
 style = 'bold pink'
 symbol = '󰒋'
-
-[time]
-disabled = false
-format = '[\[$time\] ]($style)'
-style = 'bold yellow'
-
-[battery]
-disabled = false
-format = '[\[$percentage\]]($style)'
-
-[[battery.display]]
-threshold = 100
-style = 'bold white'
-
-[[battery.display]]
-threshold = 15
-style = 'bold red'
 
 [line_break]
 disabled = false
