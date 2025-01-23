@@ -59,38 +59,38 @@ symbol = ' '
 [c]
 disabled = false
 format = '[$symbol $version ]($style)'
-style = 'bold 149'
+style = 'bold #555555'
 symbol = 'c'
 
 [java]
 disabled = false
 format = '[$symbol $version ]($style)'
-style = 'bold orange'
+style = 'bold #f8981d'
 symbol = 'java'
 
 [lua]
 disabled = false
 format = '[$symbol $version ]($style)'
-style = 'bold blue'
+style = 'bold #70c0ff'
 symbol = 'lua'
 
 [nodejs]
 disabled = false
 format = '[$symbol $version ]($style)'
-style = 'bold green'
+style = 'bold #8cc84b'
 symbol = 'nodejs' 
 
 [ruby]
 disabled = false
 format = '[$symbol $version ]($style)'
-style = 'bold red'
+style = 'bold #cc342d'
 symbol = 'rb'
 detect_variables = []
 
 [rust]
 disabled = false
 format = '[$symbol $version ]($style)'
-style = 'bold red'
+style = 'bold #dea584'
 symbol = 'rs'
 
 [aws]
