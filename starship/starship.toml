@@ -49,9 +49,8 @@ up_to_date = '='
 
 [cmd_duration]
 disabled = false
-format = 'took [$duration ]($style)'
+format = '[$duration ]($style)'
 style = 'bold yellow'
-show_milliseconds = true
 
 [fill]
 disabled = false
