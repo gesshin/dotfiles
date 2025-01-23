@@ -10,13 +10,14 @@ brew install --cask iterm2
 brew install zsh && chsh -s $(which zsh)
 
 # Install font
+brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 
 # Install apps
 brew install starship tmux neovim
 
 # Install tools
-brew install stow neofetch cbonsai
+brew install stow tree ripgrep neofetch cbonsai
 
 # Install plugin managers
 brew install antidote
