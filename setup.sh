@@ -11,7 +11,8 @@ brew install zsh && chsh -s $(which zsh)
 
 # Install font
 brew tap homebrew/cask-fonts
-brew install --cask font-jetbrains-mono-nerd-font
+brew install --cask font-jetbrains-mono
+brew install --cask font-symbols-nerd-font
 
 # Install apps
 brew install starship tmux neovim
