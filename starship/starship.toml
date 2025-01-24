@@ -8,7 +8,6 @@ $cmd_duration\
 $fill\
 $c$java$lua$nodejs$ruby$rust\
 $docker_context\
-$aws\
 $line_break\
 $character
 """
@@ -99,14 +98,6 @@ disabled = false
 format = '[$symbol $context ]($style)'
 style = 'bold blue'
 symbol = ''
-
-only_with_files = false
-
-[aws]
-disabled = false
-format = '[$symbol ($profile::)($region )(\[$duration\] )]($style)'
-style = 'bold pink'
-symbol = '󰒋'
 
 [line_break]
 disabled = false
