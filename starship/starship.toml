@@ -7,6 +7,7 @@ $memory_usage\
 $cmd_duration\
 $fill\
 $c$java$lua$nodejs$ruby$rust\
+$docker_context\
 $aws\
 $line_break\
 $character
@@ -92,6 +93,14 @@ disabled = false
 format = '[$symbol $version ]($style)'
 style = 'bold #dea584'
 symbol = 'rs'
+
+[docker_context]
+disabled = false
+format = '[$symbol $context ]($style)'
+style = 'bold blue'
+symbol = ''
+
+only_with_files = false
 
 [aws]
 disabled = false
