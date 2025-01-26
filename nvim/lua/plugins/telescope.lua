@@ -22,6 +22,7 @@ return {
             ['<C-k>'] = actions.move_selection_previous,
           },
         },
+        preview = { treesitter = true }
       },
       pickers = {
         find_files = {

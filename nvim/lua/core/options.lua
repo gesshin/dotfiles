@@ -1,5 +1,3 @@
-local palette = require('core.palette')
-
 local opt = vim.opt
 local api = vim.api
 
@@ -33,17 +31,4 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.wrap = false                    -- disable text wrapping
 opt.cursorline = true               -- enable cursorline
 opt.clipboard:append("unnamedplus") -- use system clipboard
-
--- Highlights
-api.nvim_set_hl(0, 'DraculaBg'     , { fg = palette.black  })
-api.nvim_set_hl(0, 'DraculaLine'   , { fg = palette.grey   })
-api.nvim_set_hl(0, 'DraculaFg'     , { fg = palette.white  })
-api.nvim_set_hl(0, 'DraculaComment', { fg = palette.blue   })
-api.nvim_set_hl(0, 'DraculaCyan'   , { fg = palette.cyan   })
-api.nvim_set_hl(0, 'DraculaGreen'  , { fg = palette.green  })
-api.nvim_set_hl(0, 'DraculaOrange' , { fg = palette.orange })
-api.nvim_set_hl(0, 'DraculaPink'   , { fg = palette.pink   })
-api.nvim_set_hl(0, 'DraculaPurple' , { fg = palette.purple })
-api.nvim_set_hl(0, 'DraculaRed'    , { fg = palette.red    })
-api.nvim_set_hl(0, 'DraculaYellow' , { fg = palette.yellow })
 

@@ -6,11 +6,6 @@ return {
     local alpha = require('alpha')
     local dashboard = require('alpha.themes.dashboard')
     
-    vim.api.nvim_set_hl(0, 'AlphaHeader'  , { link = 'DraculaFg'  })
-    vim.api.nvim_set_hl(0, 'AlphaFooter'  , { link = 'DraculaRed' })
-    vim.api.nvim_set_hl(0, 'AlphaButtons' , { link = 'DraculaFg'  })
-    vim.api.nvim_set_hl(0, 'AlphaShortcut', { link = 'DraculaRed' })
-    
     local logo = {
       '                                                            ',
       '           ███████████████               ██████████████████ ',

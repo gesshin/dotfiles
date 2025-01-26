@@ -24,7 +24,7 @@ return {
         lualine_x = {
           {
             function()
-              return string.upper(vim.bo.fileencoding)
+              return vim.bo.fileencoding:upper()
             end
           },
           {

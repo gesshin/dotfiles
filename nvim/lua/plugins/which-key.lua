@@ -5,24 +5,6 @@ return {
     vim.o.timeout = true
     vim.o.timeoutlen = 500
 
-    vim.api.nvim_set_hl(0, 'WhichKeyIconGrey'  , { link = 'DraculaLine'    })
-    vim.api.nvim_set_hl(0, 'WhichKeyNormal'    , { link = 'DraculaFg'      })
-    vim.api.nvim_set_hl(0, 'WhichKeyIconBlue'  , { link = 'DraculaComment' })
-    vim.api.nvim_set_hl(0, 'WhichKeyIconCyan'  , { link = 'DraculaCyan'    })
-    vim.api.nvim_set_hl(0, 'WhichKeyIconGreen' , { link = 'DraculaGreen'   })
-    vim.api.nvim_set_hl(0, 'WhichKeyIconOrange', { link = 'DraculaOrange'  })
-    vim.api.nvim_set_hl(0, 'WhichKeyIconAzure' , { link = 'DraculaPink'    })
-    vim.api.nvim_set_hl(0, 'WhichKeyIconPurple', { link = 'DraculaPurple'  })
-    vim.api.nvim_set_hl(0, 'WhichKeyIconRed'   , { link = 'DraculaRed'     })
-    vim.api.nvim_set_hl(0, 'WhichKeyIconYellow', { link = 'DraculaYellow'  })
-    
-    vim.api.nvim_set_hl(0, 'WhichKeyTitle'     , { link = 'DraculaPurple'  })
-    vim.api.nvim_set_hl(0, 'WhichKeyBorder'    , { link = 'DraculaComment' })
-    vim.api.nvim_set_hl(0, 'WhichKey'          , { link = 'DraculaPurple'  })
-    vim.api.nvim_set_hl(0, 'WhichKeySeparator' , { link = 'DraculaComment' })
-    vim.api.nvim_set_hl(0, 'WhichKeyIcon'      , { link = 'DraculaPurple'  })
-    vim.api.nvim_set_hl(0, 'WhichKeyDesc'      , { link = 'DraculaFg'      })
-    vim.api.nvim_set_hl(0, 'WhichKeyGroup'     , { link = 'DraculaFg'      })
   end,
   opts = {
     plugins = {

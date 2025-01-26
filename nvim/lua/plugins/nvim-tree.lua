@@ -1,13 +1,14 @@
 return {
   'nvim-tree/nvim-tree.lua',
   dependencies = 'nvim-tree/nvim-web-devicons',
-  config = function()
-    local nvimtree = require('nvim-tree')
-   
+  init = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
+  end,
+  config = function()
+    local nvim_tree = require('nvim-tree')
 
-    nvimtree.setup({
+    nvim_tree.setup({
      view = {
         width = 35,
         relativenumber = true
