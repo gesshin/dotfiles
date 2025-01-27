@@ -20,7 +20,12 @@ return {
           { 'diff' },
           { 'diagnostics' }
         },
-        lualine_c = { 'filename' },
+        lualine_c = {
+          {
+            'filename',
+            path = 1
+          }
+        },
         lualine_x = {
           {
             function()
