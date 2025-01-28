@@ -9,17 +9,27 @@ return {
     local nvim_tree = require('nvim-tree')
 
     nvim_tree.setup({
-     view = {
-        width = 35,
+      view = {
+        width = 50,
         relativenumber = true
       },
       renderer = {
         indent_markers = { enable = true },
         icons = {
+          git_placement = 'after',
           glyphs = {
             folder = {
               arrow_closed = '',
               arrow_open = ''
+            },
+            git = {
+              untracked = '[⋅]',
+              staged = '[+]',
+              unstaged = '[~]',
+              renamed = '[r]',
+              deleted = '[×]',
+              unmerged = '[!]',
+              ignored = '[⊘]'
             }
           }
         }

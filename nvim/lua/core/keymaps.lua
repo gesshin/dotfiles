@@ -34,10 +34,11 @@ wk.add({
   { '<leader>fc', ':Telescope grep_string<CR>', desc = 'Find string under cursor' },
   { '<leader>fb', ':Telescope buffers<CR>'    , desc = 'Find open buffers'        },
   -- Buffer Keymaps
-  { '<leader>bb', ':enew<CR>'               , desc = 'Create new buffer'    },
-  { '<leader>bp', ':BufferLinePick<CR>'     , desc = 'Pick an open buffer'  },
-  { '<leader>bc', ':BufferLinePickClose<CR>', desc = 'Close an open buffer' },
-  { '<leader>bx', ':bdelete<CR>'            , desc = 'Close current buffer' },
+  { '<leader>bb', ':BufferLinePick<CR>'     , desc = 'Pick an open buffer'   },
+  { '<leader>bn', ':BufferLineCycleNext<CR>', desc = 'Cycle next buffer'     },
+  { '<leader>bp', ':BufferLineCyclePrev<CR>', desc = 'Cycle previous buffer' },
+  { '<leader>bc', ':BufferLinePickClose<CR>', desc = 'Close an open buffer'  },
+  { '<leader>bx', ':bdelete<CR>'            , desc = 'Close current buffer'  },
   -- Window Keymaps
   { '<leader>wv', '<C-w>v'    , desc = 'Split window vertically'   },
   { '<leader>wh', '<C-w>s'    , desc = 'Split window horizontally' },
