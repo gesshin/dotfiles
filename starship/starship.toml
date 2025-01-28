@@ -34,13 +34,13 @@ disabled = false
 format = '([\[$all_status$ahead_behind\] ]($style))'
 style = 'bold orange'
 
+untracked = '⋅'
+staged = '+'
+modified = '~'
+renamed = 'r'
+deleted = '×'
 conflicted = '!'
 stashed = '󰏗'
-deleted = '×'
-renamed = 'r'
-modified = '~'
-staged = '+'
-untracked = '✦'
 
 diverged = '<>'
 ahead = '∧'
