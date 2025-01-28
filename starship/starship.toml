@@ -35,16 +35,16 @@ format = '([\[$all_status$ahead_behind\] ]($style))'
 style = 'bold orange'
 
 conflicted = '!'
-stashed = '$'
-deleted = '-'
+stashed = '󰏗'
+deleted = '×'
 renamed = 'r'
 modified = '~'
 staged = '+'
-untracked = '?'
+untracked = '✦'
 
 diverged = '<>'
-ahead = '>'
-behind = '<'
+ahead = '∧'
+behind = '∨'
 up_to_date = '='
 
 [cmd_duration]
