@@ -3,6 +3,9 @@
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# Install dependencies
+brew install git stow tree ripgrep
+
 # Install terminal
 brew install --cask iterm2
 
@@ -15,10 +18,7 @@ brew install --cask font-jetbrains-mono
 brew install --cask font-symbols-nerd-font
 
 # Install apps
-brew install starship tmux neovim
-
-# Install tools
-brew install stow tree ripgrep neofetch cbonsai
+brew install starship tmux neovim neofetch cbonsai
 
 # Install plugin managers
 brew install antidote

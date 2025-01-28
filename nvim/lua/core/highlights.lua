@@ -52,4 +52,3 @@ api.nvim_set_hl(0, 'WhichKeyDesc'      , { fg = palette.white  })
 api.nvim_set_hl(0, 'WhichKeyGroup'     , { fg = palette.white  })
 
 return palette
-

@@ -60,4 +60,3 @@ wk.add({
 -- keymap.set('n', '<leader>tn', ':tabn<CR>'    , { desc = 'Cycle next tab'               })
 -- keymap.set('n', '<leader>tp', ':tabp<CR>'    , { desc = 'Cycle previous tab'           })
 -- keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close current tab'            })
-

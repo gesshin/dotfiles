@@ -31,4 +31,3 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.wrap = false                    -- disable text wrapping
 opt.cursorline = true               -- enable cursorline
 opt.clipboard:append("unnamedplus") -- use system clipboard
-

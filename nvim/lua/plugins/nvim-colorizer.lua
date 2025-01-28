@@ -6,4 +6,3 @@ return {
     nvim_colorizer.setup()
   end
 }
-
