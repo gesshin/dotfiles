@@ -46,17 +46,26 @@ wk.add({
   { '<leader>wx', ':close<CR>', desc = 'Close current window'      },
 })
 
--- keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
--- keymap.set('n', '<leader>+' , '<C-a>'    , { desc = 'Increment number'        })
--- keymap.set('n', '<leader>-' , '<C-x>'    , { desc = 'Decrement number'        })
-
--- keymap.set('n', '<leader>sv', '<C-w>v'    , { desc = 'Split window vertically'   })
--- keymap.set('n', '<leader>sh', '<C-w>s'    , { desc = 'Split window horizontally' })
--- keymap.set('n', '<leader>se', '<C-w>='    , { desc = 'Make windows equal size'   })
--- keymap.set('n', '<leader>sx', ':close<CR>', { desc = 'Close current window'      })
-
--- keymap.set('n', '<leader>tt', ':tabnew<CR>'  , { desc = 'Open new tab'                 })
--- keymap.set('n', '<leader>tf', ':tabnew %<CR>', { desc = 'Open new tab on current file' })
--- keymap.set('n', '<leader>tn', ':tabn<CR>'    , { desc = 'Cycle next tab'               })
--- keymap.set('n', '<leader>tp', ':tabp<CR>'    , { desc = 'Cycle previous tab'           })
--- keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close current tab'            })
+-- ---------------------------------------------
+-- |           | Keymap    | Action            |
+-- ---------------------------------------------
+-- | NvimTree  | a         | create            |
+-- |           | e         | rename            |
+-- |           | x         | cut               |
+-- |           | p         | paste             |
+-- |           | d         | delete            |
+-- |           | Y         | copy path         |
+-- |           | <CR>      | open file/dir     |
+-- |           | <C-v>     | open vertical     |
+-- |           | <BS>      | close directory   |
+-- |-----------|-----------|-------------------|
+-- | Telescope | <CR>      | open finder       |
+-- |           | <C-j>     | next selection    |
+-- |           | <C-k>     | prev selection    |
+-- |           | <C-c>     | close telescope   |
+-- |-----------|-----------|-------------------|
+-- | NvimCmp   | <C-Space> | open suggestions  |
+-- |           | <C-j>     | next suggestion   |
+-- |           | <C-k>     | prev suggestion   |
+-- |           | <CR>      | select suggestion |
+-- |           | <C-e>     | close suggestions |

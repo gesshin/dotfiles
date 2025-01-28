@@ -1,8 +1,8 @@
 return {
   'norcalli/nvim-colorizer.lua',
   config = function()
-    local nvim_colorizer = require('colorizer')
+    local colorizer = require('colorizer')
 
-    nvim_colorizer.setup()
+    colorizer.setup()
   end
 }

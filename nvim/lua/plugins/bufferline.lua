@@ -10,6 +10,7 @@ return {
     bufferline.setup({
       options = {
         mode = 'buffers',
+        always_show_bufferline = true,
         separator_style = { '', '' },
         tab_size = 25,
         hover = {

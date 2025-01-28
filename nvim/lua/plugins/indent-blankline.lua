@@ -5,7 +5,7 @@ return {
     local ibl = require('ibl')
 
     ibl.setup({
-      indent = { char = '┊' },
+      indent = { char = '│' },
       scope = { enabled = false }
     })
   end
