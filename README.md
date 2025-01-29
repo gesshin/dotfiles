@@ -1,5 +1,5 @@
 ## Welcome to my dotfiles!
-These are the .config files for my MacOS rice. Also included are wallpapers that I have saved and links to my favorited artists that I get from [ArtStation](https://www.artstation.com/).
+These are the config files for my MacOS workspace and rice.
 
 ## Applications/Packages
 - **Package Manager:** homebrew
