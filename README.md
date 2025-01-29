@@ -4,10 +4,10 @@ These are the .config files for my MacOS rice. Also included are wallpapers that
 ## Applications/Packages
 - **Package Manager:** homebrew
 - **Terminal:** iterm2
-- **Shell:** zsh + antidote
+- **Shell:** zsh
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
-- **Misc Programs:** neofetch, cbonsai, tmux
+- **Misc Programs:** tmux, antidote, neofetch
 
 ## Installation
 1. Clone repo
