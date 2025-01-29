@@ -20,6 +20,7 @@ opt.autoindent = true               -- keep indent from current line
 opt.backspace = 'indent,eol,start'  -- allow backspace on indent, end of line or insert mode start position
 
 -- Search Settings
+opt.hlsearch = false  -- turn off highlighting on search
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true  -- including mixed case when searching will enable case-sensitive searching
 

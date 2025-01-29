@@ -10,7 +10,7 @@ return {
 
     nvim_tree.setup({
       view = {
-        width = 50,
+        width = 45,
         relativenumber = true
       },
       renderer = {
@@ -39,6 +39,7 @@ return {
           window_picker = { enable = false }
         }
       },
+      modified = { enable = true },
       filters = {
         custom = { '.git', '.DS_Store' }
       },

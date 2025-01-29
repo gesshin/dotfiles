@@ -22,12 +22,12 @@ return {
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<CR>'] = cmp.mapping.confirm(),
         ['<C-e>'] = cmp.mapping.abort(),
-        },
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'buffer' },
-          { name = 'path' },
-        })
+      },
+      sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'buffer' },
+        { name = 'path' },
+      })
     })
   end
 }

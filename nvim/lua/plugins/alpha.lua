@@ -52,7 +52,7 @@ return {
         cursor = 3,
         width = 50,
         align_shortcut = 'right',
-        hl = 'AlphaButtons',
+        hl = 'AlphaButton',
         hl_shortcut = 'AlphaShortcut' 
       }
       

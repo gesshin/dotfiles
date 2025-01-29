@@ -1,3 +1,4 @@
+-- Dracula Color Palette
 local palette = {
   black  = '#282A36',
   grey   = '#44475A',
@@ -27,28 +28,18 @@ api.nvim_set_hl(0, 'DraculaPurple' , { fg = palette.purple })
 api.nvim_set_hl(0, 'DraculaRed'    , { fg = palette.red    })
 api.nvim_set_hl(0, 'DraculaYellow' , { fg = palette.yellow })
 
-api.nvim_set_hl(0, 'AlphaHeader'  , { fg = palette.white })
-api.nvim_set_hl(0, 'AlphaFooter'  , { fg = palette.red   })
-api.nvim_set_hl(0, 'AlphaButtons' , { fg = palette.white })
-api.nvim_set_hl(0, 'AlphaShortcut', { fg = palette.red   })
+api.nvim_set_hl(0, 'AlphaHeader'  , { link = 'DraculaFg'  })
+api.nvim_set_hl(0, 'AlphaFooter'  , { link = 'DraculaRed' })
+api.nvim_set_hl(0, 'AlphaButtons' , { link = 'DraculaFg'  })
+api.nvim_set_hl(0, 'AlphaShortcut', { link = 'DraculaRed' })
 
-api.nvim_set_hl(0, 'WhichKeyIconGrey'  , { fg = palette.grey   })
-api.nvim_set_hl(0, 'WhichKeyNormal'    , { fg = palette.white  })
-api.nvim_set_hl(0, 'WhichKeyIconBlue'  , { fg = palette.blue   })
-api.nvim_set_hl(0, 'WhichKeyIconCyan'  , { fg = palette.cyan   })
-api.nvim_set_hl(0, 'WhichKeyIconGreen' , { fg = palette.green  })
-api.nvim_set_hl(0, 'WhichKeyIconOrange', { fg = palette.orange })
-api.nvim_set_hl(0, 'WhichKeyIconAzure' , { fg = palette.pink   })
-api.nvim_set_hl(0, 'WhichKeyIconPurple', { fg = palette.purple })
-api.nvim_set_hl(0, 'WhichKeyIconRed'   , { fg = palette.red    })
-api.nvim_set_hl(0, 'WhichKeyIconYellow', { fg = palette.yellow })
-
-api.nvim_set_hl(0, 'WhichKeyTitle'     , { fg = palette.purple })
-api.nvim_set_hl(0, 'WhichKeyBorder'    , { fg = palette.blue   })
-api.nvim_set_hl(0, 'WhichKey'          , { fg = palette.purple })
-api.nvim_set_hl(0, 'WhichKeySeparator' , { fg = palette.blue   })
-api.nvim_set_hl(0, 'WhichKeyIcon'      , { fg = palette.purple })
-api.nvim_set_hl(0, 'WhichKeyDesc'      , { fg = palette.white  })
-api.nvim_set_hl(0, 'WhichKeyGroup'     , { fg = palette.white  })
+api.nvim_set_hl(0, 'WhichKeyNormal'   , { link = 'DraculaFg'      })
+api.nvim_set_hl(0, 'WhichKeyTitle'    , { link = 'DraculaPurple'  })
+api.nvim_set_hl(0, 'WhichKeyBorder'   , { link = 'DraculaComment' })
+api.nvim_set_hl(0, 'WhichKey'         , { link = 'DraculaPurple'  })
+api.nvim_set_hl(0, 'WhichKeySeparator', { link = 'DraculaComment' })
+api.nvim_set_hl(0, 'WhichKeyIcon'     , { link = 'DraculaPurple'  })
+api.nvim_set_hl(0, 'WhichKeyDesc'     , { link = 'DraculaFg'      })
+api.nvim_set_hl(0, 'WhichKeyGroup'    , { link = 'DraculaFg'      })
 
 return palette

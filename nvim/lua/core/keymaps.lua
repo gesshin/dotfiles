@@ -1,51 +1,3 @@
-local wk = require('which-key')
-local keymap = vim.keymap
-
-keymap.set('i', 'jk', '<ESC>')
-keymap.set('n', '<leader>r', ':Lazy<CR>')
-
--- Use which-key to manage keymaps
-wk.add({
-  mode = { 'n' },
-  icon = { ' ' },
-  { '<leader>r' , desc = 'Reload', icon = { icon = '󰑓', color = 'red' } },
-  -- Misc Keymaps
-  { '<leader>h' , ':nohl<CR>', desc = 'Clear search highlights' },
-  { '<leader>+' , '<C-a>'    , desc = 'Increment number'        },
-  { '<leader>-' , '<C-x>'    , desc = 'Decrement number'        },
-  -- Groupings
-  { '<leader>s' , group = 'sessions', icon = { icon = '', color = 'yellow' } },
-  { '<leader>e' , group = 'explorer', icon = { icon = '', color = 'orange' } },
-  { '<leader>f' , group = 'find'    , icon = { icon = '', color = 'green'  } },
-  { '<leader>b' , group = 'buffers' , icon = { icon = '', color = 'azure'  } },
-  { '<leader>w' , group = 'windows' , icon = { icon = '', color = 'cyan'   } },
-  -- Session Keymaps
-  { '<leader>ss', ':SessionSave<CR>'   , desc = 'Save session'    },
-  { '<leader>sr', ':SessionRestore<CR>', desc = 'Restore session' },
-  { '<leader>sf', ':SessionSearch<CR>' , desc = 'Find session'    },
-  -- Explorer Keymaps
-  { '<leader>ee', ':NvimTreeToggle<CR>'        , desc = 'Toggle file explorer'                 },
-  { '<leader>ef', ':NvimTreeFindFileToggle<CR>', desc = 'Toggle file explorer on current file' },
-  { '<leader>er', ':NvimTreeRefresh<CR>'       , desc = 'Refresh file explorer'                },
-  { '<leader>ec', ':NvimTreeCollapse<CR>'      , desc = 'Collapse file explorer'               },
-  -- Find Keymaps
-  { '<leader>ff', ':Telescope find_files<CR>' , desc = 'Find files in cwd'        },
-  { '<leader>ft', ':Telescope live_grep<CR>'  , desc = 'Find text in cwd'         },
-  { '<leader>fc', ':Telescope grep_string<CR>', desc = 'Find string under cursor' },
-  { '<leader>fb', ':Telescope buffers<CR>'    , desc = 'Find open buffers'        },
-  -- Buffer Keymaps
-  { '<leader>bb', ':BufferLinePick<CR>'     , desc = 'Pick an open buffer'   },
-  { '<leader>bn', ':BufferLineCycleNext<CR>', desc = 'Cycle next buffer'     },
-  { '<leader>bp', ':BufferLineCyclePrev<CR>', desc = 'Cycle previous buffer' },
-  { '<leader>bc', ':BufferLinePickClose<CR>', desc = 'Close an open buffer'  },
-  { '<leader>bx', ':bdelete<CR>'            , desc = 'Close current buffer'  },
-  -- Window Keymaps
-  { '<leader>wv', '<C-w>v'    , desc = 'Split window vertically'   },
-  { '<leader>wh', '<C-w>s'    , desc = 'Split window horizontally' },
-  { '<leader>we', '<C-w>='    , desc = 'Make windows equal size'   },
-  { '<leader>wx', ':close<CR>', desc = 'Close current window'      },
-})
-
 -- ---------------------------------------------
 -- |           | Keymap    | Action            |
 -- ---------------------------------------------
@@ -69,3 +21,67 @@ wk.add({
 -- |           | <C-k>     | prev suggestion   |
 -- |           | <CR>      | select suggestion |
 -- |           | <C-e>     | close suggestions |
+--
+
+local mappings = {
+  normal = {
+    -- General
+    ['<C-u>'] = { '<C-u>zz' }, -- Scroll up and center
+    ['<C-d>'] = { '<C-d>zz' }, -- Scroll down and center
+    ['n']     = { 'nzzzv' }, -- Next search match and center
+    ['N']     = { 'Nzzzv' }, -- Prev search match and center
+    ['x']     = { '"_x' }, -- Delete character without overwrite register
+    -- AutoSession
+    ['<leader>ss'] = { ':SessionSave<CR>'   , 'Save session'    },
+    ['<leader>sr'] = { ':SessionRestore<CR>', 'Restore session' },
+    ['<leader>sf'] = { ':SessionSearch<CR>' , 'Find session'    },
+    -- NvimTree
+    ['<leader>ee'] = { ':NvimTreeToggle<CR>'        , 'Toggle explorer'         },
+    ['<leader>ef'] = { ':NvimTreeFindFileToggle<CR>', 'Toggle explorer on file' },
+    ['<leader>er'] = { ':NvimTreeRefresh<CR>'       , 'Refresh tree'            },
+    ['<leader>ex'] = { ':NvimTreeCollapse<CR>'      , 'Close explorer'          },
+    -- Telescope
+    ['<leader>ff'] = { ':Telescope find_files<CR>' , 'Find file in cwd'         },
+    ['<leader>fs'] = { ':Telescope live_grep<CR>'  , 'Find string in cwd'       },
+    ['<leader>fc'] = { ':Telescope grep_string<CR>', 'Find string under cursor' },
+    -- LSP
+    -- Git
+    -- Buffers
+    ['<Tab>']      = { ':bnext<CR>'              , 'Cycle next buffer'    },
+    ['<S-Tab>']    = { ':bprevious<CR>'          , 'Cycle prev buffer'    },
+    ['<leader>bb'] = { ':BufferLinePick<CR>'     , 'Pick an open buffer'  },
+    ['<leader>bc'] = { ':BufferLinePickClose<CR>', 'Close an open buffer' },
+    ['<leader>bx'] = { ':bdelete<CR>'            , 'Close current buffer' },
+    -- Windows
+    ['<leader>wv'] = { '<C-w>v'    , 'Split window vertically'   },
+    ['<leader>wh'] = { '<C-w>s'    , 'Split window horizontally' },
+    ['<leader>we'] = { '<C-w>='    , 'Make windows equal size'   },  
+    ['<leader>wx'] = { ':close<CR>', 'Close current window'      },
+  },
+  insert = {
+    ['jk'] = { '<ESC>' },
+  },
+  visual = {
+    ['<'] = { '<gv' },
+    ['>'] = { '>gv' },
+  }
+}
+
+local function set_keymaps(mappings)
+  for m, maps in pairs(mappings) do
+    for key, maps in pairs(maps) do
+      local mode = m:sub(1,1)
+      local lhs = key
+      local rhs = maps[1]
+      local opts = {
+        desc = maps[2],
+        noremap = true,
+        silent = true
+      }
+
+      vim.api.nvim_set_keymap(mode, lhs, rhs, opts) 
+    end
+  end
+end
+
+set_keymaps(mappings)
