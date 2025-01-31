@@ -13,9 +13,9 @@ local palette = {
   yellow = '#F1FA8C'
 }
 
--- Highlights
 local api = vim.api
 
+-- Dracula Theme Highlights
 api.nvim_set_hl(0, 'DraculaBg'     , { fg = palette.black  })
 api.nvim_set_hl(0, 'DraculaLine'   , { fg = palette.grey   })
 api.nvim_set_hl(0, 'DraculaFg'     , { fg = palette.white  })
@@ -28,11 +28,13 @@ api.nvim_set_hl(0, 'DraculaPurple' , { fg = palette.purple })
 api.nvim_set_hl(0, 'DraculaRed'    , { fg = palette.red    })
 api.nvim_set_hl(0, 'DraculaYellow' , { fg = palette.yellow })
 
+-- Alpha Highlights
 api.nvim_set_hl(0, 'AlphaHeader'  , { link = 'DraculaFg'  })
 api.nvim_set_hl(0, 'AlphaFooter'  , { link = 'DraculaRed' })
 api.nvim_set_hl(0, 'AlphaButtons' , { link = 'DraculaFg'  })
 api.nvim_set_hl(0, 'AlphaShortcut', { link = 'DraculaRed' })
 
+-- WhichKey Highlights
 api.nvim_set_hl(0, 'WhichKeyNormal'   , { link = 'DraculaFg'      })
 api.nvim_set_hl(0, 'WhichKeyTitle'    , { link = 'DraculaPurple'  })
 api.nvim_set_hl(0, 'WhichKeyBorder'   , { link = 'DraculaComment' })
@@ -42,4 +44,13 @@ api.nvim_set_hl(0, 'WhichKeyIcon'     , { link = 'DraculaPurple'  })
 api.nvim_set_hl(0, 'WhichKeyDesc'     , { link = 'DraculaFg'      })
 api.nvim_set_hl(0, 'WhichKeyGroup'    , { link = 'DraculaFg'      })
 
-return palette
+-- Diagnostic Highlights
+api.nvim_set_hl(0, 'DiagnosticSignError', { link = 'DraculaRed'    })
+api.nvim_set_hl(0, 'DiagnosticSignWarn' , { link = 'DraculaYellow' })
+api.nvim_set_hl(0, 'DiagnosticSignInfo' , { link = 'DraculaCyan'   })
+api.nvim_set_hl(0, 'DiagnosticSignHint' , { link = 'DraculaCyan'   })
+local diagnostic_signs = { Error = '', Warn = '', Info = '', Hint = '' }
+for type, icon in pairs(diagnostic_signs) do
+  local hl = 'DiagnosticSign' .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+end

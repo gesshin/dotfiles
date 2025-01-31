@@ -21,16 +21,37 @@
 -- |           | <C-k>     | prev suggestion   |
 -- |           | <CR>      | select suggestion |
 -- |           | <C-e>     | close suggestions |
---
-
-local mappings = {
+-- ---------------------------------------------
+local vim_mappings = {
+  normal = {
+    -- Save buffer
+    ['<C-s>'] = { ':update<CR>' },
+    -- Vertical scroll and center
+    ['<C-u>'] = { '<C-u>zz' },
+    ['<C-d>'] = { '<C-d>zz' },
+    -- Cycle through search match and center
+    ['n'] = { 'nzzzv' },
+    ['N'] = { 'Nzzzv' },
+    -- Delete w/o overwritting to register
+    ['x'] = { '"_x' },
+  },
+  insert = {
+    -- Convenient esc mode
+    ['jk'] = { '<ESC>' },
+  },
+  visual = {
+    -- Convenient esc mode
+    ['jk'] = { '<ESC>' },
+    -- Stay in visual mode after indenting
+    ['<'] = { '<gv' },
+    ['>'] = { '>gv' },
+  }
+}
+local plugin_mappings = {
   normal = {
     -- General
-    ['<C-u>'] = { '<C-u>zz' }, -- Scroll up and center
-    ['<C-d>'] = { '<C-d>zz' }, -- Scroll down and center
-    ['n']     = { 'nzzzv' }, -- Next search match and center
-    ['N']     = { 'Nzzzv' }, -- Prev search match and center
-    ['x']     = { '"_x' }, -- Delete character without overwrite register
+    ['<leader>L']  = { ':Lazy<CR>' , 'Open Lazy UI'  },
+    ['<leader>M']  = { ':Mason<CR>', 'Open Mason UI' },
     -- AutoSession
     ['<leader>ss'] = { ':SessionSave<CR>'   , 'Save session'    },
     ['<leader>sr'] = { ':SessionRestore<CR>', 'Restore session' },
@@ -41,10 +62,10 @@ local mappings = {
     ['<leader>er'] = { ':NvimTreeRefresh<CR>'       , 'Refresh tree'            },
     ['<leader>ex'] = { ':NvimTreeCollapse<CR>'      , 'Close explorer'          },
     -- Telescope
-    ['<leader>ff'] = { ':Telescope find_files<CR>' , 'Find file in cwd'         },
-    ['<leader>fs'] = { ':Telescope live_grep<CR>'  , 'Find string in cwd'       },
-    ['<leader>fc'] = { ':Telescope grep_string<CR>', 'Find string under cursor' },
-    -- LSP
+    ['<leader>ff'] = { ':Telescope find_files<CR>', 'Find file in cwd'         },
+    ['<leader>fs'] = { ':Telescope live_grep<CR>' , 'Find string in cwd'       },
+    ['<leader>fo'] = { ':Telescope oldfiles<CR>'  , 'Find old file'            },
+    ['<leader>fb'] = { ':Telescope buffers<CR>'   , 'Find open buffer'         },
     -- Git
     -- Buffers
     ['<Tab>']      = { ':bnext<CR>'              , 'Cycle next buffer'    },
@@ -55,33 +76,44 @@ local mappings = {
     -- Windows
     ['<leader>wv'] = { '<C-w>v'    , 'Split window vertically'   },
     ['<leader>wh'] = { '<C-w>s'    , 'Split window horizontally' },
-    ['<leader>we'] = { '<C-w>='    , 'Make windows equal size'   },  
+    ['<leader>we'] = { '<C-w>='    , 'Make windows equal size'   },
     ['<leader>wx'] = { ':close<CR>', 'Close current window'      },
-  },
-  insert = {
-    ['jk'] = { '<ESC>' },
-  },
-  visual = {
-    ['<'] = { '<gv' },
-    ['>'] = { '>gv' },
   }
 }
 
-local function set_keymaps(mappings)
-  for m, maps in pairs(mappings) do
-    for key, maps in pairs(maps) do
-      local mode = m:sub(1,1)
-      local lhs = key
-      local rhs = maps[1]
-      local opts = {
-        desc = maps[2],
-        noremap = true,
-        silent = true
-      }
+local lsp_mappings = {
+  normal = {
+    ['<leader>r' ] = {  vim.lsp.buf.rename                  , 'Rename'               },
+    ['<leader>ld'] = { ':Telescope lsp_definitions<CR>'     , 'Go to definition'     },
+    ['<leader>lr'] = { ':Telescope lsp_references<CR>'      , 'Go to references'     },
+    ['<leader>li'] = { ':Telescope lsp_implementations<CR>' , 'Go to implementation' },
+    ['<leader>lt'] = { ':Telescope lsp_type_definitions<CR>', 'Go to type'           },
+  }
+}
 
-      vim.api.nvim_set_keymap(mode, lhs, rhs, opts) 
+local function set_keymaps(mappings, opts)
+  opts = opts or {}
+
+  for mode_name, mode_keymap_group in pairs(mappings) do
+    for keymap, cmd_desc_tbl in pairs(mode_keymap_group) do
+      local mode = mode_name:sub(1,1)
+      local cmd = cmd_desc_tbl[1]
+
+      opts.desc = cmd_desc_tbl[2]
+      opts.noremap = true
+      opts.silent = true
+
+      vim.keymap.set(mode, keymap, cmd, opts)
     end
   end
 end
 
-set_keymaps(mappings)
+set_keymaps(vim_mappings)
+set_keymaps(plugin_mappings)
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(event)
+    set_keymaps(lsp_mappings, { buffer = event.buf })
+  end
+})

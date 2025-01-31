@@ -29,15 +29,27 @@ return {
           theme = 'ivy',
           hidden = true
         },
-        live_grep = {
-          theme = 'ivy'
-        },
-        grep_string = {
-          theme = 'cursor'
-        },
         buffers = {
           theme = 'ivy'
-        }
+        },
+        oldfiles = {
+          theme = 'ivy'
+        },
+        live_grep = {
+          theme = 'dropdown'
+        },
+        lsp_definitions = {
+          theme = 'dropdown'
+        },
+        lsp_references = {
+          theme = 'dropdown'
+        },
+        lsp_implementations = {
+          theme = 'dropdown'
+        },
+        lsp_type_definitions = {
+          theme = 'dropdown'
+        },
       }
     })
   end

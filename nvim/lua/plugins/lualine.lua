@@ -3,10 +3,28 @@ return {
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
     local lualine = require('lualine')
-    
+
+    local hide_in_width = function()
+      return vim.fn.winwidth(0) > 100
+    end
+
     local branch = {
       'branch',
       icon = ''
+    }
+
+    local diff = {
+      'diff',
+      symbols = { added = '+', modified = '~', removed = '-' },
+      cond = hide_in_width
+    }
+
+    local diagnostics = {
+      'diagnostics',
+      sources = { 'nvim_diagnostic' },
+      sections = { 'error', 'warn', 'info', 'hint' },
+      symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+      cond = hide_in_width
     }
 
     local filename = {
@@ -19,14 +37,16 @@ return {
       'encoding',
       fmt = function()
         return vim.bo.fileencoding:upper()
-      end
+      end,
+      cond = hide_in_width
     }
 
     local fileformat = {
       'fileformat',
       fmt = function()
         return vim.bo.fileformat:upper()
-      end
+      end,
+      cond = hide_in_width
     }
 
     lualine.setup({
@@ -40,7 +60,7 @@ return {
       },
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { branch, 'diff', 'diagnostics' },
+        lualine_b = { branch, diff, diagnostics },
         lualine_c = { filename },
         lualine_x = { encoding, fileformat, 'filetype' },
         lualine_y = { 'progress' },
@@ -52,7 +72,7 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {}      
+        lualine_z = {}
       },
       extensions = { 'fugitive' }
     })

@@ -9,6 +9,10 @@ return {
     local which_key = require('which-key')
 
     which_key.add({
+      -- Individual
+      { '<leader>r', icon = { icon = '', hl = 'DraculaFg' } },
+      { '<leader>L', icon = { icon = '', hl = 'DraculaFg' } },
+      { '<leader>M', icon = { icon = '', hl = 'DraculaFg' } },
       -- Groups
       { '<leader>s', group = 'sessions', icon = { icon = '', hl = 'DraculaPink'   } },
       { '<leader>e', group = 'explorer', icon = { icon = '', hl = 'DraculaOrange' } },

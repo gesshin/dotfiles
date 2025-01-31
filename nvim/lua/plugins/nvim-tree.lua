@@ -41,10 +41,10 @@ return {
       },
       modified = { enable = true },
       filters = {
-        custom = { '.git', '.DS_Store' }
+        custom = { '\\.git$', '.DS_Store' }
       },
       git = {
-        ignore = false,
+        ignore = false
       }
     })
   end
