@@ -50,8 +50,9 @@ local vim_mappings = {
 local plugin_mappings = {
   normal = {
     -- General
-    ['<leader>L']  = { ':Lazy<CR>' , 'Open Lazy UI'  },
-    ['<leader>M']  = { ':Mason<CR>', 'Open Mason UI' },
+    ['<leader>/'] = { ':nohl<CR>' , 'Clear highlights' },
+    ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy UI'     },
+    ['<leader>M'] = { ':Mason<CR>', 'Open Mason UI'    },
     -- AutoSession
     ['<leader>ss'] = { ':SessionSave<CR>'   , 'Save session'    },
     ['<leader>sr'] = { ':SessionRestore<CR>', 'Restore session' },

@@ -11,6 +11,7 @@ return {
     which_key.add({
       -- Individual
       { '<leader>r', icon = { icon = '', hl = 'DraculaFg' } },
+      { '<leader>/', icon = { icon = '', hl = 'DraculaFg' } },
       { '<leader>L', icon = { icon = '', hl = 'DraculaFg' } },
       { '<leader>M', icon = { icon = '', hl = 'DraculaFg' } },
       -- Groups
