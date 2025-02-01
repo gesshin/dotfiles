@@ -6,7 +6,10 @@ return {
 
     ibl.setup({
       indent = { char = '│' },
-      scope = { enabled = false }
+      scope = {
+        show_start = false,
+        show_end = false
+      }
     })
   end
 }

@@ -18,8 +18,8 @@ return {
         'ts_ls',
         'jsonls',
         'lua_ls',
-        'rubocop',
         'rust_analyzer',
+        'solargraph',
         'yamlls',
       }
     })
