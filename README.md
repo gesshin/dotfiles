@@ -7,7 +7,7 @@ These are the config files for my MacOS workspace and rice.
 - **Shell:** zsh
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
-- **Misc Programs:** tmux, antidote, neofetch
+- **Misc Programs:** tmux, antidote
 
 ## Installation
 1. Clone repo
@@ -33,4 +33,8 @@ These are some snippets for using the plugin managers.
 - When adding new zsh plugins, you will need to manually regenerate the `.zsh_plugins.sh`
   ```bash
   antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.sh
+  ```
+- When there are issues with tmux pliugins, delete all folders in `~/.tmux/plugins` and run
+  ```bash
+  tmux source-file ~/.config/tmux/tmux.conf
   ```
