@@ -17,7 +17,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 
 # Install apps
-brew install starship tmux neovim ripgrep fzf lsd zoxide
+brew install starship tmux neovim ripgrep fzf lsd zoxide bat
 
 # Install plugin managers
 brew install antidote
