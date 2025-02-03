@@ -4,10 +4,10 @@ These are the config files for my MacOS workspace and rice.
 ## Applications/Packages
 - **Package Manager:** homebrew
 - **Terminal:** iterm2
-- **Shell:** zsh
+- **Shell:** zsh + antidote
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
-- **Misc Programs:** tmux, antidote
+- **Misc Programs:** starship, tmux, ripgrep, fzf, lsd, zoxide, bat 
 
 ## Installation
 1. Clone repo
