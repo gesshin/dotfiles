@@ -68,7 +68,9 @@ local plugin_mappings = {
     ['<leader>fo'] = { ':Telescope oldfiles<CR>'  , 'Find old file'            },
     ['<leader>fb'] = { ':Telescope buffers<CR>'   , 'Find open buffer'         },
     -- Git
-    ['<leader>gs' ] = { ':G<CR>', 'Git status' },
+    ['<leader>gs' ] = { ':G<CR>', 'Git status'    },
+    ['<leader>gph'] = { ':G push<CR>', 'Git push' },
+    ['<leader>gpl'] = { ':G pull<CR>', 'Git pull' },
     -- Buffers
     ['<Tab>']      = { ':bnext<CR>'              , 'Cycle next buffer'    },
     ['<S-Tab>']    = { ':bprevious<CR>'          , 'Cycle prev buffer'    },
