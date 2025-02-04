@@ -73,8 +73,7 @@ return {
         lualine_x = {},
         lualine_y = {},
         lualine_z = {}
-      },
-      extensions = { 'fugitive' }
+      }
     })
   end
 }

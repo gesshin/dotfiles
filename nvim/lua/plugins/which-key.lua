@@ -9,11 +9,6 @@ return {
     local which_key = require('which-key')
 
     which_key.add({
-      -- Individual
-      { '<leader>r', icon = { icon = '', hl = 'DraculaFg' } },
-      { '<leader>/', icon = { icon = '', hl = 'DraculaFg' } },
-      { '<leader>L', icon = { icon = '', hl = 'DraculaFg' } },
-      { '<leader>M', icon = { icon = '', hl = 'DraculaFg' } },
       -- Groups
       { '<leader>s', group = 'sessions', icon = { icon = '', hl = 'DraculaPink'   } },
       { '<leader>e', group = 'explorer', icon = { icon = '', hl = 'DraculaOrange' } },
@@ -22,6 +17,9 @@ return {
       { '<leader>g', group = 'git'     , icon = { icon = '󰊢', hl = 'DraculaRed'    } },
       { '<leader>b', group = 'buffers' , icon = { icon = '󰈔', hl = 'DraculaCyan'   } },
       { '<leader>w', group = 'windows' , icon = { icon = '', hl = 'DraculaLine'   } },
+      -- Configs 
+      { '<leader>L', icon = { icon = '', hl = 'DraculaFg' } },
+      { '<leader>M', icon = { icon = '', hl = 'DraculaFg' } },
     })
 
     which_key.setup({

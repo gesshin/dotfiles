@@ -37,20 +37,20 @@ local vim_mappings = {
   },
   insert = {
     -- Convenient esc mode
-    ['jk'] = { '<ESC>' },
+    ['zz'] = { '<ESC>' },
   },
   visual = {
     -- Convenient esc mode
-    ['jk'] = { '<ESC>' },
+    ['zz'] = { '<ESC>' },
     -- Stay in visual mode after indenting
     ['<'] = { '<gv' },
     ['>'] = { '>gv' },
   }
 }
+
 local plugin_mappings = {
   normal = {
     -- General
-    ['<leader>/'] = { ':nohl<CR>' , 'Clear highlights' },
     ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy UI'     },
     ['<leader>M'] = { ':Mason<CR>', 'Open Mason UI'    },
     -- AutoSession
@@ -68,6 +68,7 @@ local plugin_mappings = {
     ['<leader>fo'] = { ':Telescope oldfiles<CR>'  , 'Find old file'            },
     ['<leader>fb'] = { ':Telescope buffers<CR>'   , 'Find open buffer'         },
     -- Git
+    ['<leader>gs' ] = { ':G<CR>', 'Git status' },
     -- Buffers
     ['<Tab>']      = { ':bnext<CR>'              , 'Cycle next buffer'    },
     ['<S-Tab>']    = { ':bprevious<CR>'          , 'Cycle prev buffer'    },
@@ -84,7 +85,6 @@ local plugin_mappings = {
 
 local lsp_mappings = {
   normal = {
-    ['<leader>r' ] = {  vim.lsp.buf.rename                  , 'Rename'               },
     ['<leader>ld'] = { ':Telescope lsp_definitions<CR>'     , 'Go to definition'     },
     ['<leader>lr'] = { ':Telescope lsp_references<CR>'      , 'Go to references'     },
     ['<leader>li'] = { ':Telescope lsp_implementations<CR>' , 'Go to implementation' },
