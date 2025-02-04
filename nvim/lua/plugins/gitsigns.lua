@@ -4,6 +4,21 @@ return {
   config = function()
     local gitsigns = require('gitsigns')
 
-    gitsigns.setup({})
+    gitsigns.setup({
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+      signs_staged = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      }
+    })
   end
 }

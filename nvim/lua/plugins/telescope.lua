@@ -14,7 +14,7 @@ return {
 
     telescope.setup({
       defaults = {
-        file_ignore_patterns = { '.git', '.DS_Store', 'node_modules' },
+        file_ignore_patterns = { '\\.git$', '.DS_Store', 'node_modules' },
         path_display = { 'smart' },
         mappings = {
           i = {
