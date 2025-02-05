@@ -66,6 +66,7 @@ local plugin_mappings = {
     -- Git
     ['<leader>gg'] = { ':LazyGit<CR>'              , 'Open lazygit'     },
     ['<leader>gh'] = { ':Gitsigns preview_hunk<CR>', 'Preview git hunk' },
+    ['<leader>gr'] = { ':Gitsigns reset_hunk<CR>'  , 'Restore git hunk' },
     -- Buffers
     ['<Tab>']      = { ':bnext<CR>'              , 'Cycle next buffer'    },
     ['<S-Tab>']    = { ':bprevious<CR>'          , 'Cycle prev buffer'    },

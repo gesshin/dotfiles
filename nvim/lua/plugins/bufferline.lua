@@ -1,12 +1,13 @@
 return {
   'akinsho/bufferline.nvim',
   dependencies = 'nvim-tree/nvim-web-devicons',
+  event = { 'VeryLazy' },
   init = function()
     vim.o.mousemoveevent = true
   end,
   config = function()
     local bufferline = require('bufferline')
-    
+
     bufferline.setup({
       options = {
         mode = 'buffers',

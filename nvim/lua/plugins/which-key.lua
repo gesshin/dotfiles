@@ -1,6 +1,6 @@
 return {
   'folke/which-key.nvim',
-  event = 'VeryLazy',
+  event = { 'VeryLazy' },
   init = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 500
@@ -16,7 +16,7 @@ return {
       { '<leader>l', group = 'lsp'     , icon = { icon = '', hl = 'DraculaPurple' } },
       { '<leader>g', group = 'git'     , icon = { icon = '󰊢', hl = 'DraculaRed'    } },
       { '<leader>b', group = 'buffers' , icon = { icon = '󰈔', hl = 'DraculaCyan'   } },
-      { '<leader>w', group = 'windows' , icon = { icon = '', hl = 'DraculaLine'   } },
+      { '<leader>w', group = 'windows' , icon = { icon = '', hl = 'DraculaComment'   } },
       -- Configs 
       { '<leader>L', icon = { icon = '', hl = 'DraculaFg' } },
       { '<leader>M', icon = { icon = '', hl = 'DraculaFg' } },
