@@ -7,7 +7,7 @@ These are the config files for my MacOS workspace and rice.
 - **Shell:** zsh + antidote
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
-- **Misc Programs:** starship, tmux, ripgrep, fzf, lsd, zoxide, bat 
+- **Misc Programs:** starship, tmux, ripgrep, fzf, lsd, zoxide, bat, lazygit
 
 ## Installation
 1. Clone repo
