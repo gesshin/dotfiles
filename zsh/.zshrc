@@ -38,7 +38,7 @@ alias gm="git merge"
 
 ## Plugins
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-antidote load ~/.config/zsh/.zsh_plugins.txt
+antidote load $XDG_CONFIG_HOME/zsh/.zsh_plugins.txt
 
 ## Start-up Programs
 eval "$(starship init zsh)"
