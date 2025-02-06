@@ -30,7 +30,7 @@ These are the config files for my MacOS workspace and rice.
 ## Plugin Managers
 These are some snippets for using the plugin managers.
 
-- When adding new zsh plugins, you will need to manually regenerate the `.zsh_plugins.sh`
+- When adding new zsh plugins, you will need to manually regenerate the `.zsh_plugins.zsh`
   ```bash
   antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.sh
   ```
