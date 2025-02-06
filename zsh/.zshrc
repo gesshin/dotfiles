@@ -26,14 +26,16 @@ alias ll="ls -la"
 alias lt="ls --tree"
 
 alias gs="git status"
+alias gl="git log --oneline"
 alias ga="git add"
 alias gr="git restore"
 alias grs="git restore --staged"
 alias gcm="git commit -m"
+alias gd="git diff"
 alias gco="git checkout"
-alias gl="git log --oneline"
 alias gph="git push"
 alias gpl="git pull"
+alias gf="git fetch"
 alias gm="git merge"
 
 # Plugins
