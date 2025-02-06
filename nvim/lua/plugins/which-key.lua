@@ -10,13 +10,13 @@ return {
 
     which_key.add({
       -- Groups
-      { '<leader>s', group = 'sessions', icon = { icon = '', hl = 'DraculaPink'   } },
-      { '<leader>e', group = 'explorer', icon = { icon = '', hl = 'DraculaOrange' } },
-      { '<leader>f', group = 'find'    , icon = { icon = '', hl = 'DraculaGreen'  } },
-      { '<leader>l', group = 'lsp'     , icon = { icon = '', hl = 'DraculaPurple' } },
-      { '<leader>g', group = 'git'     , icon = { icon = '󰊢', hl = 'DraculaRed'    } },
-      { '<leader>b', group = 'buffers' , icon = { icon = '󰈔', hl = 'DraculaCyan'   } },
-      { '<leader>w', group = 'windows' , icon = { icon = '', hl = 'DraculaComment'   } },
+      { '<leader>s', group = 'sessions', icon = { icon = '', hl = 'DraculaPink'    } },
+      { '<leader>e', group = 'explorer', icon = { icon = '', hl = 'DraculaOrange'  } },
+      { '<leader>f', group = 'find'    , icon = { icon = '', hl = 'DraculaGreen'   } },
+      { '<leader>l', group = 'lsp'     , icon = { icon = '', hl = 'DraculaPurple'  } },
+      { '<leader>g', group = 'git'     , icon = { icon = '󰊢', hl = 'DraculaRed'     } },
+      { '<leader>b', group = 'buffers' , icon = { icon = '󰈔', hl = 'DraculaCyan'    } },
+      { '<leader>w', group = 'windows' , icon = { icon = '', hl = 'DraculaComment' } },
       -- Configs 
       { '<leader>L', icon = { icon = '', hl = 'DraculaFg' } },
       { '<leader>M', icon = { icon = '', hl = 'DraculaFg' } },
