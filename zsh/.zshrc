@@ -1,4 +1,4 @@
-## Environment Variables
+# Environment Variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
 export BAT_THEME="dracula"
@@ -8,7 +8,7 @@ export FZF_DEFAULT_OPTS="
   --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 \
   --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 
-## Aliases
+# Aliases
 alias cd="z"
 alias ls="lsd"
 alias cat="bat"
@@ -36,10 +36,10 @@ alias gph="git push"
 alias gpl="git pull"
 alias gm="git merge"
 
-## Plugins
+# Plugins
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load $XDG_CONFIG_HOME/zsh/.zsh_plugins.txt
 
-## Start-up Programs
+# Start-up Programs
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
