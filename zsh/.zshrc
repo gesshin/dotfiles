@@ -1,7 +1,7 @@
 # Environment Variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
-export BAT_THEME="dracula"
+export BAT_THEME="Dracula"
 export FZF_DEFAULT_OPTS="
   --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 \
   --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 \
