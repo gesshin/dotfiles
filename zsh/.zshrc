@@ -1,6 +1,7 @@
 # Environment Variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export BAT_THEME="Dracula"
 export FZF_DEFAULT_OPTS="
   --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 \
