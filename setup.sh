@@ -22,3 +22,8 @@ brew install starship tmux neovim ripgrep fzf lsd zoxide bat btop lazygit
 # Install plugin managers
 brew install antidote
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+
+# Add source line to ~/.zshrc
+if ! grep -Fxq "source ~/.config/zsh/.zshrc" "$HOME/.zshrc"; then
+  echo "source ~/.config/zsh/.zshrc" >> "$HOME/.zshrc"
+fi
