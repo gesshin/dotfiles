@@ -36,8 +36,12 @@ local vim_mappings = {
     ['x'] = { '"_x' },
   },
   insert = {
+    -- Convenient escape
+    ['jk'] = { '<Esc>' },
   },
   visual = {
+    -- Convenient escape
+    ['jk'] = { '<Esc>' },
     -- Stay in visual mode after indenting
     ['<'] = { '<gv' },
     ['>'] = { '>gv' },

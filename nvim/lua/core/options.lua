@@ -1,5 +1,4 @@
 local opt = vim.opt
-local api = vim.api
 
 vim.cmd('let g:netrw_liststyle = 3') -- use tree-list style
 

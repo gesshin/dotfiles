@@ -52,9 +52,9 @@ return {
         width = 50,
         align_shortcut = 'right',
         hl = 'AlphaButton',
-        hl_shortcut = 'AlphaShortcut' 
+        hl_shortcut = 'AlphaShortcut'
       }
-      
+
       if keybind then
         keybind_opts = vim.F.if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
         opts.keymap = { 'n', sc_, keybind, keybind_opts }
@@ -72,7 +72,7 @@ return {
         opts = opts
       }
     end
-    
+
     local header = {
       type = 'text',
       val = logo,
@@ -87,7 +87,7 @@ return {
       val = 'TOHA HEAVY INDUSTRIES',
       opts = {
         position = 'center',
-        hl = 'AlphaFooter' 
+        hl = 'AlphaFooter'
       }
     }
 
