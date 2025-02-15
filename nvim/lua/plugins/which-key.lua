@@ -3,7 +3,7 @@ return {
   event = { 'VeryLazy' },
   init = function()
     vim.o.timeout = true
-    vim.o.timeoutlen = 100
+    vim.o.timeoutlen = 400
   end,
   config = function()
     local which_key = require('which-key')

@@ -24,6 +24,8 @@
 -- ---------------------------------------------
 local vim_mappings = {
   normal = {
+    -- Quit
+    ['<C-q>'] = { 'ZZ' },
     -- Save buffer
     ['<C-s>'] = { ':update<CR>' },
     -- Vertical scroll and center
@@ -37,11 +39,11 @@ local vim_mappings = {
   },
   insert = {
     -- Convenient escape
-    ['jk'] = { '<Esc>' },
+    ['<C-c>'] = { '<Esc>' },
   },
   visual = {
     -- Convenient escape
-    ['jk'] = { '<Esc>' },
+    ['<C-c>'] = { '<Esc>' },
     -- Stay in visual mode after indenting
     ['<'] = { '<gv' },
     ['>'] = { '>gv' },
@@ -51,8 +53,8 @@ local vim_mappings = {
 local plugin_mappings = {
   normal = {
     -- General
-    ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy UI'     },
-    ['<leader>M'] = { ':Mason<CR>', 'Open Mason UI'    },
+    ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy UI'  },
+    ['<leader>M'] = { ':Mason<CR>', 'Open Mason UI' },
     -- AutoSession
     ['<leader>ss'] = { ':SessionSave<CR>'   , 'Save session'    },
     ['<leader>sr'] = { ':SessionRestore<CR>', 'Restore session' },
