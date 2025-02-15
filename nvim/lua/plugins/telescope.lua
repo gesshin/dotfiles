@@ -26,31 +26,14 @@ return {
         preview = { treesitter = true }
       },
       pickers = {
-        find_files = {
-          theme = 'ivy',
-          hidden = true
-        },
-        buffers = {
-          theme = 'ivy'
-        },
-        oldfiles = {
-          theme = 'ivy'
-        },
-        live_grep = {
-          theme = 'dropdown'
-        },
-        lsp_definitions = {
-          theme = 'dropdown'
-        },
-        lsp_references = {
-          theme = 'dropdown'
-        },
-        lsp_implementations = {
-          theme = 'dropdown'
-        },
-        lsp_type_definitions = {
-          theme = 'dropdown'
-        },
+        find_files = { theme = 'ivy', hidden = true },
+        buffers = { theme = 'ivy' },
+        oldfiles = { theme = 'ivy' },
+        live_grep = { theme = 'dropdown' },
+        lsp_definitions = { theme = 'dropdown' },
+        lsp_references = { theme = 'dropdown' },
+        lsp_implementations = { theme = 'dropdown' },
+        lsp_type_definitions = { theme = 'dropdown' },
       }
     })
   end
