@@ -1,27 +1,39 @@
--- ---------------------------------------------
--- |           | Keymap    | Action            |
--- ---------------------------------------------
--- | NvimTree  | a         | create            |
--- |           | e         | rename            |
--- |           | x         | cut               |
--- |           | p         | paste             |
--- |           | d         | delete            |
--- |           | Y         | copy path         |
--- |           | <CR>      | open file/dir     |
--- |           | <C-v>     | open vertical     |
--- |           | <BS>      | close directory   |
--- |-----------|-----------|-------------------|
--- | Telescope | <CR>      | open finder       |
--- |           | <C-j>     | next selection    |
--- |           | <C-k>     | prev selection    |
--- |           | <C-c>     | close telescope   |
--- |-----------|-----------|-------------------|
--- | NvimCmp   | <C-Space> | open suggestions  |
--- |           | <C-j>     | next suggestion   |
--- |           | <C-k>     | prev suggestion   |
--- |           | <CR>      | select suggestion |
--- |           | <C-e>     | close suggestions |
--- ---------------------------------------------
+-- |-----------|------------------|------------------------------|
+-- | NvimTree  | a                | create                       |
+-- |           | e                | rename                       |
+-- |           | x                | cut                          |
+-- |           | c                | copy                         |
+-- |           | p                | paste                        |
+-- |           | d                | delete                       |
+-- |           | Y                | copy path                    |
+-- |           | <CR>             | open file/dir                |
+-- |           | <C-v>            | open vertical                |
+-- |           | <Tab>            | close directory              |
+-- |-----------|------------------|------------------------------|
+-- | Telescope | <CR>             | open buffer                  |
+-- |           | <C-j>            | next selection               |
+-- |           | <C-k>            | prev selection               | 
+-- |           | <C-c>            | close telescope              |
+-- |-----------|------------------|------------------------------|
+-- | NvimCmp   | <Tab>            | next suggestion              |
+-- |           | <S-Tab>          | prev suggestion              |
+-- |           | <CR>             | select suggestion            |
+-- |           | <C-e>            | close suggestions            |
+-- |-----------|------------------|------------------------------|
+-- | Comment   | gc<motion>       | toggle comment with motion   |
+-- |           | gcc              | toggle comment line          |
+-- |           | gc               | [visual mode] toggle comment |    
+-- |-----------|------------------|------------------------------|
+-- | Surround  | ys<motion><char> | surround with motion         |
+-- |           | ysiw<char>       | surround inner word          |
+-- |           | ys<num>w<char>   | surround <num> words         |
+-- |           | ysap<char>       | surround paragraph           |
+-- |           | yss<char>        | surround line                |
+-- |           | ds<char>         | delete surround              |
+-- |           | cs<char><char>   | change surround              |
+-- |           | S<char>          | [visual mode] surround       |    
+-- |-----------|------------------|------------------------------|
+
 local vim_mappings = {
   normal = {
     -- Quit
@@ -52,7 +64,7 @@ local vim_mappings = {
 
 local plugin_mappings = {
   normal = {
-    -- General
+    -- Configs
     ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy UI'  },
     ['<leader>M'] = { ':Mason<CR>', 'Open Mason UI' },
     -- AutoSession
@@ -65,14 +77,16 @@ local plugin_mappings = {
     ['<leader>er'] = { ':NvimTreeRefresh<CR>'       , 'Refresh tree'            },
     ['<leader>ex'] = { ':NvimTreeCollapse<CR>'      , 'Close explorer'          },
     -- Telescope
-    ['<leader>ff'] = { ':Telescope find_files<CR>', 'Find file in cwd'         },
-    ['<leader>fs'] = { ':Telescope live_grep<CR>' , 'Find string in cwd'       },
-    ['<leader>fo'] = { ':Telescope oldfiles<CR>'  , 'Find old file'            },
-    ['<leader>fb'] = { ':Telescope buffers<CR>'   , 'Find open buffer'         },
+    ['<leader>ff'] = { ':Telescope find_files<CR>', 'Find file in cwd'   },
+    ['<leader>fs'] = { ':Telescope live_grep<CR>' , 'Find string in cwd' },
+    ['<leader>fo'] = { ':Telescope oldfiles<CR>'  , 'Find old file'      },
+    ['<leader>fb'] = { ':Telescope buffers<CR>'   , 'Find open buffer'   },
     -- Git
-    ['<leader>gg'] = { ':LazyGit<CR>'              , 'Open lazygit'     },
-    ['<leader>gh'] = { ':Gitsigns preview_hunk<CR>', 'Preview git hunk' },
-    ['<leader>gr'] = { ':Gitsigns reset_hunk<CR>'  , 'Restore git hunk' },
+    ['<leader>gg' ] = { ':LazyGit<CR>'              , 'Open lazygit'     },
+    ['<leader>ghh'] = { ':Gitsigns preview_hunk<CR>', 'Preview git hunk' },
+    ['<leader>ghn'] = { ':Gitsigns next_hunk<CR>'   , 'Next git hunk'    },
+    ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'   , 'Prev git hunk'    },
+    ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'  , 'Restore git hunk' },
     -- Buffers
     ['<Tab>']      = { ':bnext<CR>'              , 'Cycle next buffer'    },
     ['<S-Tab>']    = { ':bprevious<CR>'          , 'Cycle prev buffer'    },
