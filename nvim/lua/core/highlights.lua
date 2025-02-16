@@ -17,17 +17,17 @@ local palette = {
 local api = vim.api
 
 -- Dracula Theme Highlights
-api.nvim_set_hl(0, 'DraculaBg'     , { fg = palette.black  })
-api.nvim_set_hl(0, 'DraculaFg'     , { fg = palette.white  })
-api.nvim_set_hl(0, 'DraculaLine'   , { fg = palette.line   })
-api.nvim_set_hl(0, 'DraculaComment', { fg = palette.blue   })
-api.nvim_set_hl(0, 'DraculaRed'    , { fg = palette.red    })
-api.nvim_set_hl(0, 'DraculaOrange' , { fg = palette.orange })
-api.nvim_set_hl(0, 'DraculaYellow' , { fg = palette.yellow })
-api.nvim_set_hl(0, 'DraculaGreen'  , { fg = palette.green  })
-api.nvim_set_hl(0, 'DraculaCyan'   , { fg = palette.cyan   })
-api.nvim_set_hl(0, 'DraculaPurple' , { fg = palette.purple })
-api.nvim_set_hl(0, 'DraculaPink'   , { fg = palette.pink   })
+api.nvim_set_hl(0, 'DraculaBg'     , { fg = palette.black   })
+api.nvim_set_hl(0, 'DraculaFg'     , { fg = palette.white   })
+api.nvim_set_hl(0, 'DraculaLine'   , { fg = palette.line    })
+api.nvim_set_hl(0, 'DraculaComment', { fg = palette.comment })
+api.nvim_set_hl(0, 'DraculaRed'    , { fg = palette.red     })
+api.nvim_set_hl(0, 'DraculaOrange' , { fg = palette.orange  })
+api.nvim_set_hl(0, 'DraculaYellow' , { fg = palette.yellow  })
+api.nvim_set_hl(0, 'DraculaGreen'  , { fg = palette.green   })
+api.nvim_set_hl(0, 'DraculaCyan'   , { fg = palette.cyan    })
+api.nvim_set_hl(0, 'DraculaPurple' , { fg = palette.purple  })
+api.nvim_set_hl(0, 'DraculaPink'   , { fg = palette.pink    })
 
 -- Alpha Highlights
 api.nvim_set_hl(0, 'AlphaHeader'  , { fg = palette.fg  })

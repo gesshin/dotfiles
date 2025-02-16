@@ -36,7 +36,7 @@
 
 local vim_mappings = {
   normal = {
-    -- Quit
+    -- Save and quit
     ['<C-q>'] = { 'ZZ' },
     -- Save buffer
     ['<C-s>'] = { ':update<CR>' },
