@@ -55,6 +55,7 @@ return {
           luasnip.lsp_expand(args.body)
         end
       },
+      -- rebind keymaps
       mapping = {
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -93,6 +94,10 @@ return {
           vim_item.menu = string.format('[%s]', entry.source.name)
           return vim_item
         end
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered()
       }
     })
   end
