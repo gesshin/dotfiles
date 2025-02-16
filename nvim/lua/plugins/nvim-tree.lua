@@ -44,9 +44,7 @@ return {
       filters = {
         custom = { '\\.git$', '.DS_Store' }
       },
-      git = {
-        ignore = false
-      }
+      git = { ignore = false }
     })
   end
 }
