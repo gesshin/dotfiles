@@ -1,5 +1,5 @@
 ## Welcome to my dotfiles!
-These are the config files for my MacOS workspace and rice.
+These are the config files for my MacOS workspace.
 
 ## Applications/Packages
 - **Package Manager:** homebrew
@@ -7,7 +7,7 @@ These are the config files for my MacOS workspace and rice.
 - **Shell:** zsh + antidote
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
-- **Misc Programs:** starship, tmux, ripgrep, fzf, lsd, zoxide, bat, lazygit
+- **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit`
 
 ## Installation
 1. Clone repo
@@ -28,9 +28,10 @@ These are the config files for my MacOS workspace and rice.
    ```
 
 ## Switching Themes
-Currently, my theme rotation is: `dracula` `everforest`
+Supported themes: `dracula` `everforest`
 1. Import the themes from the `iterm2` directory
 2. Update `GLOBAL_THEME` in `.zshrc`
+3. Source `~/.zshrc`
 
 ## Plugin Managers
 These are some snippets for using the plugin managers.
@@ -43,3 +44,8 @@ These are some snippets for using the plugin managers.
   ```bash
   tmux source-file ~/.config/tmux/tmux.conf
   ```
+
+## TODO
+- [ ] move to another terminal (either wezterm or kitty)
+- [ ] implement a way to switch themes
+- [ ] figure out how to configure `bat` and `fzf` themes
