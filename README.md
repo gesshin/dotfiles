@@ -27,12 +27,17 @@ These are the config files for my MacOS workspace and rice.
    stow .
    ```
 
+## Switching Themes
+Currently, my theme rotation is: `dracula` `everforest`
+1. Import the themes from the `iterm2` directory
+2. Update `GLOBAL_THEME` in `.zshrc`
+
 ## Plugin Managers
 These are some snippets for using the plugin managers.
 
 - When adding new zsh plugins, you will need to manually regenerate the `.zsh_plugins.zsh`
   ```bash
-  antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.sh
+  antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.zsh
   ```
 - When there are issues with tmux pliugins, delete all folders in `~/.tmux/plugins` and run
   ```bash
