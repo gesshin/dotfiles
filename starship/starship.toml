@@ -3,7 +3,6 @@ format = """
 $directory\
 $git_branch\
 $git_status\
-$memory_usage\
 $cmd_duration\
 $fill\
 $c$java$lua$nodejs$ruby$rust\
@@ -12,7 +11,7 @@ $character
 """
 
 ## Prompt-Wide Config
-palette = 'dracula'
+palette = 'everforest' 
 add_newline = false
 
 ## Modules Config
@@ -24,7 +23,7 @@ truncation_length = 10
 
 [git_branch]
 disabled = false
-format = 'on [$symbol $branch ]($style)'
+format = '[on](fg) [$symbol $branch ]($style)'
 style = 'bold purple'
 symbol = ''
 
@@ -103,14 +102,27 @@ error_symbol = '[](bold red)'
 
 ## Palette Definitions
 [palettes.dracula]
-background = '#282a36'
-current_line = '#44475a'
-foreground = '#f8f8f2'
+bg      = '#282a36'
+fg      = '#f8f8f2'
+line    = '#44475a'
 comment = '#6272a4'
-cyan = '#8be9fd'
-green = '#50fa7b'
-orange = '#ffb86c'
-pink = '#ff79c6'
-purple = '#bd93f9'
-red = '#ff5555'
-yellow = '#f1fa8c'
+red     = '#ff5555'
+orange  = '#ffb86c'
+yellow  = '#f1fa8c'
+green   = '#50fa7b'
+cyan    = '#8be9fd'
+purple  = '#bd93f9'
+pink    = '#ff79c6'
+
+[palettes.everforest]
+bg      = '#2b3339'
+fg      = '#d3c6aa'
+line    = '#343f44'
+comment = '#859289'
+red     = '#e67e80'
+orange  = '#e69875'
+yellow  = '#dbbc7f'
+green   = '#a7c080'
+cyan    = '#7fbbb3'
+purple  = '#d699b6'
+pink    = '#83c092'
