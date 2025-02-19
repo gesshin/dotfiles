@@ -38,6 +38,12 @@ alias gpl="git pull"
 alias gf="git fetch"
 alias gm="git merge"
 
+alias tn="tmux new-session -s"
+alias ta="tmux attach -t"
+alias td="tmux detach"
+alias tl="tmux ls"
+alias tx="tmux kill-session -t"
+
 # Plugins
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load $XDG_CONFIG_HOME/zsh/.zsh_plugins.txt
