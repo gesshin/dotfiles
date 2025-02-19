@@ -82,12 +82,12 @@ local plugin_mappings = {
     ['<leader>fo'] = { ':Telescope oldfiles<CR>'  , 'Find old file'      },
     ['<leader>fb'] = { ':Telescope buffers<CR>'   , 'Find open buffer'   },
     -- Git
-    ['<leader>gg' ] = { ':LazyGit<CR>'                           , 'Open lazygit'                  },
-    ['<leader>gb' ] = { ':Gitsigns toggle_current_line_blame<CR>', 'Toggle blame for current line' },
-    ['<leader>ghh'] = { ':Gitsigns preview_hunk<CR>'             , 'Preview git hunk'              },
-    ['<leader>ghn'] = { ':Gitsigns next_hunk<CR>'                , 'Next git hunk'                 },
-    ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'                , 'Prev git hunk'                 },
-    ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'               , 'Restore git hunk'              },
+    ['<leader>gg' ] = { ':LazyGit<CR>'              , 'Open lazygit'      },
+    ['<leader>gb' ] = { ':Gitsigns blame_line<CR>'  , 'Toggle blame line' },
+    ['<leader>ghh'] = { ':Gitsigns preview_hunk<CR>', 'Preview git hunk'  },
+    ['<leader>ghn'] = { ':Gitsigns next_hunk<CR>'   , 'Next git hunk'     },
+    ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'   , 'Prev git hunk'     },
+    ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'  , 'Restore git hunk'  },
     -- Buffers
     ['<Tab>']      = { ':bnext<CR>'              , 'Cycle next buffer'    },
     ['<S-Tab>']    = { ':bprevious<CR>'          , 'Cycle prev buffer'    },
@@ -132,7 +132,7 @@ set_keymaps(vim_mappings)
 set_keymaps(plugin_mappings)
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  group = vim.api.nvim_create_augroup('LspKeymaps', {}),
   callback = function(event)
     set_keymaps(lsp_mappings, { buffer = event.buf })
   end

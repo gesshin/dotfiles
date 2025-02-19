@@ -22,9 +22,9 @@ return {
         offsets = {
           {
             filetype = 'NvimTree',
-            text = 'EXPLORER',
-            highlight = 'DraculaPurple',
-            text_align = 'left'
+            text = '',
+            highlight = 'Directory',
+            text_align = 'center'
           }
         }
       }

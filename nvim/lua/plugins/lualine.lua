@@ -52,7 +52,6 @@ return {
 
     lualine.setup({
       options = {
-        theme = 'dracula',
         component_separators = '|',
         section_separators = '',
         disabled_filetypes = {
@@ -74,7 +73,7 @@ return {
         lualine_x = {},
         lualine_y = {},
         lualine_z = {}
-      }
+      },
     })
   end
 }
