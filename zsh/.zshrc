@@ -1,11 +1,7 @@
 # Environment Variables
-export XDG_CONFIG_HOME="$HOME/.config"
-export WEZTERM_CONFIG_FILE="$XDG_CONFIG_HOME/wezterm/wezterm.lua"
-export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+source $XDG_CONFIG_HOME/zsh/.zshenv
 
 # Theme
-export GLOBAL_THEME="everforest"
 sed -i '' "s/palette = '.*'/palette = '${GLOBAL_THEME}'/g" $XDG_CONFIG_HOME/starship/starship.toml
 tmux source-file $XDG_CONFIG_HOME/tmux/themes/$GLOBAL_THEME.conf
 
