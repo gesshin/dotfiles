@@ -1,8 +1,4 @@
-local themes = {
-  dracula = require('core.themes').dracula,
-  everforest = require('core.themes').everforest,
-}
-
+local themes = require('core.themes')
 local set_hl = vim.api.nvim_set_hl
 
 local function set_colorscheme(colorscheme)
