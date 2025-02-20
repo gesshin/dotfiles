@@ -5,7 +5,7 @@ export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # Theme
-export GLOBAL_THEME="dracula"
+export GLOBAL_THEME="everforest"
 sed -i '' "s/palette = '.*'/palette = '${GLOBAL_THEME}'/g" $XDG_CONFIG_HOME/starship/starship.toml
 tmux source-file $XDG_CONFIG_HOME/tmux/themes/$GLOBAL_THEME.conf
 
