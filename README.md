@@ -26,11 +26,16 @@ These are the config files for my MacOS workspace.
    ```bash
    stow .
    ```
+5. Add these lines to `~/.zshrc` and `~/.zshenv` respectively
+   ```bash
+   source $HOME/.config/zsh/.zshrc
+   source $HOME/.config/zsh/.zshenv
+   ```
 
 ## Switching Themes
 Supported themes: `dracula` `everforest`
 1. Import the themes from the `iterm2` directory
-2. Update `GLOBAL_THEME` in `.zshrc`
+2. Update `GLOBAL_THEME` in `.zshenv`
 3. Source `~/.zshrc`
 
 ## Plugin Managers
@@ -40,7 +45,7 @@ These are some snippets for using the plugin managers.
   ```bash
   antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.zsh
   ```
-- When there are issues with tmux pliugins, delete all folders in `~/.tmux/plugins` and run
+- When there are issues with tmux plugins, delete all folders in `~/.tmux/plugins` and run
   ```bash
   tmux source-file ~/.config/tmux/tmux.conf
   ```
