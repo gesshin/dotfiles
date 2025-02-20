@@ -3,7 +3,7 @@ These are the config files for my MacOS workspace.
 
 ## Applications/Packages
 - **Package Manager:** homebrew
-- **Terminal:** iterm2
+- **Terminal:** wezterm
 - **Shell:** zsh + antidote
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
@@ -46,6 +46,6 @@ These are some snippets for using the plugin managers.
   ```
 
 ## TODO
-- [ ] move to another terminal (either wezterm or kitty)
+- [x] move to another terminal (either wezterm or kitty)
 - [ ] implement a way to switch themes
 - [ ] figure out how to configure `bat` and `fzf` themes
