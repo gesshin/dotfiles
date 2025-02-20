@@ -7,7 +7,7 @@
 brew install git stow
 
 # Install terminal
-brew install --cask iterm2
+brew install --cask wezterm
 
 # Install shell and change default shell
 brew install zsh && chsh -s $(which zsh)
