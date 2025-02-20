@@ -1,8 +1,8 @@
 # Environment Variables
-export TERM="xterm-256color"
 export XDG_CONFIG_HOME="$HOME/.config"
-export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export WEZTERM_CONFIG_FILE="$XDG_CONFIG_HOME/wezterm/wezterm.lua"
+export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # Theme
 export GLOBAL_THEME="everforest"
