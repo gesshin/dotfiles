@@ -23,7 +23,7 @@ local function set_highlights(palette)
   set_hl(0, 'ThemeOrange' , { fg = palette.orange  })
   set_hl(0, 'ThemeYellow' , { fg = palette.yellow  })
   set_hl(0, 'ThemeGreen'  , { fg = palette.green   })
-  set_hl(0, 'ThemeCyan'   , { fg = palette.cyan    })
+  set_hl(0, 'ThemeBlue'   , { fg = palette.blue    })
   set_hl(0, 'ThemePurple' , { fg = palette.purple  })
   set_hl(0, 'ThemePink'   , { fg = palette.pink    })
 
@@ -48,15 +48,15 @@ local function set_highlights(palette)
   set_hl(0, 'PmenuThumb'           , { bg = palette.comment })
   set_hl(0, 'CmpItemAbbr'          , { fg = palette.comment })
   set_hl(0, 'CmpItemAbbrDeprecated', { fg = palette.comment })
-  set_hl(0, 'CmpItemAbbrMatch'     , { fg = palette.cyan    })
-  set_hl(0, 'CmpItemAbbrMatchFuzzy', { fg = palette.cyan    })
+  set_hl(0, 'CmpItemAbbrMatch'     , { fg = palette.blue    })
+  set_hl(0, 'CmpItemAbbrMatchFuzzy', { fg = palette.blue    })
   set_hl(0, 'CmpItemMenu'          , { fg = palette.comment })
 
   -- Diagnostic Highlights
   set_hl(0, 'DiagnosticSignError', { fg = palette.red    })
   set_hl(0, 'DiagnosticSignWarn' , { fg = palette.yellow })
-  set_hl(0, 'DiagnosticSignInfo' , { fg = palette.cyan   })
-  set_hl(0, 'DiagnosticSignHint' , { fg = palette.cyan   })
+  set_hl(0, 'DiagnosticSignInfo' , { fg = palette.blue   })
+  set_hl(0, 'DiagnosticSignHint' , { fg = palette.blue   })
   local diagnostic_signs = { Error = '', Warn = '', Info = '', Hint = '' }
   for type, icon in pairs(diagnostic_signs) do
     local hl = 'DiagnosticSign' .. type

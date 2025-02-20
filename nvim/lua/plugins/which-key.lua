@@ -15,7 +15,7 @@ return {
       { '<leader>f', group = 'find'    , icon = { icon = '', hl = 'ThemeGreen'   } },
       { '<leader>l', group = 'lsp'     , icon = { icon = '', hl = 'ThemePurple'  } },
       { '<leader>g', group = 'git'     , icon = { icon = '󰊢', hl = 'ThemeRed'     } },
-      { '<leader>b', group = 'buffers' , icon = { icon = '󰈔', hl = 'ThemeCyan'    } },
+      { '<leader>b', group = 'buffers' , icon = { icon = '󰈔', hl = 'ThemeBlue'    } },
       { '<leader>w', group = 'windows' , icon = { icon = '', hl = 'ThemeComment' } },
       -- Child Groups
       { '<leader>gh', group = 'hunk', icon = { icon = '󰊢', hl = 'ThemeRed' } },

@@ -9,7 +9,7 @@ M.dracula = {
   orange  = '#ffb86c',
   yellow  = '#f1fa8c',
   green   = '#50fa7b',
-  cyan    = '#8be9fd',
+  blue    = '#8be9fd',
   purple  = '#bd93f9',
   pink    = '#ff79c6',
 }
@@ -23,7 +23,7 @@ M.everforest = {
   orange  = '#e69875',
   yellow  = '#dbbc7f',
   green   = '#a7c080',
-  cyan    = '#7fbbb3',
+  blue    = '#7fbbb3',
   purple  = '#d699b6',
   pink    = '#83c092',
 }
