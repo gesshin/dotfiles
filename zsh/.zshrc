@@ -1,10 +1,11 @@
 # Environment Variables
+export TERM="xterm-256color"
 export XDG_CONFIG_HOME="$HOME/.config"
 export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # Theme
-export GLOBAL_THEME="everforest"
+export GLOBAL_THEME="dracula"
 sed -i '' "s/palette = '.*'/palette = '${GLOBAL_THEME}'/g" $XDG_CONFIG_HOME/starship/starship.toml
 tmux source-file $XDG_CONFIG_HOME/tmux/themes/$GLOBAL_THEME.conf
 
