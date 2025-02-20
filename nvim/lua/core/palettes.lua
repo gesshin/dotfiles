@@ -15,7 +15,7 @@ M.dracula = {
 }
 
 M.everforest = {
-  bg      = '#2b3339',
+  bg      = '#2d353b',
   fg      = '#d3c6aa',
   line    = '#343f44',
   comment = '#859289',
