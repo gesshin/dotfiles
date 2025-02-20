@@ -26,17 +26,13 @@ These are the config files for my MacOS workspace.
    ```bash
    stow .
    ```
-5. Add these lines to `~/.zshrc` and `~/.zshenv` respectively
+5. Add this line to `~/.zshrc`
    ```bash
    source $HOME/.config/zsh/.zshrc
-   source $HOME/.config/zsh/.zshenv
    ```
 
 ## Switching Themes
 Supported themes: `dracula` `everforest`
-1. Import the themes from the `iterm2` directory
-2. Update `GLOBAL_THEME` in `.zshenv`
-3. Source `~/.zshrc`
 
 ## Plugin Managers
 These are some snippets for using the plugin managers.
