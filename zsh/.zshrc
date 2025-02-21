@@ -13,10 +13,10 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 alias cd="z"
 alias ls="lsd"
 alias cat="bat"
-alias gh="lazygit"
 alias vi="nvim"
+alias gh="lazygit"
 
-alias zsh="source $HOME/.zshrc"
+alias srczsh="source $HOME/.zshrc"
 alias e="vi $XDG_CONFIG_HOME/zsh/.zshrc"
 alias c="clear"
 
@@ -50,5 +50,6 @@ source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load $XDG_CONFIG_HOME/zsh/.zsh_plugins.txt
 
 # Start-up Programs
+[ -z "$TMUX" ] && tmux new-session -A -s main
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
