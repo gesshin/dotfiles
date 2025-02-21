@@ -26,15 +26,11 @@ These are the config files for my MacOS workspace.
    ```bash
    stow .
    ```
-5. Add this line to `~/.zshrc`
-   ```bash
-   source $HOME/.config/zsh/.zshrc
-   ```
 
 ## Switching Themes
 Supported themes: `dracula` `everforest`
 
-Manually change the theme in `wezterm.lua` and `starship.toml` and `tmux.conf`.
+Manually change the theme in `.zshrc` `wezterm.lua` `starship.toml` `tmux.conf`.
 
 ## Plugin Managers
 These are some snippets for using the plugin managers.
