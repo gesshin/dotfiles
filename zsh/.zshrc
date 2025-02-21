@@ -14,7 +14,7 @@ alias cd="z"
 alias ls="lsd"
 alias cat="bat"
 alias vi="nvim"
-alias gh="lazygit"
+alias gg="lazygit"
 
 alias srczsh="source $HOME/.zshrc"
 alias e="vi $XDG_CONFIG_HOME/zsh/.zshrc"
