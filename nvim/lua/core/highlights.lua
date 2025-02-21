@@ -5,10 +5,6 @@ local function set_colorscheme(colorscheme)
   vim.cmd.colorscheme(colorscheme)
 end
 
-local function set_lualine(theme)
-  require('lualine').setup({ options = { theme = theme } })
-end
-
 local function set_highlights(palette)
   -- Theme Highlights
   set_hl(0, 'ThemeBg'     , { fg = palette.bg      })
@@ -67,6 +63,5 @@ vim.api.nvim_create_autocmd('VimEnter', {
 
     set_colorscheme(theme)
     set_highlights(themes[theme])
-    set_lualine(theme)
   end
 })

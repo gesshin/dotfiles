@@ -9,6 +9,8 @@ return {
       return vim.fn.winwidth(0) > 100
     end
 
+    local theme = vim.env.GLOBAL_THEME
+
     local branch = {
       'branch',
       icon = ''
@@ -52,6 +54,7 @@ return {
 
     lualine.setup({
       options = {
+        theme = theme,
         component_separators = '|',
         section_separators = '',
         disabled_filetypes = {

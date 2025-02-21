@@ -104,10 +104,10 @@ local plugin_mappings = {
 
 local lsp_mappings = {
   normal = {
-    ['<leader>ld'] = { ':Telescope lsp_definitions<CR>'     , 'Go to definition'     },
-    ['<leader>lr'] = { ':Telescope lsp_references<CR>'      , 'Go to references'     },
-    ['<leader>li'] = { ':Telescope lsp_implementations<CR>' , 'Go to implementation' },
-    ['<leader>lt'] = { ':Telescope lsp_type_definitions<CR>', 'Go to type'           },
+    ['<leader>ld'] = { ':Telescope lsp_definitions<CR>'     , 'Go to definition'      },
+    ['<leader>lr'] = { ':Telescope lsp_references<CR>'      , 'Go to references'      },
+    ['<leader>li'] = { ':Telescope lsp_implementations<CR>' , 'Go to implementation'  },
+    ['<leader>lt'] = { ':Telescope lsp_type_definitions<CR>', 'Go to type definition' },
   }
 }
 
