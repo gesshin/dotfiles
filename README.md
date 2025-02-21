@@ -34,7 +34,7 @@ These are the config files for my MacOS workspace.
 ## Switching Themes
 Supported themes: `dracula` `everforest`
 
-Manually change the theme in `wezterm.lua` and `starship.toml`.
+Manually change the theme in `wezterm.lua` and `starship.toml` and `tmux.conf`.
 
 ## Plugin Managers
 These are some snippets for using the plugin managers.
