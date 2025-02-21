@@ -8,6 +8,10 @@ brew install git stow
 
 # Install terminal
 brew install --cask wezterm
+tempfile=$(mktemp) \
+  && curl -o $tempfile https://raw.githubusercontent.com/wezterm/wezterm/master/termwiz/data/wezterm.terminfo \
+  && tic -x -o ~/.terminfo $tempfile \
+  && rm $tempfile
 
 # Install shell and change default shell
 brew install zsh && chsh -s $(which zsh)
