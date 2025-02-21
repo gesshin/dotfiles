@@ -1,6 +1,5 @@
 # Environment Variables
 export GLOBAL_THEME="everforest"
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export WEZTERM_CONFIG_FILE="$XDG_CONFIG_HOME/wezterm/wezterm.lua"
 export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
