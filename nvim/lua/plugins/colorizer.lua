@@ -4,8 +4,9 @@ return {
   config = function()
     local colorizer = require('colorizer')
 
-    colorizer.setup({
-      user_default_options = { names = false }
-    })
+    colorizer.setup(
+      { '*' },
+      { names = false }
+    )
   end
 }
