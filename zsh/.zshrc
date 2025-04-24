@@ -14,7 +14,6 @@ alias cd="z"
 alias ls="lsd"
 alias cat="bat"
 alias vi="nvim"
-alias gg="lazygit"
 
 alias srczsh="source $HOME/.zshrc"
 alias e="vi $XDG_CONFIG_HOME/zsh/.zshrc"
@@ -34,7 +33,7 @@ alias grs="git restore --staged"
 alias gcm="git commit -m"
 alias gd="git diff"
 alias gco="git checkout"
-alias gph="git push"
+alias gph="git_push"
 alias gpl="git pull"
 alias gf="git fetch"
 alias gm="git merge"
@@ -44,6 +43,15 @@ alias ta="tmux attach -t"
 alias td="tmux detach"
 alias tl="tmux ls"
 alias tx="tmux kill-session -t"
+
+# Functions
+git_push() {
+  if [ $# -eq 0 ]; then
+    git push
+  else
+    git push --set-upstream origin $1
+  fi
+}
 
 # Plugins
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
