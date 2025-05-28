@@ -45,6 +45,9 @@ local function set_highlights(palette)
   set_hl(0, 'CmpItemAbbrMatchFuzzy', { fg = palette.blue    })
   set_hl(0, 'CmpItemMenu'          , { fg = palette.comment })
 
+  -- Indent Blankline Highlights
+  set_hl(0, 'IblScope', { fg = palette.fg })
+
   -- Diagnostic Sign Highlights
   set_hl(0, 'DiagnosticSignError', { fg = palette.red    })
   set_hl(0, 'DiagnosticSignWarn' , { fg = palette.yellow })
