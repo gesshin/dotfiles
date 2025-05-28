@@ -48,6 +48,9 @@ local function set_highlights(palette)
   -- Indent Blankline Highlights
   set_hl(0, 'IblScope', { fg = palette.fg })
 
+  -- Bufferline Highlights
+  set_hl(0, 'BufferLineIndicatorSelected', { fg = palette.green, bg = palette.bg })
+
   -- Diagnostic Sign Highlights
   set_hl(0, 'DiagnosticSignError', { fg = palette.red    })
   set_hl(0, 'DiagnosticSignWarn' , { fg = palette.yellow })
