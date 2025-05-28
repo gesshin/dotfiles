@@ -1,5 +1,6 @@
 return {
   'nvim-tree/nvim-tree.lua',
+  tag = 'v1.12.0',
   dependencies = 'nvim-tree/nvim-web-devicons',
   event = { 'VeryLazy' },
   init = function()

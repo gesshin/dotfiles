@@ -1,5 +1,6 @@
 return {
   'goolord/alpha-nvim',
+  commit = 'de72250',
   event = { 'VimEnter' },
   config = function()
     local lazy = require('lazy')
