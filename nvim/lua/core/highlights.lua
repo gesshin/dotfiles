@@ -1,11 +1,12 @@
 local themes = require('core.themes')
-local set_hl = vim.api.nvim_set_hl
 
 local function set_colorscheme(colorscheme)
   vim.cmd.colorscheme(colorscheme)
 end
 
 local function set_highlights(palette)
+  local set_hl = vim.api.nvim_set_hl
+
   -- Theme Highlights
   set_hl(0, 'ThemeBg'     , { fg = palette.bg      })
   set_hl(0, 'ThemeFg'     , { fg = palette.fg      })
@@ -44,16 +45,17 @@ local function set_highlights(palette)
   set_hl(0, 'CmpItemAbbrMatchFuzzy', { fg = palette.blue    })
   set_hl(0, 'CmpItemMenu'          , { fg = palette.comment })
 
-  -- Diagnostic Highlights
+  -- Diagnostic Sign Highlights
   set_hl(0, 'DiagnosticSignError', { fg = palette.red    })
   set_hl(0, 'DiagnosticSignWarn' , { fg = palette.yellow })
   set_hl(0, 'DiagnosticSignInfo' , { fg = palette.blue   })
   set_hl(0, 'DiagnosticSignHint' , { fg = palette.blue   })
-  local diagnostic_signs = { Error = '', Warn = '', Info = '', Hint = '' }
-  for type, icon in pairs(diagnostic_signs) do
-    local hl = 'DiagnosticSign' .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-  end
+
+  -- Diagnostic Virtual Text Highlights
+  set_hl(0, 'DiagnosticVirtualTextError', { fg = palette.red    })
+  set_hl(0, 'DiagnosticVirtualTextWarn' , { fg = palette.yellow })
+  set_hl(0, 'DiagnosticVirtualTextInfo' , { fg = palette.blue   })
+  set_hl(0, 'DiagnosticVirtualTextHint' , { fg = palette.blue   })
 end
 
 vim.api.nvim_create_autocmd('VimEnter', {
