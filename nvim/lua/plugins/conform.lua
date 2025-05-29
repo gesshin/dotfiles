@@ -8,7 +8,6 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				json = { 'prettier' },
-				ruby = { 'rubocop' },
 				yaml = { 'prettier' },
 			},
 		})
