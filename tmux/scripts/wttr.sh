@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOCATION=""
+LOCATION="Boston"
 
 WEATHER=$(curl -s "wttr.in/${LOCATION}?format=%C\n%t&m")
 
