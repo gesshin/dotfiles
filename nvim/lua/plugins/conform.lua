@@ -7,7 +7,12 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
+        javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
 				json = { 'prettier' },
+        ruby = { 'rubocop' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
 				yaml = { 'prettier' },
 			},
 		})
@@ -18,5 +23,5 @@ return {
 				conform.format({ bufnr = args.buf })
 			end,
 		})
-	end,
+	end
 }
