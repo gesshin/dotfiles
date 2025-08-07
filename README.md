@@ -20,7 +20,7 @@ These are the config files for my MacOS workspace.
    ```
 1. Clone repo
    ```bash
-   git clone git@github:RyanEweSeng/dotfiles.git
+   git clone git@github.com:RyanEweSeng/dotfiles.git
    ```
 2. Navigate to repo
    ```bash
@@ -33,6 +33,10 @@ These are the config files for my MacOS workspace.
 4. Generate symlinks
    ```bash
    stow .
+   ```
+5. Restart WezTerm and reload its config
+   ```bash
+   Crtl + Shift + R
    ```
 
 ## Switching Themes
