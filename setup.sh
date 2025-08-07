@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# Install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 # Install dependencies
-brew install git stow
+brew install stow
 
 # Install terminal
 brew install --cask wezterm
