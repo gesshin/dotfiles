@@ -10,6 +10,14 @@ These are the config files for my MacOS workspace.
 - **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit`
 
 ## Installation
+1. Install homebrew
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+2. Install git
+   ```bash
+   brew install git
+   ```
 1. Clone repo
    ```bash
    git clone git@github:RyanEweSeng/dotfiles.git
