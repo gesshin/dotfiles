@@ -10,6 +10,7 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = {
+        'gopls',
         'jsonls',
         'lua_ls',
         'ruby_lsp',
