@@ -5,7 +5,7 @@ $git_branch\
 $git_status\
 $cmd_duration\
 $fill\
-$c$java$lua$nodejs$ruby$rust\
+$golang$lua$nodejs$ruby\
 $line_break\
 $character
 """
@@ -54,11 +54,11 @@ style = 'bold yellow'
 disabled = false
 symbol = ' '
 
-[c]
+[golang]
 disabled = false
 format = '[$symbol $version ]($style)'
-style = 'bold #555555'
-symbol = 'c'
+style = 'bold #5dc9e2'
+symbol = 'go'
 
 [java]
 disabled = false
@@ -84,12 +84,6 @@ format = '[$symbol $version ]($style)'
 style = 'bold #cc342d'
 symbol = 'rb'
 detect_variables = []
-
-[rust]
-disabled = false
-format = '[$symbol $version ]($style)'
-style = 'bold #dea584'
-symbol = 'rs'
 
 [line_break]
 disabled = false
