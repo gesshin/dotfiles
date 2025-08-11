@@ -38,6 +38,11 @@ These are the config files for my MacOS workspace.
    ```bash
    Crtl + Shift + R
    ```
+6. Reload tmux and install tmux plugins
+   ```bash
+   Crtl + a -> Shift + I
+   Crtl + a -> Shift + r
+   ```
 
 ## Switching Themes
 Supported themes: `dracula` `everforest`
