@@ -61,6 +61,10 @@ These are some snippets for using the plugin managers.
   tmux source-file ~/.config/tmux/tmux.conf
   ```
 
+## Tmux Development Scripts
+To easily spin up Tmux sessions, use the `./tmux/dev-template` file to write a script that creates a tmux session for your development environment.
+Add this script to your `$PATH` so you can use the script globally.
+
 ## TODO
 - [x] move to another terminal (either wezterm or kitty)
 - [ ] implement a way to switch themes

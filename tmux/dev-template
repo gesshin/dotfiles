@@ -1,0 +1,26 @@
+#!/bin/bash
+
+SESSION_NAME=""
+PROJECT_DIR=""
+
+if tmux has-session -t $SESSION_NAME 2>/dev/null; then
+  tmux switch-client -t $SESSION_NAME
+  exit 1
+fi
+
+# Session with code window
+tmux new-session -d -s $SESSION_NAME -n code -c $PROJECT_DIR
+
+# App window
+tmux new-window -t $SESSION_NAME -n app -c $PROJECT_DIR
+tmux send-keys -t $SESSION_NAME:app.0 'docker-compose up' Enter
+
+# Util window
+tmux new-window -t $SESSION_NAME -n ngrok -c $PROJECT_DIR
+tmux send-keys -t $SESSION_NAME:ngrok.0 'ngrok' Enter
+
+# Set default window to code window
+tmux select-window -t $SESSION_NAME:code
+
+# Change to dev session
+tmux switch-client -t $SESSION_NAME
