@@ -34,31 +34,59 @@
 -- |           | S<char>          | [visual mode] surround       |    
 -- |-----------|------------------|------------------------------|
 
+--- Closes the current buffer and switches to the next available buffer
+local function custom_close_current_buffer()
+  local current_buffer = vim.api.nvim_get_current_buf()
+
+  -- Filter all buffers to exclude special buffers (i.e. nvim-tree buffer)
+  local buffers = vim.tbl_filter(function(buffer)
+    return vim.bo[buffer].buflisted
+  end, vim.api.nvim_list_bufs())
+
+  if #buffers > 1 then
+    vim.cmd('bnext')
+  end
+
+  vim.cmd('bdelete ' .. current_buffer)
+end
+
+--- Takes in mappings and automatically configures them as vim keymaps
+--- @param mappings table Table mapping where each mode maps to a table of [keybinds] mapped to {command, description} tuples
+--- @param opts? table Optional arguments passed to vim.keymap.set (e.g., {silent = true, buffer = bufnr})
+local function set_keymaps(mappings, opts)
+  opts = opts or {}
+
+  for mode_name, mode_keymap_group in pairs(mappings) do
+    for keymap, cmd_desc_tbl in pairs(mode_keymap_group) do
+      local mode = mode_name:sub(1,1)
+      local cmd = cmd_desc_tbl[1]
+
+      opts.desc = cmd_desc_tbl[2]
+      opts.noremap = true
+      opts.silent = true
+
+      vim.keymap.set(mode, keymap, cmd, opts)
+    end
+  end
+end
+
 local vim_mappings = {
   normal = {
-    -- Save and quit
-    ['<C-q>'] = { 'ZZ' },
-    -- Save buffer
-    ['<C-s>'] = { ':update<CR>' },
-    -- Vertical scroll and center
-    ['<C-u>'] = { '<C-u>zz' },
-    ['<C-d>'] = { '<C-d>zz' },
-    -- Cycle through search match and center
-    ['n'] = { 'nzzzv' },
-    ['N'] = { 'Nzzzv' },
-    -- Delete w/o overwritting to register
-    ['x'] = { '"_x' },
+    ['<C-q>'] = { 'ZZ', 'Save and quit' },
+    ['<C-s>'] = { ':update<CR>', 'Save buffer' },
+    ['<C-u>'] = { '<C-u>zz', 'Scroll up and center'   },
+    ['<C-d>'] = { '<C-d>zz', 'Scroll down and center' },
+    ['n'] = { 'nzzzv', 'Next search match and center' },
+    ['N'] = { 'Nzzzv', 'Prev search match and center' },
+    ['x'] = { '"_x', 'Delete w/o overwriting register' },
   },
   insert = {
-    -- Convenient escape
-    ['<C-c>'] = { '<Esc>' },
+    ['<C-c>'] = { '<Esc>', 'Convenient escape' },
   },
   visual = {
-    -- Convenient escape
-    ['<C-c>'] = { '<Esc>' },
-    -- Stay in visual mode after indenting
-    ['<'] = { '<gv' },
-    ['>'] = { '>gv' },
+    ['<C-c>'] = { '<Esc>', 'Convenient escape' },
+    ['<'] = { '<gv', 'Stay in visual mode on left indent'  },
+    ['>'] = { '>gv', 'Stay in visual mode on right indent' },
   }
 }
 
@@ -89,11 +117,11 @@ local plugin_mappings = {
     ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'   , 'Prev git hunk'     },
     ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'  , 'Restore git hunk'  },
     -- Buffers
-    ['<Tab>']      = { ':bnext<CR>'              , 'Cycle next buffer'    },
-    ['<S-Tab>']    = { ':bprevious<CR>'          , 'Cycle prev buffer'    },
-    ['<leader>bb'] = { ':BufferLinePick<CR>'     , 'Pick an open buffer'  },
-    ['<leader>bc'] = { ':BufferLinePickClose<CR>', 'Close an open buffer' },
-    ['<leader>bx'] = { ':bdelete<CR>'            , 'Close current buffer' },
+    ['<Tab>']      = { ':bnext<CR>'               , 'Cycle next buffer'    },
+    ['<S-Tab>']    = { ':bprevious<CR>'           , 'Cycle prev buffer'    },
+    ['<leader>bb'] = { ':BufferLinePick<CR>'      , 'Pick an open buffer'  },
+    ['<leader>bc'] = { ':BufferLinePickClose<CR>' , 'Close an open buffer' },
+    ['<leader>bx'] = { custom_close_current_buffer, 'Close current buffer' },
     -- Windows
     ['<leader>wv'] = { '<C-w>v'    , 'Split window vertically'   },
     ['<leader>wh'] = { '<C-w>s'    , 'Split window horizontally' },
@@ -111,26 +139,9 @@ local lsp_mappings = {
   }
 }
 
-local function set_keymaps(mappings, opts)
-  opts = opts or {}
-
-  for mode_name, mode_keymap_group in pairs(mappings) do
-    for keymap, cmd_desc_tbl in pairs(mode_keymap_group) do
-      local mode = mode_name:sub(1,1)
-      local cmd = cmd_desc_tbl[1]
-
-      opts.desc = cmd_desc_tbl[2]
-      opts.noremap = true
-      opts.silent = true
-
-      vim.keymap.set(mode, keymap, cmd, opts)
-    end
-  end
-end
-
+-- Sets vim, plugin and lsp keymaps
 set_keymaps(vim_mappings)
 set_keymaps(plugin_mappings)
-
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('LspKeymaps', {}),
   callback = function(event)
