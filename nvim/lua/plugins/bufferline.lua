@@ -28,7 +28,8 @@ return {
             highlight = 'Directory',
             text_align = 'center'
           }
-        }
+        },
+        sort_by = 'directory'
       }
     })
   end
