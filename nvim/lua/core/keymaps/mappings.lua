@@ -1,3 +1,7 @@
+local custom = require('core.keymaps.custom')
+
+local M = {}
+
 -- |-----------|------------------|------------------------------|
 -- | NvimTree  | a                | create                       |
 -- |           | e                | rename                       |
@@ -12,7 +16,7 @@
 -- |-----------|------------------|------------------------------|
 -- | Telescope | <CR>             | open buffer                  |
 -- |           | <C-j>            | next selection               |
--- |           | <C-k>            | prev selection               | 
+-- |           | <C-k>            | prev selection               |
 -- |           | <C-c>            | close telescope              |
 -- |-----------|------------------|------------------------------|
 -- | NvimCmp   | <Tab>            | next suggestion              |
@@ -22,7 +26,7 @@
 -- |-----------|------------------|------------------------------|
 -- | Comment   | gc<motion>       | toggle comment with motion   |
 -- |           | gcc              | toggle comment line          |
--- |           | gc               | [visual mode] toggle comment |    
+-- |           | gc               | [visual mode] toggle comment |
 -- |-----------|------------------|------------------------------|
 -- | Surround  | ys<motion><char> | surround with motion         |
 -- |           | ysiw<char>       | surround inner word          |
@@ -34,43 +38,7 @@
 -- |           | S<char>          | [visual mode] surround       |    
 -- |-----------|------------------|------------------------------|
 
---- Closes the current buffer and switches to the next available buffer
-local function custom_close_current_buffer()
-  local current_buffer = vim.api.nvim_get_current_buf()
-
-  -- Filter all buffers to exclude special buffers (i.e. nvim-tree buffer)
-  local buffers = vim.tbl_filter(function(buffer)
-    return vim.bo[buffer].buflisted
-  end, vim.api.nvim_list_bufs())
-
-  if #buffers > 1 then
-    vim.cmd('bprevious')
-  end
-
-  vim.cmd('bdelete ' .. current_buffer)
-end
-
---- Takes a table of mappings and automatically configures them as vim keymaps
---- @param mappings table Table mapping where each mode maps to a table of [keybinds] mapped to {command, description} tuples
---- @param opts? table Optional arguments passed to vim.keymap.set (e.g., {silent = true, buffer = bufnr})
-local function set_keymaps(mappings, opts)
-  opts = opts or {}
-
-  for mode_name, mode_keymap_group in pairs(mappings) do
-    for keymap, cmd_desc_tbl in pairs(mode_keymap_group) do
-      local mode = mode_name:sub(1,1)
-      local cmd = cmd_desc_tbl[1]
-
-      opts.desc = cmd_desc_tbl[2]
-      opts.noremap = true
-      opts.silent = true
-
-      vim.keymap.set(mode, keymap, cmd, opts)
-    end
-  end
-end
-
-local vim_mappings = {
+M.vim = {
   normal = {
     ['<C-q>'] = { ':wqa<CR>'   , 'Save and quit' },
     ['<C-s>'] = { ':update<CR>', 'Save buffer'   },
@@ -90,7 +58,7 @@ local vim_mappings = {
   }
 }
 
-local plugin_mappings = {
+M.plugin = {
   normal = {
     -- Configs
     ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy UI'  },
@@ -117,11 +85,11 @@ local plugin_mappings = {
     ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'   , 'Prev git hunk'     },
     ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'  , 'Restore git hunk'  },
     -- Buffers
-    ['<Tab>']      = { ':bnext<CR>'               , 'Cycle next buffer'    },
-    ['<S-Tab>']    = { ':bprevious<CR>'           , 'Cycle prev buffer'    },
+    ['<Tab>']      = { ':BufferLineCycleNext<CR>' , 'Cycle next buffer'    },
+    ['<S-Tab>']    = { ':BufferLineCyclePrev<CR>' , 'Cycle prev buffer'    },
     ['<leader>bb'] = { ':BufferLinePick<CR>'      , 'Pick an open buffer'  },
     ['<leader>bc'] = { ':BufferLinePickClose<CR>' , 'Close an open buffer' },
-    ['<leader>bx'] = { custom_close_current_buffer, 'Close current buffer' },
+    ['<leader>bx'] = { custom.close_current_buffer, 'Close current buffer' },
     -- Windows
     ['<leader>wv'] = { '<C-w>v'    , 'Split window vertically'   },
     ['<leader>wh'] = { '<C-w>s'    , 'Split window horizontally' },
@@ -130,7 +98,7 @@ local plugin_mappings = {
   }
 }
 
-local lsp_mappings = {
+M.lsp = {
   normal = {
     ['<leader>ld'] = { ':Telescope lsp_definitions<CR>'     , 'Go to definition'      },
     ['<leader>lr'] = { ':Telescope lsp_references<CR>'      , 'Go to references'      },
@@ -139,12 +107,4 @@ local lsp_mappings = {
   }
 }
 
--- Sets vim, plugin and lsp keymaps
-set_keymaps(vim_mappings)
-set_keymaps(plugin_mappings)
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('LspKeymaps', {}),
-  callback = function(event)
-    set_keymaps(lsp_mappings, { buffer = event.buf })
-  end
-})
+return M
