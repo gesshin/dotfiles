@@ -12,6 +12,7 @@ local M = {}
 -- |           | Y                | copy path                    |
 -- |           | <CR>             | open file/dir                |
 -- |           | <C-v>            | open vertical                |
+-- |           | <C-]>            | set directory                |
 -- |           | <Tab>            | close directory              |
 -- |-----------|------------------|------------------------------|
 -- | Telescope | <CR>             | open buffer                  |
