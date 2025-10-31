@@ -44,13 +44,13 @@ local function custom_close_current_buffer()
   end, vim.api.nvim_list_bufs())
 
   if #buffers > 1 then
-    vim.cmd('bnext')
+    vim.cmd('bprevious')
   end
 
   vim.cmd('bdelete ' .. current_buffer)
 end
 
---- Takes in mappings and automatically configures them as vim keymaps
+--- Takes a table of mappings and automatically configures them as vim keymaps
 --- @param mappings table Table mapping where each mode maps to a table of [keybinds] mapped to {command, description} tuples
 --- @param opts? table Optional arguments passed to vim.keymap.set (e.g., {silent = true, buffer = bufnr})
 local function set_keymaps(mappings, opts)
@@ -72,8 +72,8 @@ end
 
 local vim_mappings = {
   normal = {
-    ['<C-q>'] = { 'ZZ', 'Save and quit' },
-    ['<C-s>'] = { ':update<CR>', 'Save buffer' },
+    ['<C-q>'] = { ':wqa<CR>'   , 'Save and quit' },
+    ['<C-s>'] = { ':update<CR>', 'Save buffer'   },
     ['<C-u>'] = { '<C-u>zz', 'Scroll up and center'   },
     ['<C-d>'] = { '<C-d>zz', 'Scroll down and center' },
     ['n'] = { 'nzzzv', 'Next search match and center' },
