@@ -1,12 +1,13 @@
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.8',
+  commit = 'c41b36d',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   lazy = true,
+  cmd = 'Telescope',
   config = function()
     local telescope = require('telescope')
     local actions = require('telescope.actions')

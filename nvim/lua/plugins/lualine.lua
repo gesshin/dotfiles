@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  commit = '0c6cca9',
+  commit = '3946f01',
   dependencies = 'nvim-tree/nvim-web-devicons',
   event = { 'VeryLazy' },
   config = function()

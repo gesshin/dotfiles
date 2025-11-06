@@ -1,6 +1,6 @@
 return {
   'rmagatti/auto-session',
-  commit = '00334ee',
+  commit = '292492a',
   config = function()
     local auto_session = require('auto-session')
 

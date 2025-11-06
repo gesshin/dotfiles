@@ -22,7 +22,6 @@ return {
         'lua',
         'markdown',
         'ruby',
-        'rust',
         'sql',
         'tsx',
         'typescript',

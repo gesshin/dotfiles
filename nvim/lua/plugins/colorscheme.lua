@@ -1,13 +1,13 @@
 return {
   {
     'Mofiqul/dracula.nvim',
-    commit = 'df528c8',
+    commit = 'ae752c1',
     lazy = false,
     priority = 1000
   },
   {
     'neanias/everforest-nvim',
-    commit = '8db2bd8',
+    commit = '242553f',
     lazy = false,
     priority = 1000
   },
