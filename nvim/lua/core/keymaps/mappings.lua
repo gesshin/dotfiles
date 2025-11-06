@@ -65,9 +65,9 @@ M.plugin = {
     ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy UI'  },
     ['<leader>M'] = { ':Mason<CR>', 'Open Mason UI' },
     -- AutoSession
-    ['<leader>ss'] = { ':SessionSave<CR>'   , 'Save session'    },
-    ['<leader>sr'] = { ':SessionRestore<CR>', 'Restore session' },
-    ['<leader>sf'] = { ':SessionSearch<CR>' , 'Find session'    },
+    ['<leader>ss'] = { ':AutoSession save<CR>'   , 'Save session'    },
+    ['<leader>sr'] = { ':AutoSession restore<CR>', 'Restore session' },
+    ['<leader>sf'] = { ':AutoSession search<CR>' , 'Find session'    },
     -- NvimTree
     ['<leader>ee'] = { ':NvimTreeToggle<CR>'        , 'Toggle explorer'         },
     ['<leader>ef'] = { ':NvimTreeFindFileToggle<CR>', 'Toggle explorer on file' },
