@@ -11,7 +11,7 @@ $character
 """
 
 ## Prompt-Wide Config
-palette = 'everforest' 
+palette = 'everforest'
 add_newline = false
 
 ## Modules Config
