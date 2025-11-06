@@ -1,6 +1,6 @@
 return {
   'kdheepak/lazygit.nvim',
-  commit = 'b9eae3b',
+  commit = '2305dee',
   dependencies = 'nvim-lua/plenary.nvim',
   lazy = true,
   cmd = 'LazyGit'
