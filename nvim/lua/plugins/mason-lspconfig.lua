@@ -13,7 +13,6 @@ return {
         'gopls',
         'jsonls',
         'lua_ls',
-        'ruby_lsp',
         'ts_ls',
         'yamlls',
       }

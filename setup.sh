@@ -20,6 +20,9 @@ brew install --cask font-jetbrains-mono-nerd-font
 # Install apps
 brew install starship tmux neovim ripgrep fzf lsd zoxide bat btop lazygit
 
+# Install languages
+brew install go lua node
+
 # Install plugin managers
 brew install antidote
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm

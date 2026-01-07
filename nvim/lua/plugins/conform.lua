@@ -10,7 +10,6 @@ return {
         javascript = { 'prettier' },
         javascriptreact = { 'prettier' },
 				json = { 'prettier' },
-        ruby = { 'rubocop' },
         typescript = { 'prettier' },
         typescriptreact = { 'prettier' },
 				yaml = { 'prettier' },

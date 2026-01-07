@@ -48,6 +48,12 @@ alias td="tmux detach"
 alias tl="tmux ls"
 alias tx="tmux kill-session -t"
 
+alias dcu="docker compose up"
+alias dcd="docker compose down"
+alias dcb="docker compose build"
+alias dce="docker compose exec"
+alias dca="docker compose attach"
+
 # Functions
 git_push() {
   if [ $# -eq 0 ]; then
