@@ -6,9 +6,6 @@ export WEZTERM_CONFIG_FILE="$XDG_CONFIG_HOME/wezterm/wezterm.lua"
 export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
-# sed -i '' "s/themes['.*']/themes['${GLOBAL_THEME}']/g" $XDG_CONFIG_HOME/wezterm/wezterm.lua
-# sed -i '' "s/palette = '.*'/palette = '${GLOBAL_THEME}'/g" $XDG_CONFIG_HOME/starship/starship.toml
-
 # Aliases
 alias cd="z"
 alias ls="lsd"
@@ -55,6 +52,27 @@ alias dce="docker compose exec"
 alias dca="docker compose attach"
 
 # Functions
+theme() {
+  local VALID_THEMES=("dracula" "everforest")
+
+  if [[ -z "$1" || ! " ${VALID_THEMES[@]} " =~ " $1 " ]]; then
+    echo "Usage: theme [dracula|everforest]"
+    return 1
+  fi
+
+  export GLOBAL_THEME="everforest"
+
+  sed -i '' "s/export GLOBAL_THEME=\".*\"/export GLOBAL_THEME=\"$1\"/" "$XDG_CONFIG_HOME/zsh/.zshrc"
+  sed -i '' "s|themes/[^.]*\.conf|themes/$1.conf|" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+  sed -i '' "s/themes\['[^']*'\]/themes['$1']/" "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
+  sed -i '' "s/palette = '[^']*'/palette = '$1'/" "$XDG_CONFIG_HOME/starship/starship.toml"
+
+  tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf" 2>/dev/null
+
+  echo "Theme switched to $1"
+  echo "Note: restart nvim to apply"
+}
+
 git_push() {
   if [ $# -eq 0 ]; then
     git push

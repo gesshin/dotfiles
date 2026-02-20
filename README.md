@@ -40,8 +40,8 @@ These are the config files for my MacOS workspace.
    ```
 6. Reload tmux and install tmux plugins
    ```bash
-   Crtl + a -> Shift + I
-   Crtl + a -> Shift + r
+   Crtl + a -> I
+   Crtl + a -> R
    ```
 
 ## Switching Themes
@@ -67,5 +67,6 @@ Add this script to your `$PATH` so you can use the script globally.
 
 ## TODO
 - [x] move to another terminal (either wezterm or kitty)
-- [ ] implement a way to switch themes
+- [x] implement a way to switch themes
+- [ ] find a way to set lualine theme using highlights/mappings.lua
 - [ ] figure out how to configure `bat` and `fzf` themes
