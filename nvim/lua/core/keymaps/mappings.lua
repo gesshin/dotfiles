@@ -2,42 +2,45 @@ local custom = require('core.keymaps.custom')
 
 local M = {}
 
--- |-----------|------------------|------------------------------|
--- | NvimTree  | a                | create                       |
--- |           | e                | rename                       |
--- |           | x                | cut                          |
--- |           | c                | copy                         |
--- |           | p                | paste                        |
--- |           | d                | delete                       |
--- |           | Y                | copy path                    |
--- |           | <CR>             | open file/dir                |
--- |           | <C-v>            | open vertical                |
--- |           | <C-]>            | set directory                |
--- |           | <Tab>            | close directory              |
--- |-----------|------------------|------------------------------|
--- | Telescope | <CR>             | open buffer                  |
--- |           | <C-j>            | next selection               |
--- |           | <C-k>            | prev selection               |
--- |           | <C-c>            | close telescope              |
--- |-----------|------------------|------------------------------|
--- | NvimCmp   | <Tab>            | next suggestion              |
--- |           | <S-Tab>          | prev suggestion              |
--- |           | <CR>             | select suggestion            |
--- |           | <C-e>            | close suggestions            |
--- |-----------|------------------|------------------------------|
--- | Comment   | gc<motion>       | toggle comment with motion   |
--- |           | gcc              | toggle comment line          |
--- |           | gc               | [visual mode] toggle comment |
--- |-----------|------------------|------------------------------|
--- | Surround  | ys<motion><char> | surround with motion         |
--- |           | ysiw<char>       | surround inner word          |
--- |           | ys<num>w<char>   | surround <num> words         |
--- |           | ysap<char>       | surround paragraph           |
--- |           | yss<char>        | surround line                |
--- |           | ds<char>         | delete surround              |
--- |           | cs<char><char>   | change surround              |
--- |           | S<char>          | [visual mode] surround       |    
--- |-----------|------------------|------------------------------|
+-- |-------------|------------------|------------------------------|
+-- | NvimTree    | a                | create                       |
+-- |             | e                | rename                       |
+-- |             | x                | cut                          |
+-- |             | c                | copy                         |
+-- |             | p                | paste                        |
+-- |             | d                | delete                       |
+-- |             | Y                | copy path                    |
+-- |             | <CR>             | open file/dir                |
+-- |             | <C-v>            | open vertical                |
+-- |             | <C-]>            | set directory                |
+-- |             | <Tab>            | close directory              |
+-- |-------------|------------------|------------------------------|
+-- | Telescope   | <CR>             | open buffer                  |
+-- |             | <C-j>            | next selection               |
+-- |             | <C-k>            | prev selection               |
+-- |             | <C-c>            | close telescope              |
+-- |-------------|------------------|------------------------------|
+-- | NvimCmp     | <Tab>            | next suggestion              |
+-- |             | <S-Tab>          | prev suggestion              |
+-- |             | <CR>             | select suggestion            |
+-- |             | <C-e>            | close suggestions            |
+-- |-------------|------------------|------------------------------|
+-- | GitConflict | co               | choose ours                  |
+-- |             | ct               | choose theirs                |
+-- |             | cb               | choose both                  |
+-- |             | cd               | choose none                  |
+-- |             | ]x               | next conflict                |
+-- |             | [x               | prev conflict                |
+-- |-------------|------------------|------------------------------|
+-- | Surround    | ys<motion><char> | surround with motion         |
+-- |             | ysiw<char>       | surround inner word          |
+-- |             | ys<num>w<char>   | surround <num> words         |
+-- |             | ysap<char>       | surround paragraph           |
+-- |             | yss<char>        | surround line                |
+-- |             | ds<char>         | delete surround              |
+-- |             | cs<char><char>   | change surround              |
+-- |             | S<char>          | [visual mode] surround       |
+-- |-------------|------------------|------------------------------|
 
 M.vim = {
   normal = {
@@ -79,12 +82,13 @@ M.plugin = {
     ['<leader>fo'] = { ':Telescope oldfiles<CR>'  , 'Find old file'      },
     ['<leader>fb'] = { ':Telescope buffers<CR>'   , 'Find open buffer'   },
     -- Git
-    ['<leader>gg' ] = { ':LazyGit<CR>'              , 'Open lazygit'      },
-    ['<leader>gb' ] = { ':Gitsigns blame_line<CR>'  , 'Toggle blame line' },
-    ['<leader>ghh'] = { ':Gitsigns preview_hunk<CR>', 'Preview git hunk'  },
-    ['<leader>ghn'] = { ':Gitsigns next_hunk<CR>'   , 'Next git hunk'     },
-    ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'   , 'Prev git hunk'     },
-    ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'  , 'Restore git hunk'  },
+    ['<leader>gg' ] = { ':LazyGit<CR>'              , 'Open lazygit'       },
+    ['<leader>gv' ] = { ':GitConflictListQf<CR>'    , 'List git conflicts' },
+    ['<leader>gb' ] = { ':Gitsigns blame_line<CR>'  , 'Toggle blame line'  },
+    ['<leader>ghh'] = { ':Gitsigns preview_hunk<CR>', 'Preview git hunk'   },
+    ['<leader>ghn'] = { ':Gitsigns next_hunk<CR>'   , 'Next git hunk'      },
+    ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'   , 'Prev git hunk'      },
+    ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'  , 'Restore git hunk'   },
     -- Buffers
     ['<Tab>']      = { ':BufferLineCycleNext<CR>' , 'Cycle next buffer'    },
     ['<S-Tab>']    = { ':BufferLineCyclePrev<CR>' , 'Cycle prev buffer'    },

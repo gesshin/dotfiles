@@ -34,6 +34,7 @@ M.which_key = {
 
 M.cmp = {
   FloatBorder           = { fg = "fg"      },
+  NormalFloat           = { bg = "bg"      },
   PmenuThumb            = { bg = "comment" },
   CmpItemAbbr           = { fg = "comment" },
   CmpItemAbbrDeprecated = { fg = "comment" },
