@@ -18,7 +18,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 
 # Install apps
-brew install starship tmux neovim ripgrep fzf lsd zoxide bat btop lazygit
+brew install starship tmux neovim ripgrep fzf lsd zoxide bat lazygit
 
 # Install languages
 brew install go lua node
@@ -26,6 +26,11 @@ brew install go lua node
 # Install plugin managers
 brew install antidote
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+
+# Add source line to ~/.zshenv
+if ! grep -Fxq "source ~/.config/zsh/.zshenv" "$HOME/.zshenv"; then
+  echo "source ~/.config/zsh/.zshenv" >> "$HOME/.zshenv"
+fi
 
 # Add source line to ~/.zshrc
 if ! grep -Fxq "source ~/.config/zsh/.zshrc" "$HOME/.zshrc"; then

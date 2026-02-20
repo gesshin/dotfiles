@@ -1,18 +1,10 @@
-# Environment Variables
-export TERM="wezterm"
-export GLOBAL_THEME="everforest"
-export XDG_CONFIG_HOME="$HOME/.config"
-export WEZTERM_CONFIG_FILE="$XDG_CONFIG_HOME/wezterm/wezterm.lua"
-export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-
 # Aliases
 alias cd="z"
 alias ls="lsd"
 alias cat="bat"
 alias vi="nvim"
 
-alias srczsh="source $HOME/.zshrc"
+alias srczsh="source $HOME/.zshenv && source $HOME/.zshrc"
 alias e="vi $XDG_CONFIG_HOME/zsh/.zshrc"
 alias c="clear"
 
@@ -34,10 +26,12 @@ alias gbD="git branch -D"
 alias gbm="git branch -m"
 alias gco="git checkout"
 alias gcob="git checkout -b"
+alias gf="git fetch"
+alias gfo="git fetch origin"
 alias gph="git_push"
 alias gpl="git pull"
-alias gf="git fetch"
 alias gm="git merge"
+alias grb="git rebase"
 
 alias tn="tmux new-session -s"
 alias ta="tmux attach -t"
@@ -60,13 +54,12 @@ theme() {
     return 1
   fi
 
-  export GLOBAL_THEME="everforest"
-
-  sed -i '' "s/export GLOBAL_THEME=\".*\"/export GLOBAL_THEME=\"$1\"/" "$XDG_CONFIG_HOME/zsh/.zshrc"
+  sed -i '' "s/export GLOBAL_THEME=\".*\"/export GLOBAL_THEME=\"$1\"/" "$XDG_CONFIG_HOME/zsh/.zshenv"
   sed -i '' "s|themes/[^.]*\.conf|themes/$1.conf|" "$XDG_CONFIG_HOME/tmux/tmux.conf"
   sed -i '' "s/themes\['[^']*'\]/themes['$1']/" "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
   sed -i '' "s/palette = '[^']*'/palette = '$1'/" "$XDG_CONFIG_HOME/starship/starship.toml"
 
+  source "$XDG_CONFIG_HOME/zsh/.zshenv"
   tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf" 2>/dev/null
 
   echo "Theme switched to $1"
@@ -74,10 +67,15 @@ theme() {
 }
 
 git_push() {
-  if [ $# -eq 0 ]; then
+  if [[ $# -gt 1 ]]; then
+    echo "Usage: gph [branch]"
+    return 1
+  fi
+
+  if [[ $# -eq 0 ]]; then
     git push
   else
-    git push --set-upstream origin $1
+    git push --set-upstream origin "$1"
   fi
 }
 
