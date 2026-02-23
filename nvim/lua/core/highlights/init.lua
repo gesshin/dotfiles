@@ -18,8 +18,11 @@ vim.api.nvim_create_autocmd('VimEnter', {
   group = vim.api.nvim_create_augroup('Colorscheme', {}),
   callback = function()
     local theme = vim.env.GLOBAL_THEME
+    local colorscheme = theme
 
-    vim.cmd.colorscheme(theme)
+    vim.o.background = 'dark'
+
+    vim.cmd.colorscheme(colorscheme)
     set_highlights(theme, mappings.base)
     set_highlights(theme, mappings.alpha)
     set_highlights(theme, mappings.which_key)
