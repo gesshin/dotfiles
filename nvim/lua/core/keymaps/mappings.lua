@@ -78,9 +78,10 @@ M.plugin = {
     ['<leader>er'] = { ':NvimTreeRefresh<CR>'       , 'Refresh tree'            },
     ['<leader>ex'] = { ':NvimTreeCollapse<CR>'      , 'Close explorer'          },
     -- Picker
-    ['<leader>ff'] = { function() Snacks.picker.files() end  , 'Find file in cwd'   },
-    ['<leader>fs'] = { function() Snacks.picker.grep() end   , 'Find string in cwd' },
-    ['<leader>fb'] = { function() Snacks.picker.buffers() end, 'Find open buffer'   },
+    ['<leader>ff'] = { function() Snacks.picker.files() end  , 'Find file in cwd'        },
+    ['<leader>fo'] = { function() Snacks.picker.recent() end , 'Find recent file in cwd' },
+    ['<leader>fs'] = { function() Snacks.picker.grep() end   , 'Find string in cwd'      },
+    ['<leader>fb'] = { function() Snacks.picker.buffers() end, 'Find open buffer'        },
     -- Git
     ['<leader>gg' ] = { ':lua Snacks.lazygit()<CR>' , 'Open lazygit'       },
     ['<leader>gv' ] = { ':GitConflictListQf<CR>'    , 'List git conflicts' },
