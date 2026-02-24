@@ -3,6 +3,7 @@ return {
   tag = 'v2.23.0',
   event = { 'VimEnter' },
   config = function()
+    local cmd = vim.cmd
     local snacks = require('snacks')
 
     local plugin_count = require('lazy').stats().count
@@ -49,11 +50,11 @@ return {
           '                                                            ',
         }, '\n'),
         keys = {
-          { icon = ' ', key = 's', desc = 'Continue', action = ':AutoSession restore'  },
-          { icon = ' ', key = 'a', desc = 'New'     , action = ':enew'                 },
-          { icon = ' ', key = 'f', desc = 'Find'    , action = ':Telescope find_files' },
-          { icon = '󰒲 ', key = 'l', desc = 'Settings', action = ':Lazy'                 },
-          { icon = '󰜎 ', key = 'q', desc = 'Quit'    , action = ':qa'                   },
+          { icon = ' ', key = 's', desc = 'Continue', action = function() cmd('AutoSession restore') end },
+          { icon = ' ', key = 'a', desc = 'New'     , action = function() cmd('enew') end                },
+          { icon = ' ', key = 'f', desc = 'Find'    , action = function() Snacks.picker.files() end      },
+          { icon = '󰒲 ', key = 'l', desc = 'Settings', action = function() cmd('Lazy') end                },
+          { icon = '󰜎 ', key = 'q', desc = 'Quit'    , action = function() cmd('qa') end                  },
         },
       },
       sections = {
@@ -68,6 +69,7 @@ return {
       enabled = true,
       char = '│',
       scope = { enabled = true },
+      animate = { enabled = false },
     }
 
     local lazygit = {
@@ -75,10 +77,15 @@ return {
       configure = false,
     }
 
+    local picker = {
+      enabled = true,
+    }
+
     snacks.setup({
       dashboard = dashboard,
-      indent = indent,
-      lazygit = lazygit,
+      indent    = indent,
+      lazygit   = lazygit,
+      picker    = picker,
     })
   end
 }

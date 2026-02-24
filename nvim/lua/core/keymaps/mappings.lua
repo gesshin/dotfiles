@@ -2,63 +2,64 @@ local custom = require('core.keymaps.custom')
 
 local M = {}
 
--- |-------------|------------------|------------------------------|
--- | NvimTree    | a                | create                       |
--- |             | e                | rename                       |
--- |             | x                | cut                          |
--- |             | c                | copy                         |
--- |             | p                | paste                        |
--- |             | d                | delete                       |
--- |             | Y                | copy path                    |
--- |             | <CR>             | open file/dir                |
--- |             | <C-v>            | open vertical                |
--- |             | <C-]>            | set directory                |
--- |             | <Tab>            | close directory              |
--- |-------------|------------------|------------------------------|
--- | Telescope   | <CR>             | open buffer                  |
--- |             | <C-j>            | next selection               |
--- |             | <C-k>            | prev selection               |
--- |             | <C-c>            | close telescope              |
--- |-------------|------------------|------------------------------|
--- | NvimCmp     | <Tab>            | next suggestion              |
--- |             | <S-Tab>          | prev suggestion              |
--- |             | <CR>             | select suggestion            |
--- |             | <C-e>            | close suggestions            |
--- |-------------|------------------|------------------------------|
--- | GitConflict | co               | choose ours                  |
--- |             | ct               | choose theirs                |
--- |             | cb               | choose both                  |
--- |             | cd               | choose none                  |
--- |             | ]x               | next conflict                |
--- |             | [x               | prev conflict                |
--- |-------------|------------------|------------------------------|
--- | Surround    | ys<motion><char> | surround with motion         |
--- |             | ysiw<char>       | surround inner word          |
--- |             | ys<num>w<char>   | surround <num> words         |
--- |             | ysap<char>       | surround paragraph           |
--- |             | yss<char>        | surround line                |
--- |             | ds<char>         | delete surround              |
--- |             | cs<char><char>   | change surround              |
--- |             | S<char>          | [visual mode] surround       |
--- |-------------|------------------|------------------------------|
+-- |-------------|------------------|------------------------|
+-- | NvimTree    | a                | create                 |
+-- |             | e                | rename                 |
+-- |             | x                | cut                    |
+-- |             | c                | copy                   |
+-- |             | p                | paste                  |
+-- |             | d                | delete                 |
+-- |             | Y                | copy path              |
+-- |             | <CR>             | open file/dir          |
+-- |             | <C-v>            | open vertical          |
+-- |             | <C-]>            | set directory          |
+-- |             | <Tab>            | close directory        |
+-- |-------------|------------------|------------------------|
+-- | Picker      | <CR>             | open buffer            |
+-- |             | <C-j>            | next selection         |
+-- |             | <C-k>            | prev selection         |
+-- |             | <C-c>            | close picker           |
+-- |-------------|------------------|------------------------|
+-- | Blink       | <Tab>            | next suggestion        |
+-- |             | <S-Tab>          | prev suggestion        |
+-- |             | <CR>             | select suggestion      |
+-- |             | <C-e>            | close suggestions      |
+-- |-------------|------------------|------------------------|
+-- | GitConflict | co               | choose ours            |
+-- |             | ct               | choose theirs          |
+-- |             | cb               | choose both            |
+-- |             | cd               | choose none            |
+-- |             | ]x               | next conflict          |
+-- |             | [x               | prev conflict          |
+-- |-------------|------------------|------------------------|
+-- | Surround    | ys<motion><char> | surround with motion   |
+-- |             | ysiw<char>       | surround inner word    |
+-- |             | ys<num>w<char>   | surround <num> words   |
+-- |             | ysap<char>       | surround paragraph     |
+-- |             | yss<char>        | surround line          |
+-- |             | ds<char>         | delete surround        |
+-- |             | cs<char><char>   | change surround        |
+-- |             | S<char>          | [visual mode] surround |
+-- |-------------|------------------|------------------------|
 
 M.vim = {
   normal = {
-    ['<C-q>'] = { ':wqa<CR>'   , 'Save and quit' },
-    ['<C-s>'] = { ':update<CR>', 'Save buffer'   },
-    ['<C-u>'] = { '<C-u>zz', 'Scroll up and center'   },
-    ['<C-d>'] = { '<C-d>zz', 'Scroll down and center' },
-    ['n'] = { 'nzzzv', 'Next search match and center' },
-    ['N'] = { 'Nzzzv', 'Prev search match and center' },
-    ['x'] = { '"_x', 'Delete w/o overwriting register' },
+    ['<C-q>'] = { ':wqa<CR>'   , 'Save and quit'                   },
+    ['<C-s>'] = { ':update<CR>', 'Save buffer'                     },
+    ['<C-c>'] = { ':nohl<CR>'  , 'Clear search highlights'         },
+    ['<C-u>'] = { '<C-u>zz'    , 'Scroll up and center'            },
+    ['<C-d>'] = { '<C-d>zz'    , 'Scroll down and center'          },
+    ['n']     = { 'nzzzv'      , 'Next search match and center'    },
+    ['N']     = { 'Nzzzv'      , 'Prev search match and center'    },
+    ['x']     = { '"_x'        , 'Delete w/o overwriting register' },
   },
   insert = {
     ['<C-c>'] = { '<Esc>', 'Convenient escape' },
   },
   visual = {
-    ['<C-c>'] = { '<Esc>', 'Convenient escape' },
-    ['<'] = { '<gv', 'Stay in visual mode on left indent'  },
-    ['>'] = { '>gv', 'Stay in visual mode on right indent' },
+    ['<C-c>'] = { '<Esc>', 'Convenient escape'                   },
+    ['<']     = { '<gv'  , 'Stay in visual mode on left indent'  },
+    ['>']     = { '>gv'  , 'Stay in visual mode on right indent' },
   }
 }
 
@@ -76,13 +77,12 @@ M.plugin = {
     ['<leader>ef'] = { ':NvimTreeFindFileToggle<CR>', 'Toggle explorer on file' },
     ['<leader>er'] = { ':NvimTreeRefresh<CR>'       , 'Refresh tree'            },
     ['<leader>ex'] = { ':NvimTreeCollapse<CR>'      , 'Close explorer'          },
-    -- Telescope
-    ['<leader>ff'] = { ':Telescope find_files<CR>', 'Find file in cwd'   },
-    ['<leader>fs'] = { ':Telescope live_grep<CR>' , 'Find string in cwd' },
-    ['<leader>fo'] = { ':Telescope oldfiles<CR>'  , 'Find old file'      },
-    ['<leader>fb'] = { ':Telescope buffers<CR>'   , 'Find open buffer'   },
+    -- Picker
+    ['<leader>ff'] = { function() Snacks.picker.files() end  , 'Find file in cwd'   },
+    ['<leader>fs'] = { function() Snacks.picker.grep() end   , 'Find string in cwd' },
+    ['<leader>fb'] = { function() Snacks.picker.buffers() end, 'Find open buffer'   },
     -- Git
-    ['<leader>gg' ] = { ':LazyGit<CR>'              , 'Open lazygit'       },
+    ['<leader>gg' ] = { ':lua Snacks.lazygit()<CR>' , 'Open lazygit'       },
     ['<leader>gv' ] = { ':GitConflictListQf<CR>'    , 'List git conflicts' },
     ['<leader>gb' ] = { ':Gitsigns blame_line<CR>'  , 'Toggle blame line'  },
     ['<leader>ghh'] = { ':Gitsigns preview_hunk<CR>', 'Preview git hunk'   },
@@ -105,10 +105,10 @@ M.plugin = {
 
 M.lsp = {
   normal = {
-    ['<leader>ld'] = { ':Telescope lsp_definitions<CR>'     , 'Go to definition'      },
-    ['<leader>lr'] = { ':Telescope lsp_references<CR>'      , 'Go to references'      },
-    ['<leader>li'] = { ':Telescope lsp_implementations<CR>' , 'Go to implementation'  },
-    ['<leader>lt'] = { ':Telescope lsp_type_definitions<CR>', 'Go to type definition' },
+    ['<leader>ld'] = { function() Snacks.picker.lsp_definitions() end     , 'Go to definition'      },
+    ['<leader>lr'] = { function() Snacks.picker.lsp_references() end      , 'Go to references'      },
+    ['<leader>li'] = { function() Snacks.picker.lsp_implementations() end , 'Go to implementation'  },
+    ['<leader>lt'] = { function() Snacks.picker.lsp_type_definitions() end, 'Go to type definition' },
   }
 }
 

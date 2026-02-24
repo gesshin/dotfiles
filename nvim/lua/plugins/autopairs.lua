@@ -9,7 +9,7 @@ return {
       check_ts = true,
       map_cr = true,
       map_complete = true,
-      disable_filetype = { 'TelescopePrompt', 'vim' }
+      disable_filetype = { 'snacks_picker_input', 'vim' }
     })
   end
 }

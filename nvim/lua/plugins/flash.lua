@@ -7,7 +7,8 @@ return {
 
     flash.setup({
       modes = {
-        search = { enabled = true }
+        search = { enabled = true },
+        char = { enabled = false },
       }
     })
   end

@@ -19,14 +19,26 @@ M.float = {
   FloatBorder = { fg = 'fg' },
 }
 
+M.bufferline = {
+  BufferLineIndicatorSelected = { fg = 'green', bg = 'bg' },
+}
+
+M.flash = {
+  Search       = { fg = 'bg', bg = 'purple' },
+  FlashMatch   = { fg = 'bg', bg = 'purple' },
+  FlashCurrent = { fg = 'bg', bg = 'purple' },
+  FlashLabel   = { fg = 'bg', bg = 'yellow' },
+}
+
 M.snacks = {
-  SnacksDashboardHeader  = { fg = 'fg'  },
-  SnacksDashboardTitle   = { fg = 'red' },
-  SnacksDashboardFooter  = { fg = 'fg'  },
-  SnacksDashboardIcon    = { fg = 'fg'  },
-  SnacksDashboardDesc    = { fg = 'fg'  },
-  SnacksDashboardKey     = { fg = 'red' },
-  SnacksIndentScope      = { fg = 'fg'  },
+  SnacksDashboardHeader  = { fg = 'fg'     },
+  SnacksDashboardTitle   = { fg = 'red'    },
+  SnacksDashboardFooter  = { fg = 'fg'     },
+  SnacksDashboardIcon    = { fg = 'fg'     },
+  SnacksDashboardDesc    = { fg = 'fg'     },
+  SnacksDashboardKey     = { fg = 'red'    },
+  SnacksIndentScope      = { fg = 'fg'     },
+  SnacksPickerMatch      = { fg = 'purple' },
 }
 
 M.which_key = {
@@ -50,12 +62,8 @@ M.blink = {
   BlinkCmpDocBorder       = { fg = 'fg'      },
   BlinkCmpLabel           = { fg = 'fg'      },
   BlinkCmpLabelDetail     = { fg = 'fg'      },
-  BlinkCmpLabelMatch      = { fg = 'blue'    },
+  BlinkCmpLabelMatch      = { fg = 'purple'  },
   BlinkCmpLabelDeprecated = { fg = 'comment' },
-}
-
-M.bufferline = {
-  BufferLineIndicatorSelected = { fg = 'green', bg = 'bg' },
 }
 
 M.diagnostic = {
