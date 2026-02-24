@@ -32,15 +32,18 @@ M.which_key = {
   WhichKeyGroup     = { fg = "fg"      },
 }
 
-M.cmp = {
-  FloatBorder           = { fg = "fg"      },
-  NormalFloat           = { bg = "bg"      },
-  PmenuThumb            = { bg = "comment" },
-  CmpItemAbbr           = { fg = "comment" },
-  CmpItemAbbrDeprecated = { fg = "comment" },
-  CmpItemAbbrMatch      = { fg = "blue"    },
-  CmpItemAbbrMatchFuzzy = { fg = "blue"    },
-  CmpItemMenu           = { fg = "comment" },
+M.blink = {
+  BlinkCmpScrollBarThumb  = { bg = "comment" },
+  BlinkCmpScrollBarGutter = { bg = "bg"      },
+  BlinkCmpMenu            = { bg = "bg"      },
+  BlinkCmpMenuBorder      = { fg = "fg"      },
+  BlinkCmpMenuSelection   = { bg = "line"    },
+  BlinkCmpDoc             = { bg = "bg"      },
+  BlinkCmpDocBorder       = { fg = "fg"      },
+  BlinkCmpLabel           = { fg = "fg"      },
+  BlinkCmpLabelDetail     = { fg = "fg"      },
+  BlinkCmpLabelMatch      = { fg = "blue"    },
+  BlinkCmpLabelDeprecated = { fg = "comment" },
 }
 
 M.indent_blankline = {

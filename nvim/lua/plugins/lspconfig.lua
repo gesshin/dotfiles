@@ -1,16 +1,15 @@
 return {
   'neovim/nvim-lspconfig',
-  tag = 'v2.2.0',
+  tag = 'v2.6.0',
   event = { 'BufReadPre', 'BufNewFile' },
-  dependencies = 'hrsh7th/cmp-nvim-lsp',
   config = function()
-    local cmp_nvim_lsp = require('cmp_nvim_lsp')
+    local blink_cmp = require('blink.cmp')
 
     local lsp = vim.lsp
     local diagnostic = vim.diagnostic
 
     lsp.config('*', {
-      capabilities = cmp_nvim_lsp.default_capabilities()
+      capabilities = blink_cmp.get_lsp_capabilities()
     })
 
     diagnostic.config({
