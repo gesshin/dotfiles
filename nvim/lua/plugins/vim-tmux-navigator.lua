@@ -1,4 +1,4 @@
 return {
   'christoomey/vim-tmux-navigator',
-  commit = 'c45243d',
+  commit = 'e41c431',
 }
