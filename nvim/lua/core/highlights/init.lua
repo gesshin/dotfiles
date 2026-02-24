@@ -24,10 +24,10 @@ vim.api.nvim_create_autocmd('VimEnter', {
 
     vim.cmd.colorscheme(colorscheme)
     set_highlights(theme, mappings.base)
-    set_highlights(theme, mappings.alpha)
+    set_highlights(theme, mappings.float)
+    set_highlights(theme, mappings.snacks)
     set_highlights(theme, mappings.which_key)
     set_highlights(theme, mappings.blink)
-    set_highlights(theme, mappings.indent_blankline)
     set_highlights(theme, mappings.bufferline)
     set_highlights(theme, mappings.diagnostic)
   end

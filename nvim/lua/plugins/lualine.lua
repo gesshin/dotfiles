@@ -57,7 +57,7 @@ return {
         component_separators = '|',
         section_separators = '',
         disabled_filetypes = {
-          statusline = { 'alpha', 'NvimTree' }
+          statusline = { 'NvimTree', 'snacks_dashboard' }
         }
       },
       sections = {

@@ -1,0 +1,84 @@
+return {
+  'folke/snacks.nvim',
+  tag = 'v2.23.0',
+  event = { 'VimEnter' },
+  config = function()
+    local snacks = require('snacks')
+
+    local plugin_count = require('lazy').stats().count
+    local dashboard_title = 'TOHA HEAVY INDUSTRIES'
+    local dashboard_footer = 'AUTHORITY DOWNLOADED ' .. plugin_count .. ' INTO BASE REALITY'
+
+    local dashboard = {
+      enabled = true,
+      preset = {
+        header = table.concat({
+          '                                                            ',
+          '           ███████████████               ██████████████████ ',
+          '           ███████████████                       ██         ',
+          '           ███████████████               ██████████████████ ',
+          '           ███████████████               ██              ██ ',
+          '           ███████████████               ██████████████████ ',
+          '           ███████████████                   ▄██▀██▀██▄     ',
+          '           ███████████████                 ▄██▀  ██  ▀██▄   ',
+          '           ███████████████               ▄██▀    ██    ▀██▄ ',
+          '           ███████████████                                  ',
+          '           ███████████████               ██████████████████ ',
+          '           ███████████████                    ██    ██      ',
+          '           █████████████████████████     ██████████████████ ',
+          '           █████████████████████████     ██              ██ ',
+          '           █████████████████████████     ██████████████████ ',
+          '           █████████████████████████          ██    ██      ',
+          '           █████████████████████████     ██████████████████ ',
+          '           █████████████████████████                        ',
+          '           █████████████████████████     ▀▀▀▀▀▀▀▀██▀▀▀▀▀▀▀▀ ',
+          '           █████████████████████████     ▀▀▀▀▀▀▀▀██▀▀▀▀▀▀▀▀ ',
+          '           █████████████████████████     ██████████████████ ',
+          '           ███████████████▀▀▀▀▀▀▀▀▀▀     ██              ██ ',
+          '           ███████████████               ██████████████████ ',
+          '          ▗███████████████               ▄▄▄▄▄▄▄▄██▄▄▄▄▄▄▄▄ ',
+          '         ▗████████████████               ▄▄▄▄▄▄▄▄██▄▄▄▄▄▄▄▄ ',
+          '        ▗█████████████████                                  ',
+          '       ▗██████████████████               ██████████████████ ',
+          '      ▗███████████████████                       ██         ',
+          '     ▗████████████████████                       ██         ',
+          '    ▗█████████████████████                       ██         ',
+          '   ▗██████████████████████                       ██         ',
+          '  ▗███████████████████████                       ██         ',
+          ' ▗████████████████████████               ██████████████████ ',
+          '                                                            ',
+        }, '\n'),
+        keys = {
+          { icon = ' ', key = 's', desc = 'Continue', action = ':AutoSession restore'  },
+          { icon = ' ', key = 'a', desc = 'New'     , action = ':enew'                 },
+          { icon = ' ', key = 'f', desc = 'Find'    , action = ':Telescope find_files' },
+          { icon = '󰒲 ', key = 'l', desc = 'Settings', action = ':Lazy'                 },
+          { icon = '󰜎 ', key = 'q', desc = 'Quit'    , action = ':qa'                   },
+        },
+      },
+      sections = {
+        { section = 'header' },
+        { title = dashboard_title, hl = 'SnacksDashboardTitle', align = 'center', padding = 1 },
+        { section = 'keys', gap = 1, padding = 1 },
+        { title = dashboard_footer, hl = 'SnacksDashboardFooter', align = 'center', padding = 1 },
+      },
+    }
+
+    local indent = {
+      enabled = true,
+      char = '│',
+      scope = { enabled = true },
+    }
+
+    local lazygit = {
+      enabled = true,
+      configure = false,
+    }
+
+    snacks.setup({
+      dashboard = dashboard,
+      indent = indent,
+      lazygit = lazygit,
+    })
+  end
+}

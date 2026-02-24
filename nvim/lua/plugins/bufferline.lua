@@ -2,7 +2,7 @@ return {
   'akinsho/bufferline.nvim',
   tag = 'v4.9.1',
   dependencies = 'nvim-tree/nvim-web-devicons',
-  event = { 'VeryLazy' },
+  event = { 'BufAdd' },
   init = function()
     vim.o.mousemoveevent = true
   end,
