@@ -18,7 +18,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 
 # Install apps
-brew install starship tmux neovim ripgrep fzf lsd zoxide bat lazygit
+brew install starship tmux neovim ripgrep fzf lsd zoxide bat lazygit fd
 
 # Install languages
 brew install go lua node

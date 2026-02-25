@@ -31,14 +31,15 @@ M.flash = {
 }
 
 M.snacks = {
-  SnacksDashboardHeader  = { fg = 'fg'     },
-  SnacksDashboardTitle   = { fg = 'red'    },
-  SnacksDashboardFooter  = { fg = 'fg'     },
-  SnacksDashboardIcon    = { fg = 'fg'     },
-  SnacksDashboardDesc    = { fg = 'fg'     },
-  SnacksDashboardKey     = { fg = 'red'    },
-  SnacksIndentScope      = { fg = 'fg'     },
-  SnacksPickerMatch      = { fg = 'purple' },
+  SnacksDashboardHeader      = { fg = 'fg'     },
+  SnacksDashboardTitle       = { fg = 'red'    },
+  SnacksDashboardFooter      = { fg = 'fg'     },
+  SnacksDashboardIcon        = { fg = 'fg'     },
+  SnacksDashboardDesc        = { fg = 'fg'     },
+  SnacksDashboardKey         = { fg = 'red'    },
+  SnacksIndentScope          = { fg = 'fg'     },
+  SnacksPickerMatch          = { fg = 'purple' },
+  SnacksPickerListCursorLine = { bg = 'line'   },
 }
 
 M.which_key = {

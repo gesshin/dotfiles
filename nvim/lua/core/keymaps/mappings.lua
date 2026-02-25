@@ -2,45 +2,51 @@ local custom = require('core.keymaps.custom')
 
 local M = {}
 
--- |-------------|------------------|------------------------|
--- | NvimTree    | a                | create                 |
--- |             | e                | rename                 |
--- |             | x                | cut                    |
--- |             | c                | copy                   |
--- |             | p                | paste                  |
--- |             | d                | delete                 |
--- |             | Y                | copy path              |
--- |             | <CR>             | open file/dir          |
--- |             | <C-v>            | open vertical          |
--- |             | <C-]>            | set directory          |
--- |             | <Tab>            | close directory        |
--- |-------------|------------------|------------------------|
--- | Picker      | <CR>             | open buffer            |
--- |             | <C-j>            | next selection         |
--- |             | <C-k>            | prev selection         |
--- |             | <C-c>            | close picker           |
--- |-------------|------------------|------------------------|
--- | Blink       | <Tab>            | next suggestion        |
--- |             | <S-Tab>          | prev suggestion        |
--- |             | <CR>             | select suggestion      |
--- |             | <C-e>            | close suggestions      |
--- |-------------|------------------|------------------------|
--- | GitConflict | co               | choose ours            |
--- |             | ct               | choose theirs          |
--- |             | cb               | choose both            |
--- |             | cd               | choose none            |
--- |             | ]x               | next conflict          |
--- |             | [x               | prev conflict          |
--- |-------------|------------------|------------------------|
--- | Surround    | ys<motion><char> | surround with motion   |
--- |             | ysiw<char>       | surround inner word    |
--- |             | ys<num>w<char>   | surround <num> words   |
--- |             | ysap<char>       | surround paragraph     |
--- |             | yss<char>        | surround line          |
--- |             | ds<char>         | delete surround        |
--- |             | cs<char><char>   | change surround        |
--- |             | S<char>          | [visual mode] surround |
--- |-------------|------------------|------------------------|
+-- |-----------------|------------------|------------------------|
+-- | Snacks Explorer | a                | create                 |
+-- |                 | r                | rename                 |
+-- |                 | m                | move                   |
+-- |                 | c                | copy                   |
+-- |                 | p                | paste                  |
+-- |                 | d                | delete                 |
+-- |                 | Y                | copy path              |
+-- |                 | H                | toggle hidden files    |
+-- |                 | I                | toggle ignored files   |
+-- |                 | Z                | close all directories  |
+-- |                 | <Tab>            | select multiple files  |
+-- |                 | <CR>             | open file as buffer    |
+-- |                 | <BS>             | go up a directory      |
+-- |                 | .                | set cwd                |
+-- |                 | l                | open directory         |
+-- |                 | h                | close directory        |
+-- |-----------------|------------------|------------------------|
+-- | Snacks Picker   | <CR>             | open buffer            |
+-- |                 | <C-j>            | next selection         |
+-- |                 | <C-k>            | prev selection         |
+-- |                 | <C-x>            | close buffer           |
+-- |                 | <C-c>            | close picker           |
+-- |-----------------|------------------|------------------------|
+-- | Blink           | <C-Space>        | open suggestions       |
+-- |                 | <Tab>            | next suggestion        |
+-- |                 | <S-Tab>          | prev suggestion        |
+-- |                 | <C-e>            | close suggestions      |
+-- |-----------------|------------------|------------------------|
+-- | GitConflict     | co               | choose ours            |
+-- |                 | ct               | choose theirs          |
+-- |                 | cb               | choose both            |
+-- |                 | cd               | choose none            |
+-- |                 | ]x               | next conflict          |
+-- |                 | [x               | prev conflict          |
+-- |-----------------|------------------|------------------------|
+-- | Surround        | ys<motion><char> | surround with motion   |
+-- |                 | ysiw<char>       | surround inner word    |
+-- |                 | ys<num>w<char>   | surround <num> words   |
+-- |                 | ysap<char>       | surround paragraph     |
+-- |                 | yss<char>        | surround line          |
+-- |                 | ds<char>         | delete surround        |
+-- |                 | cs<char><char>   | change surround        |
+-- |                 | S<char>          | [visual mode] surround |
+-- |-----------------|------------------|------------------------|
 
 M.vim = {
   normal = {
@@ -72,11 +78,8 @@ M.plugin = {
     ['<leader>ss'] = { ':AutoSession save<CR>'   , 'Save session'    },
     ['<leader>sr'] = { ':AutoSession restore<CR>', 'Restore session' },
     ['<leader>sf'] = { ':AutoSession search<CR>' , 'Find session'    },
-    -- NvimTree
-    ['<leader>ee'] = { ':NvimTreeToggle<CR>'        , 'Toggle explorer'         },
-    ['<leader>ef'] = { ':NvimTreeFindFileToggle<CR>', 'Toggle explorer on file' },
-    ['<leader>er'] = { ':NvimTreeRefresh<CR>'       , 'Refresh tree'            },
-    ['<leader>ex'] = { ':NvimTreeCollapse<CR>'      , 'Close explorer'          },
+    -- Explorer
+    ['<leader>ee'] = { function() Snacks.explorer.open() end, 'Toggle explorer' },
     -- Picker
     ['<leader>ff'] = { function() Snacks.picker.files() end  , 'Find file in cwd'        },
     ['<leader>fo'] = { function() Snacks.picker.recent() end , 'Find recent file in cwd' },
@@ -110,6 +113,7 @@ M.lsp = {
     ['<leader>lr'] = { function() Snacks.picker.lsp_references() end      , 'Go to references'      },
     ['<leader>li'] = { function() Snacks.picker.lsp_implementations() end , 'Go to implementation'  },
     ['<leader>lt'] = { function() Snacks.picker.lsp_type_definitions() end, 'Go to type definition' },
+    ['<leader>lR'] = { function() vim.lsp.buf.rename() end                , 'Rename symbol'         },
   }
 }
 

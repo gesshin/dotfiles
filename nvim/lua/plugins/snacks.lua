@@ -79,13 +79,52 @@ return {
 
     local picker = {
       enabled = true,
+      cwd = vim.fn.getcwd(),
+      icons = {
+        git = {
+          enabled = true,
+          staged = '[+]',
+          deleted = '[×]',
+          ignored = '[⊘]',
+          modified = '[~]',
+          renamed = '[r]',
+          unmerged = '[!]',
+          untracked = '[·]',
+        },
+      },
+      sources = {
+        explorer = {
+          diagnostics = false,
+          layout = { preset = "sidebar", layout = { position = "right" } },
+        },
+      },
+    }
+
+    local explorer = {
+      enabled = true,
+      replace_netrw = true,
+      trash = true,
+    }
+
+    local input = {
+      enabled = true,
+      win = {
+        row = 0.4,
+      },
+    }
+
+    local scroll = {
+      enabled = true,
     }
 
     snacks.setup({
       dashboard = dashboard,
-      indent    = indent,
-      lazygit   = lazygit,
-      picker    = picker,
+      indent = indent,
+      lazygit = lazygit,
+      picker = picker,
+      explorer = explorer,
+      input = input,
+      scroll = scroll,
     })
   end
 }
