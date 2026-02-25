@@ -80,6 +80,11 @@ return {
     local picker = {
       enabled = true,
       cwd = vim.fn.getcwd(),
+      win = {
+        list = {
+          keys = { ['<c-q>'] = false },
+        },
+      },
       icons = {
         git = {
           enabled = true,
@@ -95,7 +100,12 @@ return {
       sources = {
         explorer = {
           diagnostics = false,
-          layout = { preset = "sidebar", layout = { position = "right" } },
+          layout = { layout = { width = 50, position = 'right' } },
+          win = {
+            list = {
+              keys = { ['<leader>/'] = false },
+            },
+          },
         },
       },
     }

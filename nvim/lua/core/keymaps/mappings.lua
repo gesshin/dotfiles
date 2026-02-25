@@ -1,5 +1,3 @@
-local custom = require('core.keymaps.custom')
-
 local M = {}
 
 -- |-----------------|------------------|------------------------|
@@ -86,19 +84,19 @@ M.plugin = {
     ['<leader>fs'] = { function() Snacks.picker.grep() end   , 'Find string in cwd'      },
     ['<leader>fb'] = { function() Snacks.picker.buffers() end, 'Find open buffer'        },
     -- Git
-    ['<leader>gg' ] = { ':lua Snacks.lazygit()<CR>' , 'Open lazygit'       },
-    ['<leader>gv' ] = { ':GitConflictListQf<CR>'    , 'List git conflicts' },
-    ['<leader>gb' ] = { ':Gitsigns blame_line<CR>'  , 'Toggle blame line'  },
-    ['<leader>ghh'] = { ':Gitsigns preview_hunk<CR>', 'Preview git hunk'   },
-    ['<leader>ghn'] = { ':Gitsigns next_hunk<CR>'   , 'Next git hunk'      },
-    ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'   , 'Prev git hunk'      },
-    ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'  , 'Restore git hunk'   },
+    ['<leader>gg']  = { function() Snacks.lazygit() end, 'Open lazygit'       },
+    ['<leader>gv']  = { ':GitConflictListQf<CR>'       , 'List git conflicts' },
+    ['<leader>gb']  = { ':Gitsigns blame_line<CR>'     , 'Toggle blame line'  },
+    ['<leader>ghh'] = { ':Gitsigns preview_hunk<CR>'   , 'Preview git hunk'   },
+    ['<leader>ghn'] = { ':Gitsigns next_hunk<CR>'      , 'Next git hunk'      },
+    ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'      , 'Prev git hunk'      },
+    ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'     , 'Restore git hunk'   },
     -- Buffers
-    ['<Tab>']      = { ':BufferLineCycleNext<CR>' , 'Cycle next buffer'    },
-    ['<S-Tab>']    = { ':BufferLineCyclePrev<CR>' , 'Cycle prev buffer'    },
-    ['<leader>bb'] = { ':BufferLinePick<CR>'      , 'Pick an open buffer'  },
-    ['<leader>bc'] = { ':BufferLinePickClose<CR>' , 'Close an open buffer' },
-    ['<leader>bx'] = { custom.close_current_buffer, 'Close current buffer' },
+    ['<Tab>']      = { ':BufferLineCycleNext<CR>'       , 'Cycle next buffer'    },
+    ['<S-Tab>']    = { ':BufferLineCyclePrev<CR>'       , 'Cycle prev buffer'    },
+    ['<leader>bb'] = { ':BufferLinePick<CR>'            , 'Pick an open buffer'  },
+    ['<leader>bc'] = { ':BufferLinePickClose<CR>'       , 'Close an open buffer' },
+    ['<leader>bx'] = { function() Snacks.bufdelete() end, 'Close current buffer' },
     -- Windows
     ['<leader>wv'] = { '<C-w>v'    , 'Split window vertically'   },
     ['<leader>wh'] = { '<C-w>s'    , 'Split window horizontally' },
