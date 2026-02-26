@@ -1,83 +1,74 @@
 return {
-  'nvim-lualine/lualine.nvim',
-  commit = '47f91c4',
-  dependencies = 'nvim-tree/nvim-web-devicons',
-  event = { 'VeryLazy' },
-  config = function()
-    local lualine = require('lualine')
+	"nvim-lualine/lualine.nvim",
+	commit = "47f91c4",
+	dependencies = "nvim-tree/nvim-web-devicons",
+	event = "VeryLazy",
+	config = function()
+		local lualine = require("lualine")
 
-    local branch = {
-      'branch',
-      icon = '',
-    }
+		local branch = {
+			"branch",
+			icon = "",
+		}
 
-    local diff = {
-      'diff',
-      symbols = { added = '+', modified = '~', removed = '-' },
-    }
+		local diff = {
+			"diff",
+			symbols = { added = "+", modified = "~", removed = "-" },
+		}
 
-    local diagnostics = {
-      'diagnostics',
-      sources = { 'nvim_diagnostic' },
-      sections = { 'error', 'warn', 'info', 'hint' },
-      symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
-    }
+		local diagnostics = {
+			"diagnostics",
+			sources = { "nvim_diagnostic" },
+			sections = { "error", "warn", "info", "hint" },
+			symbols = { error = " ", warn = " ", info = " ", hint = " " },
+		}
 
-    local filename = {
-      'filename',
-      file_status = true,
-      path = 1,
-    }
+		local filename = {
+			"filename",
+			file_status = true,
+			path = 1,
+		}
 
-    local encoding = {
-      'encoding',
-      fmt = function()
-        return vim.bo.fileencoding:upper()
-      end,
-    }
+		local encoding = {
+			"encoding",
+			fmt = function()
+				return vim.bo.fileencoding:upper()
+			end,
+		}
 
-    local fileformat = {
-      'fileformat',
-      fmt = function()
-        return vim.bo.fileformat:upper()
-      end,
-    }
+		local fileformat = {
+			"fileformat",
+			fmt = function()
+				return vim.bo.fileformat:upper()
+			end,
+		}
 
-    lualine.setup({
-      options = {
-        theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
-        globalstatus = true,
-        disabled_filetypes = {
-          sections = { 'snacks_dashboard' },
-          tabline = { 'snacks_dashboard' },
-        },
-      },
-      sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { branch, diff, diagnostics },
-        lualine_c = { filename },
-        lualine_x = { encoding, fileformat, 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' },
-      },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-      },
-      tabline = {
-        -- lualine_a = { 'mode' },
-        -- lualine_b = { branch, diff, diagnostics },
-        -- lualine_c = { filename },
-        -- lualine_x = { encoding, fileformat, 'filetype' },
-        -- lualine_y = { 'progress' },
-        -- lualine_z = { 'location' },
-      },
-    })
-  end
+		lualine.setup({
+			options = {
+				theme = "auto",
+				component_separators = "|",
+				section_separators = "",
+				globalstatus = true,
+				disabled_filetypes = {
+					statusline = { "snacks_dashboard" },
+				},
+			},
+			sections = {
+				lualine_a = { "mode" },
+				lualine_b = { branch, diff, diagnostics },
+				lualine_c = { filename },
+				lualine_x = { encoding, fileformat, "filetype" },
+				lualine_y = { "progress" },
+				lualine_z = { "location" },
+			},
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
+		})
+	end,
 }
