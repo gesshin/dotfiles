@@ -47,14 +47,16 @@ local M = {}
 
 M.vim = {
   normal = {
-    ['<C-q>'] = { ':wqa<CR>'   , 'Save and quit'                   },
-    ['<C-s>'] = { ':update<CR>', 'Save buffer'                     },
-    ['<C-c>'] = { ':nohl<CR>'  , 'Clear search highlights'         },
-    ['<C-u>'] = { '<C-u>zz'    , 'Scroll up and center'            },
-    ['<C-d>'] = { '<C-d>zz'    , 'Scroll down and center'          },
-    ['n']     = { 'nzzzv'      , 'Next search match and center'    },
-    ['N']     = { 'Nzzzv'      , 'Prev search match and center'    },
-    ['x']     = { '"_x'        , 'Delete w/o overwriting register' },
+    ['<C-q>']   = { ':wqa<CR>'   , 'Save and quit'                   },
+    ['<C-s>']   = { ':update<CR>', 'Save buffer'                     },
+    ['<C-c>']   = { ':nohl<CR>'  , 'Clear search highlights'         },
+    ['<C-u>']   = { '<C-u>zz'    , 'Scroll up and center'            },
+    ['<C-d>']   = { '<C-d>zz'    , 'Scroll down and center'          },
+    ['<Tab>']   = { ':bnext<CR>' , 'Cycle next buffer'               },
+    ['<S-Tab>'] = { ':bprev<CR>' , 'Cycle prev buffer'               },
+    ['n']       = { 'nzzzv'      , 'Next search match and center'    },
+    ['N']       = { 'Nzzzv'      , 'Prev search match and center'    },
+    ['x']       = { '"_x'        , 'Delete w/o overwriting register' },
   },
   insert = {
     ['<C-c>'] = { '<Esc>', 'Convenient escape' },
@@ -69,8 +71,8 @@ M.vim = {
 M.plugin = {
   normal = {
     -- Configs
-    ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy UI'  },
-    ['<leader>M'] = { ':Mason<CR>', 'Open Mason UI' },
+    ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy'  },
+    ['<leader>M'] = { ':Mason<CR>', 'Open Mason' },
     -- AutoSession
     ['<leader>ss'] = { ':AutoSession save<CR>'   , 'Save session'    },
     ['<leader>sr'] = { ':AutoSession restore<CR>', 'Restore session' },
@@ -78,10 +80,9 @@ M.plugin = {
     -- Explorer
     ['<leader>ee'] = { function() Snacks.explorer.open() end, 'Toggle explorer' },
     -- Picker
-    ['<leader>ff'] = { function() Snacks.picker.files() end  , 'Find file in cwd'        },
-    ['<leader>fo'] = { function() Snacks.picker.recent() end , 'Find recent file in cwd' },
-    ['<leader>fs'] = { function() Snacks.picker.grep() end   , 'Find string in cwd'      },
-    ['<leader>fb'] = { function() Snacks.picker.buffers() end, 'Find open buffer'        },
+    ['<leader>ff'] = { function() Snacks.picker.files() end  , 'Find files'   },
+    ['<leader>fo'] = { function() Snacks.picker.recent() end , 'Find recents' },
+    ['<leader>fs'] = { function() Snacks.picker.grep() end   , 'Find string'  },
     -- Git
     ['<leader>gg']  = { function() Snacks.lazygit() end, 'Open lazygit'       },
     ['<leader>gv']  = { ':GitConflictListQf<CR>'       , 'List git conflicts' },
@@ -91,11 +92,8 @@ M.plugin = {
     ['<leader>ghp'] = { ':Gitsigns prev_hunk<CR>'      , 'Prev git hunk'      },
     ['<leader>ghr'] = { ':Gitsigns reset_hunk<CR>'     , 'Restore git hunk'   },
     -- Buffers
-    ['<Tab>']      = { ':BufferLineCycleNext<CR>'       , 'Cycle next buffer'    },
-    ['<S-Tab>']    = { ':BufferLineCyclePrev<CR>'       , 'Cycle prev buffer'    },
-    ['<leader>bb'] = { ':BufferLinePick<CR>'            , 'Pick an open buffer'  },
-    ['<leader>bc'] = { ':BufferLinePickClose<CR>'       , 'Close an open buffer' },
-    ['<leader>bx'] = { function() Snacks.bufdelete() end, 'Close current buffer' },
+    ['<leader>bb'] = { function() Snacks.picker.buffers() end, 'Find open buffer'     },
+    ['<leader>bx'] = { function() Snacks.bufdelete() end     , 'Close current buffer' },
     -- Windows
     ['<leader>wv'] = { '<C-w>v'    , 'Split window vertically'   },
     ['<leader>wh'] = { '<C-w>s'    , 'Split window horizontally' },

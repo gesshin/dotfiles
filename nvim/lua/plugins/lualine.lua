@@ -6,19 +6,14 @@ return {
   config = function()
     local lualine = require('lualine')
 
-    local hide_in_width = function()
-      return vim.fn.winwidth(0) > 100
-    end
-
     local branch = {
       'branch',
-      icon = ''
+      icon = '',
     }
 
     local diff = {
       'diff',
       symbols = { added = '+', modified = '~', removed = '-' },
-      cond = hide_in_width
     }
 
     local diagnostics = {
@@ -26,13 +21,12 @@ return {
       sources = { 'nvim_diagnostic' },
       sections = { 'error', 'warn', 'info', 'hint' },
       symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
-      cond = hide_in_width
     }
 
     local filename = {
       'filename',
       file_status = true,
-      path = 1
+      path = 1,
     }
 
     local encoding = {
@@ -40,7 +34,6 @@ return {
       fmt = function()
         return vim.bo.fileencoding:upper()
       end,
-      cond = hide_in_width
     }
 
     local fileformat = {
@@ -48,7 +41,6 @@ return {
       fmt = function()
         return vim.bo.fileformat:upper()
       end,
-      cond = hide_in_width
     }
 
     lualine.setup({
@@ -56,9 +48,11 @@ return {
         theme = 'auto',
         component_separators = '|',
         section_separators = '',
+        globalstatus = true,
         disabled_filetypes = {
-          statusline = { 'snacks_dashboard' }
-        }
+          sections = { 'snacks_dashboard' },
+          tabline = { 'snacks_dashboard' },
+        },
       },
       sections = {
         lualine_a = { 'mode' },
@@ -66,7 +60,7 @@ return {
         lualine_c = { filename },
         lualine_x = { encoding, fileformat, 'filetype' },
         lualine_y = { 'progress' },
-        lualine_z = { 'location' }
+        lualine_z = { 'location' },
       },
       inactive_sections = {
         lualine_a = {},
@@ -74,7 +68,15 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
+      },
+      tabline = {
+        -- lualine_a = { 'mode' },
+        -- lualine_b = { branch, diff, diagnostics },
+        -- lualine_c = { filename },
+        -- lualine_x = { encoding, fileformat, 'filetype' },
+        -- lualine_y = { 'progress' },
+        -- lualine_z = { 'location' },
       },
     })
   end
