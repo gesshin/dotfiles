@@ -13,7 +13,6 @@ local M = {}
 -- |                 | Z                | close all directories  |
 -- |                 | <Tab>            | select multiple files  |
 -- |                 | <CR>             | open file as buffer    |
--- |                 | <BS>             | go up a directory      |
 -- |                 | .                | set cwd                |
 -- |                 | l                | open directory         |
 -- |                 | h                | close directory        |

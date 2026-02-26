@@ -80,6 +80,9 @@ return {
     local picker = {
       enabled = true,
       cwd = vim.fn.getcwd(),
+      formatters = {
+        file = { git_status_hl = false },
+      },
       win = {
         list = {
           keys = { ['<c-q>'] = false },
@@ -118,13 +121,7 @@ return {
 
     local input = {
       enabled = true,
-      win = {
-        row = 0.4,
-      },
-    }
-
-    local scroll = {
-      enabled = true,
+      win = { row = 0.45, },
     }
 
     snacks.setup({
@@ -134,7 +131,6 @@ return {
       picker = picker,
       explorer = explorer,
       input = input,
-      scroll = scroll,
     })
   end
 }

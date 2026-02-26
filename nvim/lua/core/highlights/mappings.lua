@@ -25,21 +25,25 @@ M.bufferline = {
 
 M.flash = {
   Search       = { fg = 'bg', bg = 'purple' },
+  IncSearch    = { fg = 'bg', bg = 'purple' },
   FlashMatch   = { fg = 'bg', bg = 'purple' },
   FlashCurrent = { fg = 'bg', bg = 'purple' },
   FlashLabel   = { fg = 'bg', bg = 'yellow' },
 }
 
 M.snacks = {
-  SnacksDashboardHeader      = { fg = 'fg'     },
-  SnacksDashboardTitle       = { fg = 'red'    },
-  SnacksDashboardFooter      = { fg = 'fg'     },
-  SnacksDashboardIcon        = { fg = 'fg'     },
-  SnacksDashboardDesc        = { fg = 'fg'     },
-  SnacksDashboardKey         = { fg = 'red'    },
-  SnacksIndentScope          = { fg = 'fg'     },
-  SnacksPickerMatch          = { fg = 'purple' },
-  SnacksPickerListCursorLine = { bg = 'line'   },
+  SnacksDashboardHeader          = { fg = 'fg'      },
+  SnacksDashboardTitle           = { fg = 'red'     },
+  SnacksDashboardFooter          = { fg = 'fg'      },
+  SnacksDashboardIcon            = { fg = 'fg'      },
+  SnacksDashboardDesc            = { fg = 'fg'      },
+  SnacksDashboardKey             = { fg = 'red'     },
+  SnacksIndentScope              = { fg = 'fg'      },
+  SnacksPickerMatch              = { fg = 'purple'  },
+  SnacksPickerListCursorLine     = { bg = 'line'    },
+  SnacksPickerGitStatusStaged    = { fg = 'green'   },
+  SnacksPickerGitStatusModified  = { fg = 'yellow'  },
+  SnacksPickerGitStatusUntracked = { fg = 'comment' },
 }
 
 M.which_key = {
@@ -65,6 +69,15 @@ M.blink = {
   BlinkCmpLabelDetail     = { fg = 'fg'      },
   BlinkCmpLabelMatch      = { fg = 'purple'  },
   BlinkCmpLabelDeprecated = { fg = 'comment' },
+}
+
+M.git = {
+  GitSignsAdd          = { fg = 'green'     },
+  GitSignsChange       = { fg = 'yellow'    },
+  GitSignsDelete       = { fg = 'red'       },
+  GitSignsStagedAdd    = { fg = 'bg_green'  },
+  GitSignsStagedChange = { fg = 'bg_yellow' },
+  GitSignsStagedDelete = { fg = 'bg_red'    },
 }
 
 M.diagnostic = {

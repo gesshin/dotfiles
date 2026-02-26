@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
     set_highlights(theme, mappings.snacks)
     set_highlights(theme, mappings.which_key)
     set_highlights(theme, mappings.blink)
+    set_highlights(theme, mappings.git)
     set_highlights(theme, mappings.diagnostic)
   end
 })
