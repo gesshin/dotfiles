@@ -65,11 +65,22 @@ return {
       },
     }
 
+    local explorer = {
+      enabled = true,
+      replace_netrw = true,
+      trash = true,
+    }
+
     local indent = {
       enabled = true,
       char = '│',
       scope = { enabled = true },
       animate = { enabled = false },
+    }
+
+    local input = {
+      enabled = true,
+      win = { row = 0.45, },
     }
 
     local lazygit = {
@@ -113,24 +124,24 @@ return {
       },
     }
 
-    local explorer = {
+    local terminal = {
       enabled = true,
-      replace_netrw = true,
-      trash = true,
-    }
-
-    local input = {
-      enabled = true,
-      win = { row = 0.45, },
+      win = {
+        position = 'float',
+        width = 0.8,
+        height = 0.8,
+        border = 'rounded',
+      },
     }
 
     snacks.setup({
       dashboard = dashboard,
+      explorer = explorer,
       indent = indent,
+      input = input,
       lazygit = lazygit,
       picker = picker,
-      explorer = explorer,
-      input = input,
+      terminal = terminal,
     })
   end
 }

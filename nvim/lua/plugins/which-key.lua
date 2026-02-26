@@ -23,6 +23,8 @@ return {
       -- Configs 
       { '<leader>L', icon = { icon = '', hl = 'ThemeFg' } },
       { '<leader>M', icon = { icon = '', hl = 'ThemeFg' } },
+      -- Terminal
+      { '<leader>T', icon = { icon = '', hl = 'ThemeFg' } },
     })
 
     which_key.setup({

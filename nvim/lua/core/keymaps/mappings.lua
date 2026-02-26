@@ -70,6 +70,8 @@ M.vim = {
 
 M.plugin = {
   normal = {
+    -- Terminal
+    ['<leader>T'] = { function() Snacks.terminal.toggle() end, 'Open terminal' },
     -- Configs
     ['<leader>L'] = { ':Lazy<CR>' , 'Open Lazy'  },
     ['<leader>M'] = { ':Mason<CR>', 'Open Mason' },
@@ -81,7 +83,7 @@ M.plugin = {
     ['<leader>ee'] = { function() Snacks.explorer.open() end, 'Toggle explorer' },
     -- Picker
     ['<leader>ff'] = { function() Snacks.picker.files() end  , 'Find files'   },
-    ['<leader>fo'] = { function() Snacks.picker.recent() end , 'Find recents' },
+    ['<leader>fr'] = { function() Snacks.picker.recent() end , 'Find recents' },
     ['<leader>fs'] = { function() Snacks.picker.grep() end   , 'Find string'  },
     -- Git
     ['<leader>gg']  = { function() Snacks.lazygit() end, 'Open lazygit'       },
