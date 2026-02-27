@@ -1,3 +1,4 @@
+-- Automatically reopen the files and windows you had open
 return {
 	"rmagatti/auto-session",
 	commit = "6243753",
@@ -5,13 +6,13 @@ return {
 		local auto_session = require("auto-session")
 
 		auto_session.setup({
-			auto_restore_enabled = false,
-			auto_session_suppress_dirs = {
+			auto_restore = false, -- Enables/disables auto restoring session on start
+			suppressed_dirs = { -- Suppress session restore/create in certain directories
+				"/",
 				"~/",
-				"~/Dev/",
-				"~/Downloads/",
-				"~/Documents/",
-				"~/Desktop/",
+				"~/Downloads",
+				"~/Documents",
+				"~/Desktop",
 			},
 		})
 	end,

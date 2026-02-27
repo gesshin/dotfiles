@@ -1,3 +1,4 @@
+-- UI for messages, command-line prompts and the popup menu
 return {
 	"folke/noice.nvim",
 	tag = "v4.10.0",

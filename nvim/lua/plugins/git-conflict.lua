@@ -1,3 +1,4 @@
+-- Visualize and resolve Git merge conflicts
 return {
 	"akinsho/git-conflict.nvim",
 	tag = "v2.1.0",

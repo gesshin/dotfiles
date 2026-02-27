@@ -1,3 +1,4 @@
+-- Highlights color codes
 return {
 	"catgoose/nvim-colorizer.lua",
 	commit = "ae0d663",
@@ -6,11 +7,11 @@ return {
 		local colorizer = require("colorizer")
 
 		colorizer.setup({
-			filetypes = { "*" },
+			filetypes = { "*" }, -- List of supported filetypes
 			user_default_options = {
-				names = false,
-				RGB = false,
-				RGBA = false,
+				names = false, -- Enables/disables name codes like "Blue" or "red"
+				RGB = false, -- Enables/disables #RGB hexcodes
+				RGBA = false, -- Enables/disables #RGBA hexcodes
 			},
 		})
 	end,

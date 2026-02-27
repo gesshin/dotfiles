@@ -1,3 +1,4 @@
+-- Automatically handles LSP server installation
 return {
 	"mason-org/mason-lspconfig.nvim",
 	tag = "v2.1.0",
@@ -9,7 +10,7 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 
 		mason_lspconfig.setup({
-			ensure_installed = {
+			ensure_installed = { -- List of LSP servers to automatically install
 				"gopls",
 				"jsonls",
 				"lua_ls",

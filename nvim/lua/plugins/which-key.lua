@@ -1,3 +1,4 @@
+-- Keymap cheatsheet
 return {
 	"folke/which-key.nvim",
 	tag = "v3.17.0",
@@ -60,16 +61,24 @@ return {
 		-- stylua: ignore end
 
 		which_key.setup({
-			triggers = {
+			triggers = { -- Set popup menu trigger keymap
 				{ "<leader>", mode = "n" },
 			},
-			plugins = {
+			plugins = { -- Enables/disables keymap plugins
 				marks = false,
 				registers = false,
 				spelling = { enabled = false },
-				presets = { motions = false },
+				presets = {
+					operators = false,
+					motions = false,
+					text_objects = false,
+					windows = false,
+					nav = false,
+					z = false,
+					g = false,
+				},
 			},
-			win = {
+			win = { -- Customize the popup menu
 				width = { min = 35, max = 35 },
 				height = { max = 25 },
 				padding = { 0, 1 },
@@ -79,16 +88,15 @@ return {
 				title = true,
 				title_pos = "center",
 			},
-			layout = {
+			layout = { -- Customize the popup menu columns
 				width = { min = 35, max = 35 },
 			},
-			sort = { "manual" },
-			icons = {
+			sort = { "manual" }, -- Specify the sorting metric for keymaps
+			icons = { -- Customize the popup menu icons
 				separator = "|",
 				mappings = true,
 				rules = false,
 				keys = {
-					C = "Ctrl+",
 					Esc = "󱊷",
 					BS = "󰁮",
 					Space = "󱁐",

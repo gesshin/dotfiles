@@ -1,3 +1,4 @@
+-- Instantly jump to any location on screen using customizable labels
 return {
 	"folke/flash.nvim",
 	tag = "v2.1.0",
@@ -7,10 +8,10 @@ return {
 
 		flash.setup({
 			modes = {
-				search = { enabled = true },
-				char = { enabled = false },
-				treesitter = { enabled = false },
-				treesitter_search = { enabled = false },
+				search = { enabled = true }, -- Enables/disables integration with regular search
+				char = { enabled = false }, -- Enables/disables integration with motions
+				treesitter = { enabled = false }, -- Enables/disables integration with Treesitter
+				treesitter_search = { enabled = false }, -- Enables/disables integration with Treesitter search
 			},
 		})
 	end,

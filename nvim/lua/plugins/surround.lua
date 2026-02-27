@@ -1,3 +1,4 @@
+-- Add, change, and delete surrounding pairs
 return {
 	"kylechui/nvim-surround",
 	tag = "v4.0.2",

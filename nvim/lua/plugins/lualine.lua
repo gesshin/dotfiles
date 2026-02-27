@@ -1,3 +1,4 @@
+-- Statusline
 return {
 	"nvim-lualine/lualine.nvim",
 	commit = "47f91c4",
@@ -45,15 +46,15 @@ return {
 
 		lualine.setup({
 			options = {
-				theme = "auto",
-				component_separators = "|",
-				section_separators = "",
-				globalstatus = true,
-				disabled_filetypes = {
+				theme = "auto", -- Specify colorscheme to use
+				component_separators = "|", -- Customize section component separator
+				section_separators = "", -- Customize section separator
+				globalstatus = true, -- Enables/disables global statusline
+				disabled_filetypes = { -- Disables lualine in certain filetypes
 					statusline = { "snacks_dashboard" },
 				},
 			},
-			sections = {
+			sections = { -- Customize statusline sections
 				lualine_a = { "mode" },
 				lualine_b = { branch, diff, diagnostics },
 				lualine_c = { filename },
@@ -61,7 +62,7 @@ return {
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},
-			inactive_sections = {
+			inactive_sections = { -- Customize statusline inactive sections
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {},

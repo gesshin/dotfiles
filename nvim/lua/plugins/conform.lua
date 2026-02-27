@@ -1,3 +1,4 @@
+-- Manages formatters and automates the process of running external formatters
 return {
 	"stevearc/conform.nvim",
 	tag = "v9.1.0",
@@ -6,7 +7,7 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
-			formatters_by_ft = {
+			formatters_by_ft = { -- Mapping of formatters by filetype
 				go = { "gofumpt" },
 				javascript = { "prettier" },
 				javascriptreact = { "prettier" },
@@ -19,6 +20,7 @@ return {
 			},
 		})
 
+		-- Trigger format on buffer write
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = "*",
 			callback = function(args)

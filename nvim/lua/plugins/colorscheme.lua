@@ -1,3 +1,4 @@
+-- Colorschemes for editors and terminals
 return {
 	-- {
 	--   'Mofiqul/dracula.nvim',

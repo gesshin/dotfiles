@@ -1,3 +1,4 @@
+-- Collection of quality of life plugins
 return {
 	"folke/snacks.nvim",
 	tag = "v2.23.0",
@@ -6,91 +7,59 @@ return {
 		local cmd = vim.cmd
 		local snacks = require("snacks")
 
-		local plugin_count = require("lazy").stats().count
 		local dashboard_title = "TOHA HEAVY INDUSTRIES"
-		local dashboard_footer = "AUTHORITY DOWNLOADED " .. plugin_count .. " INTO BASE REALITY"
+		local dashboard_header = table.concat({
+			"                                                            ",
+			"           ███████████████               ██████████████████ ",
+			"           ███████████████                       ██         ",
+			"           ███████████████               ██████████████████ ",
+			"           ███████████████               ██              ██ ",
+			"           ███████████████               ██████████████████ ",
+			"           ███████████████                   ▄██▀██▀██▄     ",
+			"           ███████████████                 ▄██▀  ██  ▀██▄   ",
+			"           ███████████████               ▄██▀    ██    ▀██▄ ",
+			"           ███████████████                                  ",
+			"           ███████████████               ██████████████████ ",
+			"           ███████████████                    ██    ██      ",
+			"           █████████████████████████     ██████████████████ ",
+			"           █████████████████████████     ██              ██ ",
+			"           █████████████████████████     ██████████████████ ",
+			"           █████████████████████████          ██    ██      ",
+			"           █████████████████████████     ██████████████████ ",
+			"           █████████████████████████                        ",
+			"           █████████████████████████     ▀▀▀▀▀▀▀▀██▀▀▀▀▀▀▀▀ ",
+			"           █████████████████████████     ▀▀▀▀▀▀▀▀██▀▀▀▀▀▀▀▀ ",
+			"           █████████████████████████     ██████████████████ ",
+			"           ███████████████▀▀▀▀▀▀▀▀▀▀     ██              ██ ",
+			"           ███████████████               ██████████████████ ",
+			"          ▗███████████████               ▄▄▄▄▄▄▄▄██▄▄▄▄▄▄▄▄ ",
+			"         ▗████████████████               ▄▄▄▄▄▄▄▄██▄▄▄▄▄▄▄▄ ",
+			"        ▗█████████████████                                  ",
+			"       ▗██████████████████               ██████████████████ ",
+			"      ▗███████████████████                       ██         ",
+			"     ▗████████████████████                       ██         ",
+			"    ▗█████████████████████                       ██         ",
+			"   ▗██████████████████████                       ██         ",
+			"  ▗███████████████████████                       ██         ",
+			" ▗████████████████████████               ██████████████████ ",
+			"                                                            ",
+		}, "\n")
+		local dashboard_footer = "AUTHORITY DOWNLOADED " .. require("lazy").stats().count .. " INTO BASE REALITY"
 
+		-- Startup screen
 		local dashboard = {
 			enabled = true,
+			header = dashboard_header,
 			preset = {
-				header = table.concat({
-					"                                                            ",
-					"           ███████████████               ██████████████████ ",
-					"           ███████████████                       ██         ",
-					"           ███████████████               ██████████████████ ",
-					"           ███████████████               ██              ██ ",
-					"           ███████████████               ██████████████████ ",
-					"           ███████████████                   ▄██▀██▀██▄     ",
-					"           ███████████████                 ▄██▀  ██  ▀██▄   ",
-					"           ███████████████               ▄██▀    ██    ▀██▄ ",
-					"           ███████████████                                  ",
-					"           ███████████████               ██████████████████ ",
-					"           ███████████████                    ██    ██      ",
-					"           █████████████████████████     ██████████████████ ",
-					"           █████████████████████████     ██              ██ ",
-					"           █████████████████████████     ██████████████████ ",
-					"           █████████████████████████          ██    ██      ",
-					"           █████████████████████████     ██████████████████ ",
-					"           █████████████████████████                        ",
-					"           █████████████████████████     ▀▀▀▀▀▀▀▀██▀▀▀▀▀▀▀▀ ",
-					"           █████████████████████████     ▀▀▀▀▀▀▀▀██▀▀▀▀▀▀▀▀ ",
-					"           █████████████████████████     ██████████████████ ",
-					"           ███████████████▀▀▀▀▀▀▀▀▀▀     ██              ██ ",
-					"           ███████████████               ██████████████████ ",
-					"          ▗███████████████               ▄▄▄▄▄▄▄▄██▄▄▄▄▄▄▄▄ ",
-					"         ▗████████████████               ▄▄▄▄▄▄▄▄██▄▄▄▄▄▄▄▄ ",
-					"        ▗█████████████████                                  ",
-					"       ▗██████████████████               ██████████████████ ",
-					"      ▗███████████████████                       ██         ",
-					"     ▗████████████████████                       ██         ",
-					"    ▗█████████████████████                       ██         ",
-					"   ▗██████████████████████                       ██         ",
-					"  ▗███████████████████████                       ██         ",
-					" ▗████████████████████████               ██████████████████ ",
-					"                                                            ",
-				}, "\n"),
+        -- stylua: ignore start
 				keys = {
-					{
-						icon = " ",
-						key = "s",
-						desc = "Continue",
-						action = function()
-							cmd("AutoSession restore")
-						end,
-					},
-					{
-						icon = " ",
-						key = "a",
-						desc = "New",
-						action = function()
-							cmd("enew")
-						end,
-					},
-					{
-						icon = " ",
-						key = "f",
-						desc = "Find",
-						action = function()
-							Snacks.picker.files()
-						end,
-					},
-					{
-						icon = "󰒲 ",
-						key = "l",
-						desc = "Settings",
-						action = function()
-							cmd("Lazy")
-						end,
-					},
-					{
-						icon = "󰜎 ",
-						key = "q",
-						desc = "Quit",
-						action = function()
-							cmd("qa")
-						end,
-					},
+					{ icon = " ", key = "s", desc = "Continue", action = function() cmd("AutoSession restore") end, },
+					{ icon = " ", key = "a", desc = "New", action = function() cmd("enew") end, },
+					{ icon = " ", key = "f", desc = "Find", action = function() Snacks.picker.files() end, },
+					{ icon = "󰒲 ", key = "l", desc = "Settings", action = function() cmd("Lazy") end, },
+					{ icon = "󰜎 ", key = "q", desc = "Quit", action = function() cmd("qa") end, },
 				},
+				-- stylua: ignore end
 			},
 			sections = {
 				{ section = "header" },
@@ -100,12 +69,14 @@ return {
 			},
 		}
 
+		-- File explorer
 		local explorer = {
 			enabled = true,
 			replace_netrw = true,
 			trash = true,
 		}
 
+		-- Indent guides and scopes
 		local indent = {
 			enabled = true,
 			char = "│",
@@ -113,16 +84,19 @@ return {
 			animate = { enabled = false },
 		}
 
+		-- Improved vim.ui.input
 		local input = {
 			enabled = true,
 			win = { row = 0.45 },
 		}
 
+		-- Open Lazygit in a floating window
 		local lazygit = {
 			enabled = true,
 			configure = false,
 		}
 
+		-- Collection of fuzzy finders
 		local picker = {
 			enabled = true,
 			cwd = vim.fn.getcwd(),
@@ -164,6 +138,7 @@ return {
 			},
 		}
 
+		-- Open terminal in a floating/split window
 		local terminal = {
 			enabled = true,
 			win = {

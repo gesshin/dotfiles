@@ -1,3 +1,4 @@
+-- Completion engine with support for LSPs, cmdline, signature help, and snippets
 return {
 	"saghen/blink.cmp",
 	tag = "v1.9.1",
@@ -7,7 +8,7 @@ return {
 		local blink_cmp = require("blink.cmp")
 
 		blink_cmp.setup({
-			keymap = {
+			keymap = { -- Define completion keymaps
 				preset = "none",
 				["<CR>"] = { "accept", "fallback" },
 				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -15,15 +16,15 @@ return {
 				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
 				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
 			},
-			sources = {
+			sources = { -- List of enabled completion providers
 				default = { "lsp", "path", "snippets", "buffer" },
 			},
 			completion = {
-				documentation = {
+				documentation = { -- Customize documentation display
 					auto_show = true,
 					window = { border = "rounded" },
 				},
-				menu = {
+				menu = { -- Customize completion menu
 					border = "rounded",
 					draw = {
 						columns = {

@@ -1,3 +1,4 @@
+-- LSP configuration framework
 return {
 	"neovim/nvim-lspconfig",
 	tag = "v2.6.0",
@@ -9,12 +10,12 @@ return {
 		local diagnostic = vim.diagnostic
 
 		lsp.config("*", {
-			capabilities = blink_cmp.get_lsp_capabilities(),
+			capabilities = blink_cmp.get_lsp_capabilities(), -- Connect LSP with completion engine
 		})
 
 		diagnostic.config({
-			virtual_text = true,
-			signs = {
+			virtual_text = true, -- Enables/disables diagnostic virtual text
+			signs = { -- Customize diagnostic signs
 				text = {
 					[diagnostic.severity.ERROR] = "",
 					[diagnostic.severity.WARN] = "",
