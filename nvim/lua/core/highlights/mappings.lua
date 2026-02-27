@@ -44,7 +44,7 @@ M.flash = {
 	FlashLabel = { fg = "bg", bg = "yellow" },
 	FlashMatch = { fg = "bg", bg = "purple" },
 	CurSearch = { fg = "bg", bg = "red" },
-	IncSearch = { fg = "bg", bg = "purple" },
+	IncSearch = { fg = "bg", bg = "red" },
 	Search = { fg = "bg", bg = "purple" },
 }
 
