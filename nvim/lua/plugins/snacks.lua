@@ -143,6 +143,13 @@ return {
 			},
 		}
 
+		-- Pretty status column
+		local statuscolumn = {
+			enabled = true,
+			left = { "mark", "sign" },
+			right = { "fold", "git" },
+		}
+
 		-- Open terminal in a floating/split window
 		local terminal = {
 			enabled = true,
@@ -161,6 +168,7 @@ return {
 			input = input,
 			lazygit = lazygit,
 			picker = picker,
+			statuscolumn = statuscolumn,
 			terminal = terminal,
 		})
 	end,
