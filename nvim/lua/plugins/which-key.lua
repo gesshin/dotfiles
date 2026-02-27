@@ -47,7 +47,7 @@ return {
 			{ "<leader>bb" },
 			{ "<leader>bx" },
       -- Windows
-			{ "<leader>w", group = "windows", icon = { icon = "", hl = "ThemeComment" } },
+			{ "<leader>w", group = "windows", icon = { icon = "", hl = "ThemeYellow" } },
 			{ "<leader>wv" },
 			{ "<leader>wh" },
 			{ "<leader>we" },
