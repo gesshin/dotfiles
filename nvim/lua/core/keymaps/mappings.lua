@@ -99,8 +99,6 @@ M.plugin = {
 		-- Configs
 		["<leader>L"] = { ":Lazy<CR>", "Open Lazy" },
 		["<leader>M"] = { ":Mason<CR>", "Open Mason" },
-		-- Terminal
-		["<leader>T"] = { function() Snacks.terminal.toggle() end, "Open terminal", },
 	},
 }
 

@@ -150,17 +150,6 @@ return {
 			right = { "fold", "git" },
 		}
 
-		-- Open terminal in a floating/split window
-		local terminal = {
-			enabled = true,
-			win = {
-				position = "float",
-				width = 0.8,
-				height = 0.8,
-				border = "rounded",
-			},
-		}
-
 		snacks.setup({
 			dashboard = dashboard,
 			explorer = explorer,
@@ -169,7 +158,6 @@ return {
 			lazygit = lazygit,
 			picker = picker,
 			statuscolumn = statuscolumn,
-			terminal = terminal,
 		})
 	end,
 }
