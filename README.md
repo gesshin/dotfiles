@@ -70,6 +70,21 @@ These are some snippets for using the plugin managers.
 To easily spin up Tmux sessions, use the `./tmux/dev-template` file to write a script that creates a tmux session for your development environment.
 Add this script to your `$PATH` so you can use the script globally.
 
+## Neovim File Structure
+```
+nvim/
+├── init.lua            # Entry point - sets leader key and loads core modules
+├── after/
+    └── lsp/            # Per-LSP server settings, auto-loaded by lspconfig
+└── lua/
+    ├── core/
+    │   ├── lazy.lua    # Bootstraps lazy.nvim and auto-loads lua/plugins/
+    │   ├── options.lua # Vim options (tabs, search, splits, etc.)
+    │   ├── keymaps/    # Keymap definitions and registration
+    │   └── highlights/ # Custom highlight groups and theme palette mappings
+    └── plugins/        # One file per plugin, auto-discovered by lazy.nvim
+```
+
 ## TODO
 - [x] move to another terminal (either wezterm or kitty)
 - [x] implement a way to switch themes
