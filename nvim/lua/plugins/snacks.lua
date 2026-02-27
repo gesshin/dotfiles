@@ -7,8 +7,7 @@ return {
 		local cmd = vim.cmd
 		local snacks = require("snacks")
 
-		local dashboard_title = "TOHA HEAVY INDUSTRIES"
-		local dashboard_header = table.concat({
+		local dashboard_img = table.concat({
 			"                                                            ",
 			"           ███████████████               ██████████████████ ",
 			"           ███████████████                       ██         ",
@@ -44,13 +43,14 @@ return {
 			" ▗████████████████████████               ██████████████████ ",
 			"                                                            ",
 		}, "\n")
+		local dashboard_title = "TOHA HEAVY INDUSTRIES"
 		local dashboard_footer = "AUTHORITY DOWNLOADED " .. require("lazy").stats().count .. " INTO BASE REALITY"
 
 		-- Startup screen
 		local dashboard = {
 			enabled = true,
-			header = dashboard_header,
 			preset = {
+				header = dashboard_img,
         -- stylua: ignore start
 				keys = {
 					{ icon = " ", key = "s", desc = "Continue", action = function() cmd("AutoSession restore") end, },
@@ -87,7 +87,13 @@ return {
 		-- Improved vim.ui.input
 		local input = {
 			enabled = true,
-			win = { row = 0.45 },
+			icon = "",
+			win = {
+				border = "rounded",
+				width = 62,
+				row = 0.45,
+				col = 0.33,
+			},
 		}
 
 		-- Open Lazygit in a floating window
@@ -99,7 +105,6 @@ return {
 		-- Collection of fuzzy finders
 		local picker = {
 			enabled = true,
-			cwd = vim.fn.getcwd(),
 			formatters = {
 				file = { git_status_hl = false },
 			},

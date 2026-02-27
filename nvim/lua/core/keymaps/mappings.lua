@@ -79,6 +79,7 @@ M.plugin = {
 		["<leader>ff"] = { function() Snacks.picker.files() end, "Find files", },
 		["<leader>fr"] = { function() Snacks.picker.recent() end, "Find recents", },
 		["<leader>fs"] = { function() Snacks.picker.grep() end, "Find string", },
+    ["<leader>fh"] = { function() Snacks.picker.highlights() end, "Find highlight group", },
 		-- Git
 		["<leader>gg"] = { function() Snacks.lazygit() end, "Open lazygit", },
 		["<leader>gv"] = { ":GitConflictListQf<CR>", "List git conflicts" },

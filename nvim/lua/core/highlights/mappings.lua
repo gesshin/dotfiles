@@ -43,6 +43,7 @@ M.flash = {
 	FlashCurrent = { fg = "bg", bg = "purple" },
 	FlashLabel = { fg = "bg", bg = "yellow" },
 	FlashMatch = { fg = "bg", bg = "purple" },
+	CurSearch = { fg = "bg", bg = "red" },
 	IncSearch = { fg = "bg", bg = "purple" },
 	Search = { fg = "bg", bg = "purple" },
 }
@@ -62,6 +63,11 @@ M.git = {
 }
 
 M.noice = {
+	NoiceCmdlineIcon = { fg = "blue" },
+	NoiceCmdlineIconSearch = { fg = "orange" },
+	NoiceCmdlinePopupTitle = { fg = "blue" },
+	NoiceConfirmBorder = { fg = "orange" },
+	NoiceConfirmTitle = { fg = "orange" },
 	NoiceVirtualText = { fg = "comment" },
 }
 
@@ -73,6 +79,9 @@ M.snacks = {
 	SnacksDashboardKey = { fg = "red" },
 	SnacksDashboardTitle = { fg = "red" },
 	SnacksIndentScope = { fg = "fg" },
+	SnacksInputBorder = { fg = "blue" },
+	SnacksInputIcon = { fg = "blue" },
+	SnacksInputTitle = { fg = "blue" },
 	SnacksPickerGitStatusStaged = { fg = "green" },
 	SnacksPickerGitStatusModified = { fg = "yellow" },
 	SnacksPickerGitStatusUntracked = { fg = "comment" },

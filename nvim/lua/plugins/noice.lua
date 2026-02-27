@@ -14,63 +14,42 @@ return {
 			cmdline = {
 				enabled = true,
 				view = "cmdline_popup",
-				format = {
+				format = { -- Customize specific cmdline formats (title, pattern, icon, lang, view)
 					input = { view = "cmdline" },
-					cmdline = {
-						title = "vim",
-						pattern = "^:",
-						icon = "",
-						lang = "vim",
-						view = "cmdline_popup",
-					},
-					filter = {
-						title = "shell",
-						pattern = "^:%s*!",
-						icon = "$",
-						lang = "bash",
-						view = "cmdline_popup",
-					},
-					help = {
-						title = "help",
-						pattern = "^:%s*h%s+",
-						icon = "󰋖",
-						lang = "vim",
-						view = "cmdline_popup",
-					},
-					lua = {
-						title = "lua",
-						pattern = "^:%s*lua%s+",
-						icon = "",
-						lang = "lua",
-						view = "cmdline_popup",
-					},
-					substitute = {
-						title = "substitute",
-						pattern = "^:%s*%%?s/",
-						icon = " 󰓡",
-						lang = "regex",
-						view = "cmdline_popup",
-					},
-					search_down = {
-						title = "search",
-						pattern = "^/",
-						icon = " ",
-						lang = "regex",
-						view = "cmdline",
-					},
-					search_up = {
-						title = "search",
-						pattern = "^%?",
-						icon = " ",
-						lang = "regex",
-						view = "cmdline",
-					},
+					cmdline = { view = "cmdline_popup" },
+					search_up = { view = "cmdline" },
+					search_down = { view = "cmdline" },
+					filter = false,
+					lua = false,
+					help = false,
 				},
 			},
-			lsp = {
+			views = {
+				confirm = { -- Customize the confirm view
+					border = {
+						style = "rounded",
+						text = {
+							top = { { " Confirm ", "NoiceConfirmTitle" } },
+						},
+					},
+					position = { row = "49%", col = "50%" },
+					size = { height = "auto", width = "auto" },
+				},
+				cmdline_popup = { -- Customize the cmdline_popup view
+					border = {
+						style = "rounded",
+						text = {
+							top = { { " Cmdline ", "NoiceCmdlinePopupTitle" } },
+						},
+					},
+					position = { row = "49%", col = "51%" },
+					size = { height = "auto", width = 60 },
+				},
+			},
+			lsp = { -- Customize the views for lsp info
 				progress = { enabled = true, view = "cmdline" },
 			},
-			messages = {
+			messages = { -- Customize the views for messages
 				enabled = true,
 				view = "notify",
 				view_error = "notify",
