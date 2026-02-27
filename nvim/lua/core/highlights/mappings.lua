@@ -15,42 +15,40 @@ M.base = {
 }
 
 M.blink = {
+	BlinkCmpMenu = { bg = "bg" },
+	BlinkCmpMenuSelection = { bg = "line" },
+	BlinkCmpMenuBorder = { fg = "fg" },
 	BlinkCmpDoc = { bg = "bg" },
 	BlinkCmpDocBorder = { fg = "fg" },
 	BlinkCmpLabel = { fg = "fg" },
-	BlinkCmpLabelDeprecated = { fg = "comment" },
-	BlinkCmpLabelDetail = { fg = "fg" },
 	BlinkCmpLabelMatch = { fg = "purple" },
-	BlinkCmpMenu = { bg = "bg" },
-	BlinkCmpMenuBorder = { fg = "fg" },
-	BlinkCmpMenuSelection = { bg = "line" },
-	BlinkCmpScrollBarGutter = { bg = "bg" },
+	BlinkCmpLabelDeprecated = { fg = "comment" },
 	BlinkCmpScrollBarThumb = { bg = "comment" },
 }
 
 M.diagnostic = {
 	DiagnosticSignError = { fg = "red" },
-	DiagnosticSignHint = { fg = "blue" },
-	DiagnosticSignInfo = { fg = "blue" },
 	DiagnosticSignWarn = { fg = "yellow" },
+	DiagnosticSignInfo = { fg = "blue" },
+	DiagnosticSignHint = { fg = "blue" },
 	DiagnosticVirtualTextError = { fg = "red" },
+	DiagnosticVirtualTextWarn = { fg = "yellow" },
 	DiagnosticVirtualTextInfo = { fg = "blue" },
 	DiagnosticVirtualTextHint = { fg = "blue" },
-	DiagnosticVirtualTextWarn = { fg = "yellow" },
 }
 
 M.flash = {
-	FlashCurrent = { fg = "bg", bg = "purple" },
-	FlashLabel = { fg = "bg", bg = "yellow" },
-	FlashMatch = { fg = "bg", bg = "purple" },
-	CurSearch = { fg = "bg", bg = "red" },
-	IncSearch = { fg = "bg", bg = "red" },
 	Search = { fg = "bg", bg = "purple" },
+	IncSearch = { fg = "bg", bg = "red" },
+	CurSearch = { fg = "bg", bg = "red" },
+	FlashCurrent = { fg = "bg", bg = "purple" },
+	FlashMatch = { fg = "bg", bg = "purple" },
+	FlashLabel = { fg = "bg", bg = "yellow" },
 }
 
 M.float = {
-	FloatBorder = { fg = "fg" },
 	NormalFloat = { bg = "bg" },
+	FloatBorder = { fg = "fg" },
 }
 
 M.git = {
@@ -63,41 +61,39 @@ M.git = {
 }
 
 M.noice = {
-	NoiceCmdlineIcon = { fg = "blue" },
+	NoiceCmdlineIconCmdline = { fg = "blue" },
 	NoiceCmdlineIconSearch = { fg = "orange" },
-	NoiceCmdlinePopupTitle = { fg = "blue" },
-	NoiceConfirmBorder = { fg = "orange" },
+	NoiceCmdlinePopupTitleCmdline = { fg = "blue" },
+	NoiceCmdlinePopupBorderCmdline = { fg = "blue" },
 	NoiceConfirmTitle = { fg = "orange" },
+	NoiceConfirmBorder = { fg = "orange" },
 	NoiceVirtualText = { fg = "comment" },
 }
 
 M.snacks = {
-	SnacksDashboardDesc = { fg = "fg" },
-	SnacksDashboardFooter = { fg = "fg" },
 	SnacksDashboardHeader = { fg = "fg" },
-	SnacksDashboardIcon = { fg = "fg" },
-	SnacksDashboardKey = { fg = "red" },
 	SnacksDashboardTitle = { fg = "red" },
+	SnacksDashboardIcon = { fg = "fg" },
+	SnacksDashboardDesc = { fg = "fg" },
+	SnacksDashboardKey = { fg = "red" },
 	SnacksIndentScope = { fg = "fg" },
-	SnacksInputBorder = { fg = "blue" },
 	SnacksInputIcon = { fg = "blue" },
 	SnacksInputTitle = { fg = "blue" },
+	SnacksInputBorder = { fg = "blue" },
+	SnacksPickerListCursorLine = { bg = "line" },
+	SnacksPickerMatch = { fg = "purple" },
 	SnacksPickerGitStatusStaged = { fg = "green" },
 	SnacksPickerGitStatusModified = { fg = "yellow" },
 	SnacksPickerGitStatusUntracked = { fg = "comment" },
-	SnacksPickerListCursorLine = { bg = "line" },
-	SnacksPickerMatch = { fg = "purple" },
 }
 
 M.which_key = {
-	WhichKey = { fg = "purple" },
+	WhichKeyTitle = { fg = "purple" },
 	WhichKeyBorder = { fg = "comment" },
+	WhichKey = { fg = "purple" },
+	WhichKeySeparator = { fg = "comment" },
 	WhichKeyDesc = { fg = "fg" },
 	WhichKeyGroup = { fg = "fg" },
-	WhichKeyIcon = { fg = "purple" },
-	WhichKeyNormal = { fg = "fg" },
-	WhichKeySeparator = { fg = "comment" },
-	WhichKeyTitle = { fg = "purple" },
 }
 
 return M
