@@ -1,45 +1,45 @@
--- |-----------------|------------------|------------------------|
--- | AutoSession     | <C-d>            | delete session         |
--- |-----------------|------------------|------------------------|
--- | Snacks Explorer | a                | create                 |
--- |                 | r                | rename                 |
--- |                 | m                | move                   |
--- |                 | c                | copy                   |
--- |                 | p                | paste                  |
--- |                 | d                | delete                 |
--- |                 | Y                | copy path              |
--- |                 | H                | toggle hidden files    |
--- |                 | I                | toggle ignored files   |
--- |                 | Z                | close all directories  |
--- |                 | l                | open directory         |
--- |                 | h                | close directory        |
--- |                 | <CR>             | open file as buffer    |
--- |                 | <Tab>            | select files           |
--- |                 | <S-Tab>          | unselect files         |
--- |-----------------|------------------|------------------------|
--- | Snacks Picker   | <CR>             | open buffer            |
--- |                 | <C-x>            | close buffer           |
--- |                 | <C-c>            | close picker           |
--- |                 | <C-j>            | next selection         |
--- |                 | <C-k>            | prev selection         |
--- |-----------------|------------------|------------------------|
--- | Blink           | <CR>             | accept suggestion      |
--- |                 | <C-Space>        | open suggestions       |
--- |                 | <C-e>            | close suggestions      |
--- |                 | <Tab>            | next suggestion        |
--- |                 | <S-Tab>          | prev suggestion        |
--- |-----------------|------------------|------------------------|
--- | GitConflict     | co               | choose ours            |
--- |                 | ct               | choose theirs          |
--- |                 | cb               | choose both            |
--- |                 | cd               | choose none            |
--- |                 | ]x               | next conflict          |
--- |                 | [x               | prev conflict          |
--- |-----------------|------------------|------------------------|
--- | NvimSurround    | ys<motion><char> | surround with motion   |
--- |                 | ds<char>         | delete surround        |
--- |                 | cs<char><char>   | change surround        |
--- |-----------------|------------------|------------------------|
+-- |-----------------|------------------|-----------------------|
+-- | AutoSession     | <C-d>            | delete session        |
+-- |-----------------|------------------|-----------------------|
+-- | Blink           | <C-y>            | accept suggestion     |
+-- |                 | <C-Space>        | open suggestions      |
+-- |                 | <C-e>            | close suggestions     |
+-- |                 | <Tab>            | next suggestion       |
+-- |                 | <S-Tab>          | prev suggestion       |
+-- |-----------------|------------------|-----------------------|
+-- | GitConflict     | co               | choose ours           |
+-- |                 | ct               | choose theirs         |
+-- |                 | cb               | choose both           |
+-- |                 | cd               | choose none           |
+-- |                 | ]x               | next conflict         |
+-- |                 | [x               | prev conflict         |
+-- |-----------------|------------------|-----------------------|
+-- | NvimSurround    | ys<motion><char> | surround with motion  |
+-- |                 | ds<char>         | delete surround       |
+-- |                 | cs<char><char>   | change surround       |
+-- |-----------------|------------------|-----------------------|
+-- | Snacks Explorer | a                | create                |
+-- |                 | r                | rename                |
+-- |                 | m                | move                  |
+-- |                 | c                | copy                  |
+-- |                 | p                | paste                 |
+-- |                 | d                | delete                |
+-- |                 | Y                | copy path             |
+-- |                 | H                | toggle hidden files   |
+-- |                 | I                | toggle ignored files  |
+-- |                 | Z                | close all directories |
+-- |                 | l                | open directory        |
+-- |                 | h                | close directory       |
+-- |                 | <CR>             | open file as buffer   |
+-- |                 | <Tab>            | select files          |
+-- |                 | <S-Tab>          | unselect files        |
+-- |-----------------|------------------|-----------------------|
+-- | Snacks Picker   | <CR>             | open buffer           |
+-- |                 | <C-x>            | close buffer          |
+-- |                 | <C-c>            | close picker          |
+-- |                 | <C-j>            | next selection        |
+-- |                 | <C-k>            | prev selection        |
+-- |-----------------|------------------|-----------------------|
 
 local M = {}
 
