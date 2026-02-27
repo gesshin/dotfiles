@@ -4,11 +4,12 @@ return {
 	tag = "v2.23.0",
 	event = "VimEnter",
 	config = function()
-		local cmd = vim.cmd
 		local snacks = require("snacks")
+		local lazy_stats = require("lazy").stats()
+
+		local count = lazy_stats.count
 
 		local dashboard_img = table.concat({
-			"                                                            ",
 			"           ███████████████               ██████████████████ ",
 			"           ███████████████                       ██         ",
 			"           ███████████████               ██████████████████ ",
@@ -41,10 +42,9 @@ return {
 			"   ▗██████████████████████                       ██         ",
 			"  ▗███████████████████████                       ██         ",
 			" ▗████████████████████████               ██████████████████ ",
-			"                                                            ",
 		}, "\n")
 		local dashboard_title = "TOHA HEAVY INDUSTRIES"
-		local dashboard_footer = "AUTHORITY DOWNLOADED " .. require("lazy").stats().count .. " INTO BASE REALITY"
+		local dashboard_footer = "AUTHORITY DOWNLOADED " .. count .. " ENTITIES INTO BASE REALITY"
 
 		-- Startup screen
 		local dashboard = {
@@ -53,19 +53,19 @@ return {
 				header = dashboard_img,
         -- stylua: ignore start
 				keys = {
-					{ icon = " ", key = "s", desc = "Continue", action = function() cmd("AutoSession restore") end, },
-					{ icon = " ", key = "a", desc = "New", action = function() cmd("enew") end, },
-					{ icon = " ", key = "f", desc = "Find", action = function() Snacks.picker.files() end, },
-					{ icon = "󰒲 ", key = "l", desc = "Settings", action = function() cmd("Lazy") end, },
-					{ icon = "󰜎 ", key = "q", desc = "Quit", action = function() cmd("qa") end, },
+					{ icon = " ", key = "s", desc = "Continue", action = ":AutoSession restore" },
+					{ icon = " ", key = "a", desc = "New", action = ":enew" },
+					{ icon = " ", key = "f", desc = "Find", action = function() Snacks.picker.files() end },
+					{ icon = "󰒲 ", key = "l", desc = "Settings", action = ":Lazy" },
+					{ icon = "󰜎 ", key = "q", desc = "Quit", action = ":qa" },
 				},
 				-- stylua: ignore end
 			},
 			sections = {
-				{ section = "header" },
-				{ title = dashboard_title, hl = "SnacksDashboardTitle", align = "center", padding = 1 },
+				{ section = "header", padding = -1 },
+				{ title = dashboard_title, align = "center", padding = 1 },
 				{ section = "keys", gap = 1, padding = 1 },
-				{ title = dashboard_footer, hl = "SnacksDashboardFooter", align = "center", padding = 1 },
+				{ title = dashboard_footer, align = "center", padding = 1 },
 			},
 		}
 
