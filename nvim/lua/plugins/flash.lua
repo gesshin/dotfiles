@@ -9,6 +9,8 @@ return {
 			modes = {
 				search = { enabled = true },
 				char = { enabled = false },
+				treesitter = { enabled = false },
+				treesitter_search = { enabled = false },
 			},
 		})
 	end,
