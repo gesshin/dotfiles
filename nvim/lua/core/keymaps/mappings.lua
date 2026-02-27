@@ -1,5 +1,3 @@
-local M = {}
-
 -- |-----------------|------------------|------------------------|
 -- | Snacks Explorer | a                | create                 |
 -- |                 | r                | rename                 |
@@ -11,17 +9,17 @@ local M = {}
 -- |                 | H                | toggle hidden files    |
 -- |                 | I                | toggle ignored files   |
 -- |                 | Z                | close all directories  |
--- |                 | <Tab>            | select multiple files  |
--- |                 | <CR>             | open file as buffer    |
--- |                 | .                | set cwd                |
 -- |                 | l                | open directory         |
 -- |                 | h                | close directory        |
+-- |                 | <CR>             | open file as buffer    |
+-- |                 | <Tab>            | select files           |
+-- |                 | <S-Tab>          | unselect files         |
 -- |-----------------|------------------|------------------------|
 -- | Snacks Picker   | <CR>             | open buffer            |
--- |                 | <C-j>            | next selection         |
--- |                 | <C-k>            | prev selection         |
 -- |                 | <C-x>            | close buffer           |
 -- |                 | <C-c>            | close picker           |
+-- |                 | <C-j>            | next selection         |
+-- |                 | <C-k>            | prev selection         |
 -- |-----------------|------------------|------------------------|
 -- | Blink           | <CR>             | accept suggestion      |
 -- |                 | <C-Space>        | open suggestions       |
@@ -36,16 +34,13 @@ local M = {}
 -- |                 | ]x               | next conflict          |
 -- |                 | [x               | prev conflict          |
 -- |-----------------|------------------|------------------------|
--- | Surround        | ys<motion><char> | surround with motion   |
--- |                 | ysiw<char>       | surround inner word    |
--- |                 | ys<num>w<char>   | surround <num> words   |
--- |                 | ysap<char>       | surround paragraph     |
--- |                 | yss<char>        | surround line          |
+-- | NvimSurround    | ys<motion><char> | surround with motion   |
 -- |                 | ds<char>         | delete surround        |
 -- |                 | cs<char><char>   | change surround        |
--- |                 | S<char>          | [visual mode] surround |
 -- |-----------------|------------------|------------------------|
---
+
+local M = {}
+
 M.vim = {
 	normal = {
 		["<C-q>"] = { ":wqa<CR>", "Save and quit" },
@@ -69,115 +64,52 @@ M.vim = {
 	},
 }
 
+-- stylua: ignore start
 M.plugin = {
 	normal = {
-		-- Terminal
-		["<leader>T"] = {
-			function()
-				Snacks.terminal.toggle()
-			end,
-			"Open terminal",
-		},
-		-- Configs
-		["<leader>L"] = { ":Lazy<CR>", "Open Lazy" },
-		["<leader>M"] = { ":Mason<CR>", "Open Mason" },
 		-- AutoSession
 		["<leader>ss"] = { ":AutoSession save<CR>", "Save session" },
 		["<leader>sr"] = { ":AutoSession restore<CR>", "Restore session" },
 		["<leader>sf"] = { ":AutoSession search<CR>", "Find session" },
 		-- Explorer
-		["<leader>ee"] = {
-			function()
-				Snacks.explorer.open()
-			end,
-			"Toggle explorer",
-		},
+		["<leader>ee"] = { function() Snacks.explorer.open() end, "Toggle explorer", },
 		-- Picker
-		["<leader>ff"] = {
-			function()
-				Snacks.picker.files()
-			end,
-			"Find files",
-		},
-		["<leader>fr"] = {
-			function()
-				Snacks.picker.recent()
-			end,
-			"Find recents",
-		},
-		["<leader>fs"] = {
-			function()
-				Snacks.picker.grep()
-			end,
-			"Find string",
-		},
+		["<leader>ff"] = { function() Snacks.picker.files() end, "Find files", },
+		["<leader>fr"] = { function() Snacks.picker.recent() end, "Find recents", },
+		["<leader>fs"] = { function() Snacks.picker.grep() end, "Find string", },
 		-- Git
-		["<leader>gg"] = {
-			function()
-				Snacks.lazygit()
-			end,
-			"Open lazygit",
-		},
+		["<leader>gg"] = { function() Snacks.lazygit() end, "Open lazygit", },
 		["<leader>gv"] = { ":GitConflictListQf<CR>", "List git conflicts" },
 		["<leader>gb"] = { ":Gitsigns blame_line<CR>", "Toggle blame line" },
 		["<leader>ghh"] = { ":Gitsigns preview_hunk<CR>", "Preview git hunk" },
+		["<leader>ghr"] = { ":Gitsigns reset_hunk<CR>", "Restore git hunk" },
 		["<leader>ghn"] = { ":Gitsigns next_hunk<CR>", "Next git hunk" },
 		["<leader>ghp"] = { ":Gitsigns prev_hunk<CR>", "Prev git hunk" },
-		["<leader>ghr"] = { ":Gitsigns reset_hunk<CR>", "Restore git hunk" },
 		-- Buffers
-		["<leader>bb"] = {
-			function()
-				Snacks.picker.buffers()
-			end,
-			"Find open buffer",
-		},
-		["<leader>bx"] = {
-			function()
-				Snacks.bufdelete()
-			end,
-			"Close current buffer",
-		},
+		["<leader>bb"] = { function() Snacks.picker.buffers() end, "Find open buffer", },
+		["<leader>bx"] = { function() Snacks.bufdelete() end, "Close current buffer", },
 		-- Windows
 		["<leader>wv"] = { "<C-w>v", "Split window vertically" },
 		["<leader>wh"] = { "<C-w>s", "Split window horizontally" },
 		["<leader>we"] = { "<C-w>=", "Make windows equal size" },
 		["<leader>wx"] = { ":close<CR>", "Close current window" },
+		-- Configs
+		["<leader>L"] = { ":Lazy<CR>", "Open Lazy" },
+		["<leader>M"] = { ":Mason<CR>", "Open Mason" },
+		-- Terminal
+		["<leader>T"] = { function() Snacks.terminal.toggle() end, "Open terminal", },
 	},
 }
 
 M.lsp = {
 	normal = {
-		["<leader>ld"] = {
-			function()
-				Snacks.picker.lsp_definitions()
-			end,
-			"Go to definition",
-		},
-		["<leader>lr"] = {
-			function()
-				Snacks.picker.lsp_references()
-			end,
-			"Go to references",
-		},
-		["<leader>li"] = {
-			function()
-				Snacks.picker.lsp_implementations()
-			end,
-			"Go to implementation",
-		},
-		["<leader>lt"] = {
-			function()
-				Snacks.picker.lsp_type_definitions()
-			end,
-			"Go to type definition",
-		},
-		["<leader>lR"] = {
-			function()
-				vim.lsp.buf.rename()
-			end,
-			"Rename symbol",
-		},
+		["<leader>ld"] = { function() Snacks.picker.lsp_definitions() end, "Go to definition", },
+		["<leader>lr"] = { function() Snacks.picker.lsp_references() end, "Go to references", },
+		["<leader>li"] = { function() Snacks.picker.lsp_implementations() end, "Go to implementation", },
+		["<leader>lt"] = { function() Snacks.picker.lsp_type_definitions() end, "Go to type definition", },
+		["<leader>lR"] = { function() vim.lsp.buf.rename() end, "Rename symbol", },
 	},
 }
+-- stylua: ignore end
 
 return M

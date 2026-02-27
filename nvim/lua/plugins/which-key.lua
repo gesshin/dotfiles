@@ -9,23 +9,55 @@ return {
 	config = function()
 		local which_key = require("which-key")
 
-		which_key.add({
-			-- Root Groups
+    -- stylua: ignore start
+    which_key.add({
+      -- AutoSession
 			{ "<leader>s", group = "sessions", icon = { icon = "", hl = "ThemePink" } },
+			{ "<leader>ss" },
+			{ "<leader>sr" },
+			{ "<leader>sf" },
+      -- Explorer
 			{ "<leader>e", group = "explorer", icon = { icon = "", hl = "ThemeOrange" } },
+			{ "<leader>ee" },
+      -- Picker
 			{ "<leader>f", group = "find", icon = { icon = "", hl = "ThemeGreen" } },
+			{ "<leader>ff" },
+			{ "<leader>fr" },
+			{ "<leader>fs" },
+      -- LSP
 			{ "<leader>l", group = "lsp", icon = { icon = "", hl = "ThemePurple" } },
+			{ "<leader>ld" },
+			{ "<leader>lr" },
+			{ "<leader>li" },
+			{ "<leader>lt" },
+			{ "<leader>lR" },
+      -- Git
 			{ "<leader>g", group = "git", icon = { icon = "󰊢", hl = "ThemeRed" } },
-			{ "<leader>b", group = "buffers", icon = { icon = "󰈔", hl = "ThemeBlue" } },
-			{ "<leader>w", group = "windows", icon = { icon = "", hl = "ThemeComment" } },
-			-- Child Groups
+			{ "<leader>gg" },
+			{ "<leader>gv" },
+			{ "<leader>gb" },
 			{ "<leader>gh", group = "hunk", icon = { icon = "󰊢", hl = "ThemeRed" } },
+			{ "<leader>ghh" },
+			{ "<leader>ghr" },
+			{ "<leader>ghn" },
+			{ "<leader>ghp" },
+      -- Buffers
+			{ "<leader>b", group = "buffers", icon = { icon = "󰈔", hl = "ThemeBlue" } },
+			{ "<leader>bb" },
+			{ "<leader>bx" },
+      -- Windows
+			{ "<leader>w", group = "windows", icon = { icon = "", hl = "ThemeComment" } },
+			{ "<leader>wv" },
+			{ "<leader>wh" },
+			{ "<leader>we" },
+			{ "<leader>wx" },
 			-- Configs
 			{ "<leader>L", icon = { icon = "", hl = "ThemeFg" } },
 			{ "<leader>M", icon = { icon = "", hl = "ThemeFg" } },
 			-- Terminal
 			{ "<leader>T", icon = { icon = "", hl = "ThemeFg" } },
 		})
+		-- stylua: ignore end
 
 		which_key.setup({
 			triggers = {
@@ -38,7 +70,7 @@ return {
 				presets = { motions = false },
 			},
 			win = {
-				width = { min = 45, max = 45 },
+				width = { min = 35, max = 35 },
 				height = { max = 25 },
 				padding = { 0, 1 },
 				col = -1,
@@ -48,7 +80,7 @@ return {
 				title_pos = "center",
 			},
 			layout = {
-				width = { min = 45, max = 45 },
+				width = { min = 35, max = 35 },
 			},
 			sort = { "manual" },
 			icons = {

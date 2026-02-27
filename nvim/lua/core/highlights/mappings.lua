@@ -14,65 +14,42 @@ M.base = {
 	ThemePink = { fg = "pink" },
 }
 
-M.float = {
-	NormalFloat = { bg = "bg" },
-	FloatBorder = { fg = "fg" },
-}
-
-M.bufferline = {
-	BufferLineIndicatorSelected = { fg = "green", bg = "bg" },
-}
-
-M.flash = {
-	Search = { fg = "bg", bg = "purple" },
-	IncSearch = { fg = "bg", bg = "purple" },
-	FlashMatch = { fg = "bg", bg = "purple" },
-	FlashCurrent = { fg = "bg", bg = "purple" },
-	FlashLabel = { fg = "bg", bg = "yellow" },
-}
-
-M.noice = {
-	NoiceVirtualText = { fg = "comment" },
-}
-
-M.snacks = {
-	SnacksDashboardHeader = { fg = "fg" },
-	SnacksDashboardTitle = { fg = "red" },
-	SnacksDashboardFooter = { fg = "fg" },
-	SnacksDashboardIcon = { fg = "fg" },
-	SnacksDashboardDesc = { fg = "fg" },
-	SnacksDashboardKey = { fg = "red" },
-	SnacksIndentScope = { fg = "fg" },
-	SnacksPickerMatch = { fg = "purple" },
-	SnacksPickerListCursorLine = { bg = "line" },
-	SnacksPickerGitStatusStaged = { fg = "green" },
-	SnacksPickerGitStatusModified = { fg = "yellow" },
-	SnacksPickerGitStatusUntracked = { fg = "comment" },
-}
-
-M.which_key = {
-	WhichKeyNormal = { fg = "fg" },
-	WhichKeyTitle = { fg = "purple" },
-	WhichKeyBorder = { fg = "comment" },
-	WhichKey = { fg = "purple" },
-	WhichKeySeparator = { fg = "comment" },
-	WhichKeyIcon = { fg = "purple" },
-	WhichKeyDesc = { fg = "fg" },
-	WhichKeyGroup = { fg = "fg" },
-}
-
 M.blink = {
-	BlinkCmpScrollBarThumb = { bg = "comment" },
-	BlinkCmpScrollBarGutter = { bg = "bg" },
-	BlinkCmpMenu = { bg = "bg" },
-	BlinkCmpMenuBorder = { fg = "fg" },
-	BlinkCmpMenuSelection = { bg = "line" },
 	BlinkCmpDoc = { bg = "bg" },
 	BlinkCmpDocBorder = { fg = "fg" },
 	BlinkCmpLabel = { fg = "fg" },
+	BlinkCmpLabelDeprecated = { fg = "comment" },
 	BlinkCmpLabelDetail = { fg = "fg" },
 	BlinkCmpLabelMatch = { fg = "purple" },
-	BlinkCmpLabelDeprecated = { fg = "comment" },
+	BlinkCmpMenu = { bg = "bg" },
+	BlinkCmpMenuBorder = { fg = "fg" },
+	BlinkCmpMenuSelection = { bg = "line" },
+	BlinkCmpScrollBarGutter = { bg = "bg" },
+	BlinkCmpScrollBarThumb = { bg = "comment" },
+}
+
+M.diagnostic = {
+	DiagnosticSignError = { fg = "red" },
+	DiagnosticSignHint = { fg = "blue" },
+	DiagnosticSignInfo = { fg = "blue" },
+	DiagnosticSignWarn = { fg = "yellow" },
+	DiagnosticVirtualTextError = { fg = "red" },
+	DiagnosticVirtualTextInfo = { fg = "blue" },
+	DiagnosticVirtualTextHint = { fg = "blue" },
+	DiagnosticVirtualTextWarn = { fg = "yellow" },
+}
+
+M.flash = {
+	FlashCurrent = { fg = "bg", bg = "purple" },
+	FlashLabel = { fg = "bg", bg = "yellow" },
+	FlashMatch = { fg = "bg", bg = "purple" },
+	IncSearch = { fg = "bg", bg = "purple" },
+	Search = { fg = "bg", bg = "purple" },
+}
+
+M.float = {
+	FloatBorder = { fg = "fg" },
+	NormalFloat = { bg = "bg" },
 }
 
 M.git = {
@@ -84,15 +61,34 @@ M.git = {
 	GitSignsStagedDelete = { fg = "bg_red" },
 }
 
-M.diagnostic = {
-	DiagnosticSignError = { fg = "red" },
-	DiagnosticSignWarn = { fg = "yellow" },
-	DiagnosticSignInfo = { fg = "blue" },
-	DiagnosticSignHint = { fg = "blue" },
-	DiagnosticVirtualTextError = { fg = "red" },
-	DiagnosticVirtualTextWarn = { fg = "yellow" },
-	DiagnosticVirtualTextInfo = { fg = "blue" },
-	DiagnosticVirtualTextHint = { fg = "blue" },
+M.noice = {
+	NoiceVirtualText = { fg = "comment" },
+}
+
+M.snacks = {
+	SnacksDashboardDesc = { fg = "fg" },
+	SnacksDashboardFooter = { fg = "fg" },
+	SnacksDashboardHeader = { fg = "fg" },
+	SnacksDashboardIcon = { fg = "fg" },
+	SnacksDashboardKey = { fg = "red" },
+	SnacksDashboardTitle = { fg = "red" },
+	SnacksIndentScope = { fg = "fg" },
+	SnacksPickerGitStatusStaged = { fg = "green" },
+	SnacksPickerGitStatusModified = { fg = "yellow" },
+	SnacksPickerGitStatusUntracked = { fg = "comment" },
+	SnacksPickerListCursorLine = { bg = "line" },
+	SnacksPickerMatch = { fg = "purple" },
+}
+
+M.which_key = {
+	WhichKey = { fg = "purple" },
+	WhichKeyBorder = { fg = "comment" },
+	WhichKeyDesc = { fg = "fg" },
+	WhichKeyGroup = { fg = "fg" },
+	WhichKeyIcon = { fg = "purple" },
+	WhichKeyNormal = { fg = "fg" },
+	WhichKeySeparator = { fg = "comment" },
+	WhichKeyTitle = { fg = "purple" },
 }
 
 return M

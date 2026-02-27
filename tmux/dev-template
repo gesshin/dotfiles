@@ -8,16 +8,13 @@ if tmux has-session -t $SESSION_NAME 2>/dev/null; then
   exit 1
 fi
 
-# Session with code window
+# Code window
 tmux new-session -d -s $SESSION_NAME -n code -c $PROJECT_DIR
+tmux send-keys -t $SESSION_NAME:code.0 'vi' Enter
 
 # App window
 tmux new-window -t $SESSION_NAME -n app -c $PROJECT_DIR
 tmux send-keys -t $SESSION_NAME:app.0 'docker-compose up' Enter
-
-# Util window
-tmux new-window -t $SESSION_NAME -n ngrok -c $PROJECT_DIR
-tmux send-keys -t $SESSION_NAME:ngrok.0 'ngrok' Enter
 
 # Set default window to code window
 tmux select-window -t $SESSION_NAME:code
