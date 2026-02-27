@@ -8,11 +8,11 @@ return {
 		local blink_cmp = require("blink.cmp")
 
 		blink_cmp.setup({
-			cmdline = { enabled = false }, -- Enables/disables completion for the cmdline
+			cmdline = { enabled = true }, -- Enables/disables completion for the cmdline
 			keymap = { -- Define completion keymaps
 				preset = "none",
-				["<CR>"] = { "accept", "fallback" },
-				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-y>"] = { "accept", "fallback" },
+				["<C-Space>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
 				["<C-e>"] = { "hide", "fallback" },
 				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
 				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
@@ -26,6 +26,10 @@ return {
 					window = { border = "rounded" },
 				},
 				menu = { -- Customize completion menu
+					cmdline = {
+						["/"] = false,
+						["?"] = false,
+					},
 					border = "rounded",
 					draw = {
 						columns = {
