@@ -85,6 +85,10 @@ nvim/
     └── plugins/        # One file per plugin, auto-discovered by lazy.nvim
 ```
 
+## Neovim LSPs and Mason
+Issues with LSPs can be viewed in the `~/.local/state/nvim/lsp.log` file. When working with ruby and rbenv, Mason will use the global rbenv shim to
+install the LSP.
+
 ## TODO
 - [x] move to another terminal (either wezterm or kitty)
 - [x] implement a way to switch themes
