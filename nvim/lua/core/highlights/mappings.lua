@@ -21,6 +21,7 @@ M.blink = {
 	BlinkCmpDoc = { bg = "bg" },
 	BlinkCmpDocBorder = { fg = "fg" },
 	BlinkCmpLabel = { fg = "fg" },
+	BlinkCmpLabelDetail = { bg = "bg" },
 	BlinkCmpLabelMatch = { fg = "purple" },
 	BlinkCmpLabelDeprecated = { fg = "comment" },
 	BlinkCmpScrollBarThumb = { bg = "comment" },
