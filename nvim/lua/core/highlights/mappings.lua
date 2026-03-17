@@ -53,6 +53,10 @@ M.float = {
 }
 
 M.git = {
+	GitConflictCurrent = { bg = "bg_blue" },
+	GitConflictIncoming = { bg = "bg_green" },
+	GitConflictCurrentLabel = { bg = "bg_blue" },
+	GitConflictIncomingLabel = { bg = "bg_green" },
 	GitSignsAdd = { fg = "green" },
 	GitSignsChange = { fg = "yellow" },
 	GitSignsDelete = { fg = "red" },
