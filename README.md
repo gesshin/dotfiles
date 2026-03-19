@@ -87,7 +87,7 @@ pass github/personal-pat
 ```
 
 ## Git
-Github recommends using SSH to authentication git operations. You also need to add your GPG key to get verified commits.
+Github recommends using SSH for authentication and signing.
 
 Generate an SSH key.
 ```bash
@@ -96,37 +96,28 @@ ssh-keygen -t ed25519 -C "your@email.com"
 Add to ssh-agent.
 ```bash
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
+ssh-add ~/.ssh/id_ed25519_personal
 ```
-Add the public key to GitHub.
+Add the public key to GitHub. Create two keys: authentication and signing.
 ```bash
 pbcopy < ~/.ssh/id_ed25519.pub
+```
+Update git global config to use SSH signing.
+```bash
+git config --global user.signingkey ~/.ssh/id_ed25519_personal.pub
+git config --global gpg.format ssh
 ```
 To persist across reboots, add to `~/.ssh/config`.
 ```bash
 Host github-personal
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_ed25519
+    IdentityFile ~/.ssh/id_ed25519_personal
     AddKeysToAgent yes
 ```
 Test the connection.
 ```bash
 ssh -T github-personal
-```
-(Optional) Get your GPG key ID.
-```bash
-gpg --list-secret-keys --keyid-format LONG
-```
-(Optional) Update git global config to use gpg key and signing.
-```bash
-git config --global user.signingkey ABCD1234EFGH5678
-git config --global commit.gpgsign true
-git config --global gpg.program gpg
-```
-(Optional) Add GPG public key to GitHub.
-```bash
-gpg --export --armor ABCD1234EFGH5678 | pbcopy
 ```
 
 ## Tmux Development Scripts
