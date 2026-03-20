@@ -100,7 +100,7 @@ ssh-add ~/.ssh/id_ed25519_personal
 ```
 Add the public key to GitHub. Create two keys: authentication and signing.
 ```bash
-pbcopy < ~/.ssh/id_ed25519.pub
+pbcopy < ~/.ssh/id_ed25519_personal.pub
 ```
 Update git global config to use SSH signing.
 ```bash
