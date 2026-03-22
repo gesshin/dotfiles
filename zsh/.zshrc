@@ -79,6 +79,20 @@ git_push() {
   fi
 }
 
+# Keybinds
+bindkey -v
+bindkey '^e' autosuggest-accept
+bindkey '^n' history-search-forward
+bindkey '^p' history-search-backward
+
+# Options
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
 # Plugins
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load $XDG_CONFIG_HOME/zsh/.zsh_plugins.txt
