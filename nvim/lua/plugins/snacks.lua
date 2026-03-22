@@ -108,6 +108,10 @@ return {
 			formatters = {
 				file = { git_status_hl = false },
 			},
+			toggles = {
+				hidden = false,
+				ignored = false,
+			},
 			win = {
 				list = {
 					keys = { ["<c-q>"] = false },
@@ -127,6 +131,7 @@ return {
 			},
 			sources = {
 				explorer = {
+					hidden = true,
 					diagnostics = false,
 					layout = { layout = { width = 50, position = "right" } },
 					win = {
@@ -139,6 +144,12 @@ return {
 							},
 						},
 					},
+				},
+				files = {
+					hidden = true,
+				},
+				grep = {
+					hidden = true,
 				},
 			},
 		}
