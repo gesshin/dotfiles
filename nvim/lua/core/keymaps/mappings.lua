@@ -97,6 +97,7 @@ M.plugin = {
 		["<leader>wv"] = { "<C-w>v", "Split window vertically" },
 		["<leader>wh"] = { "<C-w>s", "Split window horizontally" },
 		["<leader>we"] = { "<C-w>=", "Make windows equal size" },
+		["<leader>wm"] = { custom.maximize, "Maximize window" },
 		["<leader>wx"] = { ":close<CR>", "Close current window" },
 		-- Configs
 		["<leader>L"] = { ":Lazy<CR>", "Open Lazy" },
