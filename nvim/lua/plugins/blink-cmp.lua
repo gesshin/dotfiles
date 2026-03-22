@@ -11,9 +11,8 @@ return {
 			cmdline = { enabled = true }, -- Enables/disables completion for the cmdline
 			keymap = { -- Define completion keymaps
 				preset = "none",
-				["<C-y>"] = { "accept", "fallback" },
-				["<C-Space>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
-				["<C-e>"] = { "hide", "fallback" },
+				["<C-e>"] = { "accept", "fallback" },
+				["<C-Space>"] = { "show", "hide", "fallback" },
 				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
 				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
 			},
