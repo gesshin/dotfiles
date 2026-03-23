@@ -8,7 +8,10 @@ return {
 		local blink_cmp = require("blink.cmp")
 
 		blink_cmp.setup({
-			cmdline = { enabled = true }, -- Enables/disables completion for the cmdline
+			cmdline = {
+				enabled = true, -- Enables/disables completion for the cmdline
+				keymap = { preset = "inherit" }, -- Inherits the mappings from the top level keymap
+			},
 			keymap = { -- Define completion keymaps
 				preset = "none",
 				["<C-e>"] = { "accept", "fallback" },
