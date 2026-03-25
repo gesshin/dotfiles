@@ -98,6 +98,7 @@ disabled = false
 format = '$symbol '
 success_symbol = '[](bold green)'
 error_symbol = '[](bold red)'
+vimcmd_symbol = '[](bold green)'
 
 ## Palette Definitions
 [palettes.dracula]

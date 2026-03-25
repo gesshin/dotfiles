@@ -79,11 +79,30 @@ git_push() {
   fi
 }
 
+# Vi Mode
+KEYTIMEOUT=1
+
+function set_cursor_shape() {
+  case $KEYMAP in
+    vicmd)      echo -ne '\e[2 q' ;;  # steady block — normal mode
+    viins|main) echo -ne '\e[6 q' ;;  # steady beam  — insert mode
+  esac
+}
+
+function set_beam_cursor() {
+  echo -ne '\e[6 q'
+}
+
+autoload -Uz add-zle-hook-widget
+add-zle-hook-widget zle-keymap-select set_cursor_shape
+add-zle-hook-widget zle-line-init     set_beam_cursor
+
 # Keybinds
-bindkey -v
-bindkey '^e' autosuggest-accept
-bindkey '^n' history-search-forward
-bindkey '^p' history-search-backward
+bindkey -v                            # Esc - toggle vi mode
+bindkey '^e' autosuggest-accept       # Ctrl+e - accept suggestion
+bindkey '^n' history-search-forward   # Ctrl+n - next history match
+bindkey '^p' history-search-backward  # Ctrl+p - previous history match
+bindkey '^?' backward-delete-char     # Bksp - delete char
 
 # Options
 setopt appendhistory
