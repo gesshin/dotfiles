@@ -1,0 +1,128 @@
+## Prompt Format
+format = """
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$fill\
+$c$java$lua$nodejs$ruby$rust\
+$line_break\
+$character
+"""
+
+## Prompt-Wide Config
+palette = 'everforest' 
+add_newline = false
+
+## Modules Config
+[directory]
+disabled = false
+format = '[$path]($style) '
+style = 'bold blue'
+truncation_length = 10
+
+[git_branch]
+disabled = false
+format = '[on](fg) [$symbol $branch ]($style)'
+style = 'bold purple'
+symbol = ''
+
+[git_status]
+disabled = false
+format = '([\[$all_status$ahead_behind\] ]($style))'
+style = 'bold orange'
+
+untracked = '⋅'
+staged = '+'
+modified = '~'
+renamed = 'r'
+deleted = '×'
+conflicted = '!'
+stashed = '󰏗'
+
+diverged = '<>'
+ahead = '∧'
+behind = '∨'
+up_to_date = '='
+
+[cmd_duration]
+disabled = false
+format = '[$duration ]($style)'
+style = 'bold yellow'
+
+[fill]
+disabled = false
+symbol = ' '
+
+[c]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold #555555'
+symbol = 'c'
+
+[java]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold #f8981d'
+symbol = 'java'
+
+[lua]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold #70c0ff'
+symbol = 'lua'
+
+[nodejs]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold #8cc84b'
+symbol = 'nodejs' 
+
+[ruby]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold #cc342d'
+symbol = 'rb'
+detect_variables = []
+
+[rust]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold #dea584'
+symbol = 'rs'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+format = '$symbol '
+success_symbol = '[](bold green)'
+error_symbol = '[](bold red)'
+
+## Palette Definitions
+[palettes.dracula]
+bg      = '#282a36'
+fg      = '#f8f8f2'
+line    = '#44475a'
+comment = '#6272a4'
+red     = '#ff5555'
+orange  = '#ffb86c'
+yellow  = '#f1fa8c'
+green   = '#50fa7b'
+blue    = '#8be9fd'
+purple  = '#bd93f9'
+pink    = '#ff79c6'
+
+[palettes.everforest]
+bg      = '#2d353b'
+fg      = '#d3c6aa'
+line    = '#343f44'
+comment = '#859289'
+red     = '#e67e80'
+orange  = '#e69875'
+yellow  = '#dbbc7f'
+green   = '#a7c080'
+blue    = '#7fbbb3'
+purple  = '#d699b6'
+pink    = '#83c092'

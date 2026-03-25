@@ -1,0 +1,9 @@
+# Sets the target stow directory 
+--target=~/.config
+
+# Ignore these files when generating symlinks
+--ignore=.stowrc
+--ignore=.gitignore
+--ignore=.DS_Store
+--ignore=README.md
+--ignore=setup.sh

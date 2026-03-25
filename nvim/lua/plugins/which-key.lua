@@ -1,0 +1,64 @@
+return {
+  'folke/which-key.nvim',
+  event = { 'VeryLazy' },
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 400
+  end,
+  config = function()
+    local which_key = require('which-key')
+
+    which_key.add({
+      -- Root Groups
+      { '<leader>s', group = 'sessions', icon = { icon = '', hl = 'ThemePink'    } },
+      { '<leader>e', group = 'explorer', icon = { icon = '', hl = 'ThemeOrange'  } },
+      { '<leader>f', group = 'find'    , icon = { icon = '', hl = 'ThemeGreen'   } },
+      { '<leader>l', group = 'lsp'     , icon = { icon = '', hl = 'ThemePurple'  } },
+      { '<leader>g', group = 'git'     , icon = { icon = '󰊢', hl = 'ThemeRed'     } },
+      { '<leader>b', group = 'buffers' , icon = { icon = '󰈔', hl = 'ThemeBlue'    } },
+      { '<leader>w', group = 'windows' , icon = { icon = '', hl = 'ThemeComment' } },
+      -- Child Groups
+      { '<leader>gh', group = 'hunk', icon = { icon = '󰊢', hl = 'ThemeRed' } },
+      -- Configs 
+      { '<leader>L', icon = { icon = '', hl = 'ThemeFg' } },
+      { '<leader>M', icon = { icon = '', hl = 'ThemeFg' } },
+    })
+
+    which_key.setup({
+      triggers = {
+        { '<leader>', mode = 'n' }
+      },
+      plugins = {
+        marks = false,
+        registers = false,
+        spelling = { enabled = false },
+        presets = { motions = false }
+      },
+      win = {
+        width = { min = 45, max = 45 },
+        height = { max = 25 },
+        padding = { 0, 1 },
+        col = -1,
+        row = -1,
+        border = 'rounded',
+        title = true,
+        title_pos = 'center'
+      },
+      layout = {
+        width = { min = 45, max = 45 }
+      },
+      sort = { 'manual' },
+      icons = {
+        separator = '|',
+        mappings = true,
+        rules = false,
+        keys = {
+          C = 'Ctrl+',
+          Esc = '󱊷',
+          BS = '󰁮',
+          Space = '󱁐'
+        }
+      }
+    })
+  end
+}
