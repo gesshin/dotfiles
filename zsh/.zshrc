@@ -57,7 +57,7 @@ theme() {
 
   sed -i '' "s|export GLOBAL_THEME=\".*\"|export GLOBAL_THEME=\"$name\"|" "$XDG_CONFIG_HOME/zsh/.zshenv"
   sed -i '' "s|themes/[^.]*\.conf|themes/$name.conf|" "$XDG_CONFIG_HOME/tmux/tmux.conf"
-  sed -i '' "s|themes\['[^']*'\]|themes['$name']|" "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
+  sed -i '' 's|themes\["[^"]*"\]|themes["'"$name"'"]|' "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
   sed -i '' "s|palette = '[^']*'|palette = '$name'|" "$XDG_CONFIG_HOME/starship/starship.toml"
 
   source "$XDG_CONFIG_HOME/zsh/.zshenv"
