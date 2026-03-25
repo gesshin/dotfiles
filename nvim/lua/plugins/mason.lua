@@ -1,9 +1,10 @@
+-- Package manager for LSP servers, DAP servers, Linters, and Formatters
 return {
-  'mason-org/mason.nvim',
-  tag = 'v2.0.0',
-  config = function()
-    local mason = require('mason')
+	"mason-org/mason.nvim",
+	tag = "v2.2.1",
+	config = function()
+		local mason = require("mason")
 
-    mason.setup()
-  end
+		mason.setup()
+	end,
 }

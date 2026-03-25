@@ -1,15 +1,14 @@
+-- Automatically close pairs like (), [], {}, '', and "" with support for Treesitter and completion engines
 return {
-  'windwp/nvim-autopairs',
-  commit = '7a2c97c',
-  event = { 'InsertEnter' },
-  config = function()
-    local nvim_autopairs = require('nvim-autopairs')
+	"windwp/nvim-autopairs",
+	commit = "59bce2e",
+	event = "InsertEnter",
+	config = function()
+		local nvim_autopairs = require("nvim-autopairs")
 
-    nvim_autopairs.setup({
-      check_ts = true,
-      map_cr = true,
-      map_complete = true,
-      disable_filetype = { 'TelescopePrompt', 'vim' }
-    })
-  end
+		nvim_autopairs.setup({
+			disable_filetype = { "snacks_picker_input", "vim" }, -- Disable autopairing in certain filetypes
+			check_ts = true, -- Enables/disables smart pair insertion with Treesitter
+		})
+	end,
 }

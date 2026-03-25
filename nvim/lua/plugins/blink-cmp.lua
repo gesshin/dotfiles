@@ -1,32 +1,44 @@
+-- Completion engine with support for LSPs, cmdline, signature help, and snippets
 return {
-  'saghen/blink.cmp',
-  tag = 'v1.9.1',
-  dependencies = 'rafamadriz/friendly-snippets',
-  event = { 'InsertEnter' },
-  config = function()
-    local blink_cmp = require('blink.cmp')
+	"saghen/blink.cmp",
+	tag = "v1.9.1",
+	dependencies = "rafamadriz/friendly-snippets",
+	event = "InsertEnter",
+	config = function()
+		local blink_cmp = require("blink.cmp")
 
-    blink_cmp.setup({
-      keymap = {
-        preset = 'none',
-        ['<C-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-        ['<CR>']      = { 'accept', 'fallback' },
-        ['<C-e>']     = { 'hide', 'fallback' },
-        ['<Tab>']     = { 'select_next', 'snippet_forward', 'fallback' },
-        ['<S-Tab>']   = { 'select_prev', 'snippet_backward', 'fallback' },
-      },
-      sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
-      },
-      completion = {
-        documentation = {
-          auto_show = true,
-          window = { border = 'rounded' },
-        },
-        menu = {
-          border = 'rounded',
-        },
-      },
-    })
-  end
+		blink_cmp.setup({
+			cmdline = { enabled = true }, -- Enables/disables completion for the cmdline
+			keymap = { -- Define completion keymaps
+				preset = "none",
+				["<C-y>"] = { "accept", "fallback" },
+				["<C-Space>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
+				["<C-e>"] = { "hide", "fallback" },
+				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+			},
+			sources = { -- List of enabled completion providers
+				default = { "lsp", "path", "snippets", "buffer" },
+			},
+			completion = {
+				documentation = { -- Customize documentation display
+					auto_show = true,
+					window = { border = "rounded" },
+				},
+				menu = { -- Customize completion menu
+					cmdline = {
+						["/"] = false,
+						["?"] = false,
+					},
+					border = "rounded",
+					draw = {
+						columns = {
+							{ "label" },
+							{ "kind_icon", "kind", gap = 1 },
+						},
+					},
+				},
+			},
+		})
+	end,
 }
