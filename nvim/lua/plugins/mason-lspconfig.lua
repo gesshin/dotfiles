@@ -11,11 +11,8 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = { -- List of LSP servers to automatically install
-				"gopls",
 				"jsonls",
 				"lua_ls",
-				"pyright",
-				"ts_ls",
 				"yamlls",
 			},
 		})

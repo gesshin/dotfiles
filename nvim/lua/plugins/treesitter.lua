@@ -11,23 +11,17 @@ return {
 		nvim_treesitter.setup({
 			highlight = { enable = true }, -- Enables/disables highlights
 			indent = { enable = true }, -- Enables/disables indendation
-			autotag = { enable = true }, -- Enables/disables auto tagging
+			autotag = { enable = false }, -- Enables/disables auto tagging
 			ensure_installed = { -- List of parsers to automatically install
 				"bash",
 				"comment",
 				"diff",
-				"dockerfile",
-				"html",
-				"javascript",
 				"json",
-				"go",
 				"lua",
 				"markdown",
 				"markdown_inline",
-				"python",
 				"regex",
-				"tsx",
-				"typescript",
+				"toml",
 				"vim",
 				"yaml",
 			},

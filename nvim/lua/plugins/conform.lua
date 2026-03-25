@@ -8,14 +8,8 @@ return {
 
 		conform.setup({
 			formatters_by_ft = { -- Mapping of formatters by filetype
-				go = { "gofumpt" },
-				javascript = { "prettier" },
-				javascriptreact = { "prettier" },
 				json = { "prettier" },
 				lua = { "stylua" },
-				python = { "black" },
-				typescript = { "prettier" },
-				typescriptreact = { "prettier" },
 				yaml = { "prettier" },
 			},
 		})
