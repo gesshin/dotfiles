@@ -11,6 +11,7 @@ opt.signcolumn = "yes" -- enable sign column so text doesn't shift
 -- Line Numbering
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- show absolute line number on current line
+opt.signcolumn = "auto:3"
 
 -- Tabs & Indentations
 opt.tabstop = 2 -- 2 spaces for tabs
