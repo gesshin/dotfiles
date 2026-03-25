@@ -45,9 +45,14 @@ These are the config files for my MacOS workspace.
    ```
 
 ## Switching Themes
-Supported themes: `dracula` `everforest`
+Supported themes: `dracula` `everforest` `gruvbox-material`
 
-Manually change the theme in `.zshrc` `wezterm.lua` `starship.toml` `tmux.conf`.
+Change themes using
+```bash
+theme [everforest|gruvbox-material]
+```
+
+Restart neovim to refresh the theme.
 
 ## Plugin Managers
 These are some snippets for using the plugin managers.
@@ -68,6 +73,3 @@ Add this script to your `$PATH` so you can use the script globally.
 ## TODO
 - [x] move to another terminal (either wezterm or kitty)
 - [x] implement a way to switch themes
-- [ ] change dracula into a light theme
-- [ ] find a way to set lualine theme using highlights/mappings.lua
-- [ ] figure out how to configure `bat` and `fzf` themes

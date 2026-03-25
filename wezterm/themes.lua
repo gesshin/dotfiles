@@ -20,4 +20,14 @@ M.everforest = {
   brights       = { '#859289', '#e67e80', '#a7c080', '#dbbc7f', '#7fbbb3', '#d699b6', '#83c092', '#dfddc8' },
 }
 
+M['gruvbox-material'] = {
+  background    = '#282828',
+  foreground    = '#d4be98',
+  cursor_bg     = '#d4be98',
+  cursor_fg     = '#282828',
+  cursor_border = '#d4be98',
+  ansi          = { '#3c3836', '#ea6962', '#a9b665', '#d8a657', '#7daea3', '#d3869b', '#89b482', '#d4be98' },
+  brights       = { '#928374', '#ea6962', '#a9b665', '#d8a657', '#7daea3', '#d3869b', '#89b482', '#ddc7a1' },
+}
+
 return M

@@ -4,7 +4,7 @@ alias ls="lsd"
 alias cat="bat"
 alias vi="nvim"
 
-alias srczsh="source $HOME/.zshenv && source $HOME/.zshrc"
+alias sz="source $HOME/.zshenv && source $HOME/.zshrc"
 alias e="vi $XDG_CONFIG_HOME/zsh/.zshrc"
 alias c="clear"
 
@@ -47,23 +47,23 @@ alias dca="docker compose attach"
 
 # Functions
 theme() {
-  local VALID_THEMES=("dracula" "everforest")
+  local VALID_NAMES=("everforest" "gruvbox-material")
+  local name=$1
 
-  if [[ -z "$1" || ! " ${VALID_THEMES[@]} " =~ " $1 " ]]; then
-    echo "Usage: theme [dracula|everforest]"
+  if [[ -z $name || ! " ${VALID_NAMES[@]} " =~ " $name " ]]; then
+    echo "Usage: theme [everforest|gruvbox-material]"
     return 1
   fi
 
-  sed -i '' "s/export GLOBAL_THEME=\".*\"/export GLOBAL_THEME=\"$1\"/" "$XDG_CONFIG_HOME/zsh/.zshenv"
-  sed -i '' "s|themes/[^.]*\.conf|themes/$1.conf|" "$XDG_CONFIG_HOME/tmux/tmux.conf"
-  sed -i '' "s/themes\['[^']*'\]/themes['$1']/" "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
-  sed -i '' "s/palette = '[^']*'/palette = '$1'/" "$XDG_CONFIG_HOME/starship/starship.toml"
+  sed -i '' "s|export GLOBAL_THEME=\".*\"|export GLOBAL_THEME=\"$name\"|" "$XDG_CONFIG_HOME/zsh/.zshenv"
+  sed -i '' "s|themes/[^.]*\.conf|themes/$name.conf|" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+  sed -i '' "s|themes\['[^']*'\]|themes['$name']|" "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
+  sed -i '' "s|palette = '[^']*'|palette = '$name'|" "$XDG_CONFIG_HOME/starship/starship.toml"
 
   source "$XDG_CONFIG_HOME/zsh/.zshenv"
   tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf" 2>/dev/null
 
-  echo "Theme switched to $1"
-  echo "Note: restart nvim to apply"
+  echo "Theme switched to $name"
 }
 
 git_push() {

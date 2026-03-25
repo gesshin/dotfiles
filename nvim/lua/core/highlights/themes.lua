@@ -28,4 +28,18 @@ M.everforest = {
   pink    = '#83c092',
 }
 
+M['gruvbox-material'] = {
+  bg      = '#282828',
+  fg      = '#d4be98',
+  line    = '#32302f',
+  comment = '#928374',
+  red     = '#ea6962',
+  orange  = '#e78a4e',
+  yellow  = '#d8a657',
+  green   = '#a9b665',
+  blue    = '#7daea3',
+  purple  = '#d3869b',
+  pink    = '#89b482',
+}
+
 return M
