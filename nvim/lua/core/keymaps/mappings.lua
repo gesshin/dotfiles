@@ -1,9 +1,8 @@
 -- |-----------------|------------------|-----------------------|
 -- | AutoSession     | <C-d>            | delete session        |
 -- |-----------------|------------------|-----------------------|
--- | Blink           | <C-y>            | accept suggestion     |
--- |                 | <C-Space>        | open suggestions      |
--- |                 | <C-e>            | close suggestions     |
+-- | Blink           | <C-e>            | accept suggestion     |
+-- |                 | <C-Space>        | open/close suggestion |
 -- |                 | <Tab>            | next suggestion       |
 -- |                 | <S-Tab>          | prev suggestion       |
 -- |-----------------|------------------|-----------------------|
