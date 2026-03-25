@@ -1,7 +1,18 @@
 #!/bin/bash
 
-SESSION_NAME=""
-PROJECT_DIR=""
+if [ "$#" -ne 1 ]; then
+  echo "Usage: dev <directory-name>"
+  exit 1
+fi
+
+PROJECT_DIR="$HOME/Desktop/$1"
+
+if [ ! -d "$PROJECT_DIR" ]; then
+  echo "Error: '$PROJECT_DIR' is not a valid directory"
+  exit 1
+fi
+
+SESSION_NAME="dev-$1"
 
 if tmux has-session -t $SESSION_NAME 2>/dev/null; then
   tmux switch-client -t $SESSION_NAME
@@ -11,6 +22,14 @@ fi
 # Code window
 tmux new-session -d -s $SESSION_NAME -n code -c $PROJECT_DIR
 tmux send-keys -t $SESSION_NAME:code.0 'vi' Enter
+
+# Agent window
+tmux new-window -t $SESSION_NAME -n ai -c $PROJECT_DIR
+tmux send-keys -t $SESSION_NAME:ai.0 'claude' Enter
+
+# Test window
+tmux new-window -t $SESSION_NAME -n test -c $PROJECT_DIR
+tmux send-keys -t $SESSION_NAME:test.0 'guard' Enter
 
 # App window
 tmux new-window -t $SESSION_NAME -n app -c $PROJECT_DIR
