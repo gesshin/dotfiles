@@ -30,20 +30,6 @@ return {
 			path = 1,
 		}
 
-		local encoding = {
-			"encoding",
-			fmt = function()
-				return vim.bo.fileencoding:upper()
-			end,
-		}
-
-		local fileformat = {
-			"fileformat",
-			fmt = function()
-				return vim.bo.fileformat:upper()
-			end,
-		}
-
 		lualine.setup({
 			options = {
 				theme = "auto", -- Specify colorscheme to use
@@ -58,7 +44,7 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { branch, diff, diagnostics },
 				lualine_c = { filename },
-				lualine_x = { encoding, fileformat, "filetype" },
+				lualine_x = { "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},
