@@ -49,7 +49,7 @@ M.flash = {
 
 M.float = {
 	NormalFloat = { bg = "bg" },
-  FloatTitle = { fg = "orange", bg = "bg" },
+	FloatTitle = { fg = "orange", bg = "bg" },
 	FloatBorder = { fg = "fg" },
 }
 
