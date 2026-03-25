@@ -16,8 +16,10 @@ return {
 				preset = "none",
 				["<C-e>"] = { "accept", "fallback" },
 				["<C-Space>"] = { "show", "hide", "fallback" },
-				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<Tab>"] = { "snippet_forward", "fallback" },
+				["<S-Tab>"] = { "snippet_backward", "fallback" },
 			},
 			sources = { -- List of enabled completion providers
 				default = { "lsp", "path", "snippets", "buffer" },

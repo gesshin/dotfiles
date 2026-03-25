@@ -113,8 +113,16 @@ return {
 				ignored = false,
 			},
 			win = {
-				list = {
-					keys = { ["<c-q>"] = false },
+				input = {
+					keys = {
+						["<CR>"] = { "confirm", mode = { "i" } },
+						["<C-v>"] = { "edit_vsplit", mode = { "i" } },
+						["<C-h>"] = { "edit_split", mode = { "i" } },
+						["<Tab>"] = { "select_and_next", mode = { "i" } },
+						["<S-Tab>"] = { "select_and_prev", mode = { "i" } },
+						["<C-j>"] = { "list_down", mode = { "i" } },
+						["<C-k>"] = { "list_up", mode = { "i" } },
+					},
 				},
 			},
 			icons = {
