@@ -7,7 +7,7 @@ These are the config files for my MacOS workspace.
 - **Shell:** zsh + antidote
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
-- **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit` `pass`
+- **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit` `fd` `pass` `gnupg`
 
 ## Installation
 Install homebrew.
@@ -147,3 +147,7 @@ install the LSP.
 ## TODO
 - [x] move to another terminal (either wezterm or kitty)
 - [x] implement a way to switch themes
+- [ ] create different branches for different code environments i.e. rails, go, etc.
+- [ ] fix diagnostic hint highlight in lualine
+- [ ] file tree overhaul
+- [ ] add claude prompt files
