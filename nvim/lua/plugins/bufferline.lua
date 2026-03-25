@@ -1,5 +1,6 @@
 return {
   'akinsho/bufferline.nvim',
+  tag = 'v4.9.1',
   dependencies = 'nvim-tree/nvim-web-devicons',
   event = { 'VeryLazy' },
   init = function()
@@ -11,6 +12,7 @@ return {
     bufferline.setup({
       options = {
         mode = 'buffers',
+        style_preset = bufferline.style_preset.no_italic,
         always_show_bufferline = true,
         separator_style = { '', '' },
         tab_size = 25,
@@ -26,7 +28,8 @@ return {
             highlight = 'Directory',
             text_align = 'center'
           }
-        }
+        },
+        sort_by = 'directory'
       }
     })
   end

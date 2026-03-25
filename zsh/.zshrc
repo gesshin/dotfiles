@@ -1,22 +1,10 @@
-# Environment Variables
-export TERM="xterm-256color"
-export XDG_CONFIG_HOME="$HOME/.config"
-export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-
-# Theme
-export GLOBAL_THEME="everforest"
-sed -i '' "s/palette = '.*'/palette = '${GLOBAL_THEME}'/g" $XDG_CONFIG_HOME/starship/starship.toml
-tmux source-file $XDG_CONFIG_HOME/tmux/themes/$GLOBAL_THEME.conf
-
 # Aliases
 alias cd="z"
 alias ls="lsd"
 alias cat="bat"
-alias gh="lazygit"
 alias vi="nvim"
 
-alias zsh="source $HOME/.zshrc"
+alias srczsh="source $HOME/.zshenv && source $HOME/.zshrc"
 alias e="vi $XDG_CONFIG_HOME/zsh/.zshrc"
 alias c="clear"
 
@@ -33,11 +21,17 @@ alias gr="git restore"
 alias grs="git restore --staged"
 alias gcm="git commit -m"
 alias gd="git diff"
+alias gbl="git branch -l"
+alias gbD="git branch -D"
+alias gbm="git branch -m"
 alias gco="git checkout"
-alias gph="git push"
-alias gpl="git pull"
+alias gcob="git checkout -b"
 alias gf="git fetch"
+alias gph="git_push"
+alias gphf="git push --force-with-lease origin HEAD"
+alias gpl="git pull"
 alias gm="git merge"
+alias grb="git rebase"
 
 alias tn="tmux new-session -s"
 alias ta="tmux attach -t"
@@ -45,10 +39,51 @@ alias td="tmux detach"
 alias tl="tmux ls"
 alias tx="tmux kill-session -t"
 
+alias dcu="docker compose up"
+alias dcd="docker compose down"
+alias dcb="docker compose build"
+alias dce="docker compose exec"
+alias dca="docker compose attach"
+
+# Functions
+theme() {
+  local VALID_THEMES=("dracula" "everforest")
+
+  if [[ -z "$1" || ! " ${VALID_THEMES[@]} " =~ " $1 " ]]; then
+    echo "Usage: theme [dracula|everforest]"
+    return 1
+  fi
+
+  sed -i '' "s/export GLOBAL_THEME=\".*\"/export GLOBAL_THEME=\"$1\"/" "$XDG_CONFIG_HOME/zsh/.zshenv"
+  sed -i '' "s|themes/[^.]*\.conf|themes/$1.conf|" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+  sed -i '' "s/themes\['[^']*'\]/themes['$1']/" "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
+  sed -i '' "s/palette = '[^']*'/palette = '$1'/" "$XDG_CONFIG_HOME/starship/starship.toml"
+
+  source "$XDG_CONFIG_HOME/zsh/.zshenv"
+  tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf" 2>/dev/null
+
+  echo "Theme switched to $1"
+  echo "Note: restart nvim to apply"
+}
+
+git_push() {
+  if [[ $# -gt 1 ]]; then
+    echo "Usage: gph [branch]"
+    return 1
+  fi
+
+  if [[ $# -eq 0 ]]; then
+    git push
+  else
+    git push --set-upstream origin "$1"
+  fi
+}
+
 # Plugins
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load $XDG_CONFIG_HOME/zsh/.zsh_plugins.txt
 
 # Start-up Programs
+[ -z "$TMUX" ] && tmux new-session -A -s main
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"

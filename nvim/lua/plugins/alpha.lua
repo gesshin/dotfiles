@@ -1,5 +1,6 @@
 return {
   'goolord/alpha-nvim',
+  commit = '3979b01',
   event = { 'VimEnter' },
   config = function()
     local lazy = require('lazy')
@@ -103,7 +104,7 @@ return {
     local buttons = {
       type = 'group',
       val = {
-        button('s', '  Continue', ':SessionRestore<CR>'      ),
+        button('s', '  Continue', ':AutoSession restore<CR>' ),
         button('a', '  New'     , ':enew<CR>'                ),
         button('e', '  Explorer', ':NvimTreeToggle<CR>'      ),
         button('f', '  Find'    , ':Telescope find_files<CR>'),

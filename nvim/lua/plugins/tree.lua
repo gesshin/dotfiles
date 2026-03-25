@@ -1,5 +1,6 @@
 return {
   'nvim-tree/nvim-tree.lua',
+  tag = 'v1.12.0',
   dependencies = 'nvim-tree/nvim-web-devicons',
   event = { 'VeryLazy' },
   init = function()
@@ -11,7 +12,8 @@ return {
 
     nvim_tree.setup({
       view = {
-        width = 45,
+        side = 'right',
+        width = 60,
         relativenumber = true
       },
       renderer = {

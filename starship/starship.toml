@@ -5,13 +5,13 @@ $git_branch\
 $git_status\
 $cmd_duration\
 $fill\
-$c$java$lua$nodejs$ruby$rust\
+$golang$java$lua$nodejs$python$ruby\
 $line_break\
 $character
 """
 
 ## Prompt-Wide Config
-palette = 'everforest' 
+palette = 'everforest'
 add_newline = false
 
 ## Modules Config
@@ -29,7 +29,7 @@ symbol = ''
 
 [git_status]
 disabled = false
-format = '([\[$all_status$ahead_behind\] ]($style))'
+format = '([(\[$conflicted$deleted$renamed$modified$typechanged$staged$untracked$ahead_behind\] )($stashed )]($style))'
 style = 'bold orange'
 
 untracked = '⋅'
@@ -54,11 +54,11 @@ style = 'bold yellow'
 disabled = false
 symbol = ' '
 
-[c]
+[golang]
 disabled = false
 format = '[$symbol $version ]($style)'
-style = 'bold #555555'
-symbol = 'c'
+style = 'bold #5dc9e2'
+symbol = 'go'
 
 [java]
 disabled = false
@@ -78,18 +78,18 @@ format = '[$symbol $version ]($style)'
 style = 'bold #8cc84b'
 symbol = 'nodejs' 
 
+[python]
+disabled = false
+format = '[$symbol $version ]($style)'
+style = 'bold #ffd43b'
+symbol = 'py'
+
 [ruby]
 disabled = false
 format = '[$symbol $version ]($style)'
 style = 'bold #cc342d'
 symbol = 'rb'
 detect_variables = []
-
-[rust]
-disabled = false
-format = '[$symbol $version ]($style)'
-style = 'bold #dea584'
-symbol = 'rs'
 
 [line_break]
 disabled = false

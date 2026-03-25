@@ -3,16 +3,24 @@ These are the config files for my MacOS workspace.
 
 ## Applications/Packages
 - **Package Manager:** homebrew
-- **Terminal:** iterm2
+- **Terminal:** wezterm
 - **Shell:** zsh + antidote
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
 - **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit`
 
 ## Installation
+1. Install homebrew
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+2. Install git
+   ```bash
+   brew install git
+   ```
 1. Clone repo
    ```bash
-   git clone git@github:RyanEweSeng/dotfiles.git
+   git clone git@github.com:RyanEweSeng/dotfiles.git
    ```
 2. Navigate to repo
    ```bash
@@ -26,12 +34,20 @@ These are the config files for my MacOS workspace.
    ```bash
    stow .
    ```
+5. Restart WezTerm and reload its config
+   ```bash
+   Crtl + Shift + R
+   ```
+6. Reload tmux and install tmux plugins
+   ```bash
+   Crtl + a -> I
+   Crtl + a -> R
+   ```
 
 ## Switching Themes
 Supported themes: `dracula` `everforest`
-1. Import the themes from the `iterm2` directory
-2. Update `GLOBAL_THEME` in `.zshrc`
-3. Source `~/.zshrc`
+
+Manually change the theme in `.zshrc` `wezterm.lua` `starship.toml` `tmux.conf`.
 
 ## Plugin Managers
 These are some snippets for using the plugin managers.
@@ -40,12 +56,18 @@ These are some snippets for using the plugin managers.
   ```bash
   antidote bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.zsh
   ```
-- When there are issues with tmux pliugins, delete all folders in `~/.tmux/plugins` and run
+- When there are issues with tmux plugins, delete all folders in `~/.tmux/plugins` and run
   ```bash
   tmux source-file ~/.config/tmux/tmux.conf
   ```
 
+## Tmux Development Scripts
+To easily spin up Tmux sessions, use the `./tmux/dev-template` file to write a script that creates a tmux session for your development environment.
+Add this script to your `$PATH` so you can use the script globally.
+
 ## TODO
-- [ ] move to another terminal (either wezterm or kitty)
-- [ ] implement a way to switch themes
+- [x] move to another terminal (either wezterm or kitty)
+- [x] implement a way to switch themes
+- [ ] change dracula into a light theme
+- [ ] find a way to set lualine theme using highlights/mappings.lua
 - [ ] figure out how to configure `bat` and `fzf` themes

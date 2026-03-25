@@ -1,5 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  tag = 'v0.9.3',
   dependencies = 'windwp/nvim-ts-autotag',
   event = { 'BufReadPre', 'BufNewFile' },
   build = ':TSUpdate',
@@ -21,7 +22,6 @@ return {
         'lua',
         'markdown',
         'ruby',
-        'rust',
         'sql',
         'tsx',
         'typescript',
