@@ -2,3 +2,6 @@ gui:
   theme:
     selectedLineBgColor:
       - black
+
+git:
+  overrideGpg: true
