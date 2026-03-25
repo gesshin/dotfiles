@@ -1,44 +1,54 @@
--- |-----------------|------------------|-----------------------|
--- | AutoSession     | <C-d>            | delete session        |
--- |-----------------|------------------|-----------------------|
--- | Blink           | <C-e>            | accept suggestion     |
--- |                 | <C-Space>        | open/close suggestion |
--- |                 | <Tab>            | next suggestion       |
--- |                 | <S-Tab>          | prev suggestion       |
--- |-----------------|------------------|-----------------------|
--- | GitConflict     | co               | choose ours           |
--- |                 | ct               | choose theirs         |
--- |                 | cb               | choose both           |
--- |                 | cd               | choose none           |
--- |                 | ]x               | next conflict         |
--- |                 | [x               | prev conflict         |
--- |-----------------|------------------|-----------------------|
--- | NvimSurround    | ys<motion><char> | surround with motion  |
--- |                 | ds<char>         | delete surround       |
--- |                 | cs<char><char>   | change surround       |
--- |-----------------|------------------|-----------------------|
--- | Snacks Explorer | a                | create                |
--- |                 | r                | rename                |
--- |                 | m                | move                  |
--- |                 | c                | copy                  |
--- |                 | p                | paste                 |
--- |                 | d                | delete                |
--- |                 | Y                | copy path             |
--- |                 | H                | toggle hidden files   |
--- |                 | I                | toggle ignored files  |
--- |                 | Z                | close all directories |
--- |                 | l                | open directory        |
--- |                 | h                | close directory       |
--- |                 | <CR>             | open file as buffer   |
--- |                 | <Tab>            | select files          |
--- |                 | <S-Tab>          | unselect files        |
--- |-----------------|------------------|-----------------------|
--- | Snacks Picker   | <CR>             | open buffer           |
--- |                 | <C-x>            | close buffer          |
--- |                 | <C-c>            | close picker          |
--- |                 | <C-j>            | next selection        |
--- |                 | <C-k>            | prev selection        |
--- |-----------------|------------------|-----------------------|
+--[[
+┏━━━━━━━━━━━━━┓
+┃ AutoSession ┃
+┗━━━━━━━━━━━━━┛
+<C-d>   delete session
+┏━━━━━━━┓
+┃ Blink ┃
+┗━━━━━━━┛
+<C-e>       accept suggestion
+<C-Space>   open/close suggestions
+<C-j>       next suggestion
+<C-k>       prev suggestion
+<Tab>       snippet forward
+<S-Tab>     snippet backward
+┏━━━━━━━━━━━━━┓
+┃ GitConflict ┃
+┗━━━━━━━━━━━━━┛
+co    choose ours
+ct    choose theirs
+cb    choose both
+cd    choose none
+]x    next conflict
+[x    prev conflict
+┏━━━━━━━━━━━━━━┓
+┃ NvimSurround ┃
+┗━━━━━━━━━━━━━━┛
+ys<motion><char>    surround with motion
+ds<char>            delete surround
+cs<char><char>      change surround
+┏━━━━━┓
+┃ Oil ┃
+┗━━━━━┛
+-        navigate to the parent path
+_        open current working directory
+<CR>     open the selected entry
+<C-v>    open buffer in vertical split
+<C-h>    open buffer in horizontal split
+<C-p>    toggle preview window
+<C-y>    yank relative filepath
+┏━━━━━━━━━━━━━━━┓
+┃ Snacks Picker ┃
+┗━━━━━━━━━━━━━━━┛
+<CR>       open buffer
+<C-v>      open buffer in vertical split
+<C-h>      open buffer in horizontal split
+<C-x>      close buffer
+<Tab>      select and next
+<S-Tab>    selct and prev
+<C-j>      next selection
+<C-k>      prev selection
+]]
 
 local custom = require("core.keymaps.custom")
 
@@ -74,8 +84,6 @@ M.plugin = {
 		["<leader>ss"] = { ":AutoSession save<CR>", "Save session" },
 		["<leader>sr"] = { ":AutoSession restore<CR>", "Restore session" },
 		["<leader>sf"] = { ":AutoSession search<CR>", "Find session" },
-		-- Explorer
-		["<leader>ee"] = { function() Snacks.explorer.open() end, "Toggle explorer", },
 		-- Picker
 		["<leader>ff"] = { function() Snacks.picker.files() end, "Find files", },
 		["<leader>fr"] = { function() Snacks.picker.recent() end, "Find recents", },
@@ -98,6 +106,8 @@ M.plugin = {
 		["<leader>we"] = { "<C-w>=", "Make windows equal size" },
     ["<leader>wm"] = { custom.maximize, "Maximize current window" },
 		["<leader>wx"] = { ":close<CR>", "Close current window" },
+    -- Explorer
+    ["<leader>-"] = { ":Oil --float<CR>", "Open file explorer" },
 		-- Configs
 		["<leader>L"] = { ":Lazy<CR>", "Open Lazy" },
 		["<leader>M"] = { ":Mason<CR>", "Open Mason" },

@@ -13,20 +13,17 @@ return {
     -- stylua: ignore start
     which_key.add({
       -- AutoSession
-			{ "<leader>s", group = "sessions", icon = { icon = "", hl = "ThemePink" } },
+			{ "<leader>s", group = "sessions", icon = { icon = "", hl = "ThemeOrange" } },
 			{ "<leader>ss" },
 			{ "<leader>sr" },
 			{ "<leader>sf" },
-      -- Explorer
-			{ "<leader>e", group = "explorer", icon = { icon = "", hl = "ThemeOrange" } },
-			{ "<leader>ee" },
       -- Picker
 			{ "<leader>f", group = "find", icon = { icon = "", hl = "ThemeGreen" } },
 			{ "<leader>ff" },
 			{ "<leader>fr" },
 			{ "<leader>fs" },
       -- LSP
-			{ "<leader>l", group = "lsp", icon = { icon = "", hl = "ThemePurple" } },
+			{ "<leader>l", group = "lsp", icon = { icon = "", hl = "ThemeBlue" } },
 			{ "<leader>ld" },
 			{ "<leader>lr" },
 			{ "<leader>li" },
@@ -43,16 +40,18 @@ return {
 			{ "<leader>ghn" },
 			{ "<leader>ghp" },
       -- Buffers
-			{ "<leader>b", group = "buffers", icon = { icon = "󰈔", hl = "ThemeBlue" } },
+			{ "<leader>b", group = "buffers", icon = { icon = "󰈔", hl = "ThemeYellow" } },
 			{ "<leader>bb" },
 			{ "<leader>bx" },
       -- Windows
-			{ "<leader>w", group = "windows", icon = { icon = "", hl = "ThemeYellow" } },
+			{ "<leader>w", group = "windows", icon = { icon = "", hl = "ThemePink" } },
 			{ "<leader>wv" },
 			{ "<leader>wh" },
 			{ "<leader>we" },
 			{ "<leader>wm" },
 			{ "<leader>wx" },
+      -- File Explorer
+      { "<leader>-", icon = { icon = "", hl = "ThemeFg" } },
 			-- Configs
 			{ "<leader>L", icon = { icon = "", hl = "ThemeFg" } },
 			{ "<leader>M", icon = { icon = "", hl = "ThemeFg" } },

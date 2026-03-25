@@ -69,13 +69,6 @@ return {
 			},
 		}
 
-		-- File explorer
-		local explorer = {
-			enabled = true,
-			replace_netrw = true,
-			trash = true,
-		}
-
 		-- Indent guides and scopes
 		local indent = {
 			enabled = true,
@@ -138,21 +131,6 @@ return {
 				},
 			},
 			sources = {
-				explorer = {
-					hidden = true,
-					diagnostics = false,
-					layout = { layout = { width = 50, position = "right" } },
-					win = {
-						list = {
-							keys = {
-								["<BS>"] = false,
-								["<c-c>"] = false,
-								["<leader>/"] = false,
-								["."] = false,
-							},
-						},
-					},
-				},
 				files = {
 					hidden = true,
 				},
@@ -164,7 +142,6 @@ return {
 
 		snacks.setup({
 			dashboard = dashboard,
-			explorer = explorer,
 			indent = indent,
 			input = input,
 			lazygit = lazygit,
