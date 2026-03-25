@@ -1,4 +1,5 @@
 local opt = vim.opt
+local api = vim.api
 
 vim.cmd("let g:netrw_liststyle = 3") -- use tree-list style
 
@@ -29,6 +30,23 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- Misc
 opt.wrap = false -- disable text wrapping
-opt.cursorline = true -- enable cursorline
+opt.cursorline = true -- enable global cursorline
 opt.wildmenu = false -- disable wildmenu UI
 opt.clipboard:append("unnamedplus") -- use system clipboard
+
+-- Active Window
+local active_window = api.nvim_create_augroup("ActiveWindow", {})
+
+api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
+	group = active_window,
+	callback = function()
+		vim.wo.cursorline = true
+	end,
+})
+
+api.nvim_create_autocmd("WinLeave", {
+	group = active_window,
+	callback = function()
+		vim.wo.cursorline = false
+	end,
+})
