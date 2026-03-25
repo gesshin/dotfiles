@@ -51,6 +51,7 @@ return {
 			{ "<leader>wv" },
 			{ "<leader>wh" },
 			{ "<leader>we" },
+			{ "<leader>wm" },
 			{ "<leader>wx" },
 			-- Configs
 			{ "<leader>L", icon = { icon = "", hl = "ThemeFg" } },
