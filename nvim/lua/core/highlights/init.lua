@@ -19,7 +19,7 @@ local function set_highlights(theme, mapping)
 end
 
 vim.api.nvim_create_autocmd("VimEnter", {
-	group = vim.api.nvim_create_augroup("Colorscheme", {}),
+	group = vim.api.nvim_create_augroup("Highlights", {}),
 	callback = function()
 		local theme = vim.env.GLOBAL_THEME
 		local colorscheme = theme
