@@ -149,5 +149,5 @@ install the LSP.
 - [x] implement a way to switch themes
 - [ ] create different branches for different code environments i.e. rails, go, etc.
 - [ ] fix diagnostic hint highlight in lualine
-- [ ] file tree overhaul
+- [x] file tree overhaul
 - [ ] add claude prompt files
