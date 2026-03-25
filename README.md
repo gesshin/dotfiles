@@ -72,7 +72,7 @@ Find your key ID.
 ```bash
 gpg --list-secret-keys --keyid-format LONG
 sec    rsa4096/ABCD1234EFGH5678 2026-01-01
-       Key fingerpirnt = ...
+       Key fingerprint = ...
 uid    Your Name <your@gmail.com>
 ```
 
@@ -106,6 +106,7 @@ Update git global config to use SSH signing.
 ```bash
 git config --global user.signingkey ~/.ssh/id_ed25519_personal.pub
 git config --global gpg.format ssh
+git config --global commit.gpgsign true
 ```
 To persist across reboots, add to `~/.ssh/config`.
 ```bash
