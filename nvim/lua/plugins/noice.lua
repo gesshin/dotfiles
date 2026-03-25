@@ -48,6 +48,7 @@ return {
 			},
 			lsp = { -- Customize the views for lsp info
 				progress = { enabled = true, view = "cmdline" },
+				signature = { enabled = false },
 			},
 			messages = { -- Customize the views for messages
 				enabled = true,
