@@ -41,6 +41,8 @@
 -- |                 | <C-k>            | prev selection        |
 -- |-----------------|------------------|-----------------------|
 
+local custom = require("core.keymaps.custom")
+
 local M = {}
 
 M.vim = {
@@ -82,7 +84,7 @@ M.plugin = {
     ["<leader>fh"] = { function() Snacks.picker.highlights() end, "Find highlight group", },
 		-- Git
 		["<leader>gg"] = { function() Snacks.lazygit() end, "Open lazygit", },
-		["<leader>gv"] = { ":GitConflictListQf<CR>", "List git conflicts" },
+		["<leader>gc"] = { custom.git_conflicts, "List git conflicts" },
 		["<leader>gb"] = { ":Gitsigns blame_line<CR>", "Toggle blame line" },
 		["<leader>ghh"] = { ":Gitsigns preview_hunk<CR>", "Preview git hunk" },
 		["<leader>ghr"] = { ":Gitsigns reset_hunk<CR>", "Restore git hunk" },

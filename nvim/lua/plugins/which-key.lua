@@ -35,7 +35,7 @@ return {
       -- Git
 			{ "<leader>g", group = "git", icon = { icon = "󰊢", hl = "ThemeRed" } },
 			{ "<leader>gg" },
-			{ "<leader>gv" },
+			{ "<leader>gc" },
 			{ "<leader>gb" },
 			{ "<leader>gh", group = "hunk", icon = { icon = "󰊢", hl = "ThemeRed" } },
 			{ "<leader>ghh" },
