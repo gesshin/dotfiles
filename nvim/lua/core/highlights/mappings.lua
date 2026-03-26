@@ -31,11 +31,11 @@ M.diagnostic = {
 	DiagnosticSignError = { fg = "red" },
 	DiagnosticSignWarn = { fg = "yellow" },
 	DiagnosticSignInfo = { fg = "blue" },
-	DiagnosticSignHint = { fg = "blue" },
+	DiagnosticSignHint = { fg = "purple" },
 	DiagnosticVirtualTextError = { fg = "red" },
 	DiagnosticVirtualTextWarn = { fg = "yellow" },
 	DiagnosticVirtualTextInfo = { fg = "blue" },
-	DiagnosticVirtualTextHint = { fg = "blue" },
+	DiagnosticVirtualTextHint = { fg = "purple" },
 }
 
 M.flash = {
