@@ -8,10 +8,11 @@ opt.termguicolors = true -- enable terminal colors
 opt.background = "dark" -- default dark mode
 opt.signcolumn = "yes" -- enable sign column so text doesn't shift
 
--- Line Numbering
+-- Status Column
+opt.signcolumn = "yes:2" -- fixed signcolumn space up to the given number
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- show absolute line number on current line
-opt.signcolumn = "auto:3"
+opt.fillchars:append({ eob = " " }) -- use spaces as end of buffer lines
 
 -- Tabs & Indentations
 opt.tabstop = 2 -- 2 spaces for tabs
