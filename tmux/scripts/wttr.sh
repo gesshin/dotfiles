@@ -10,11 +10,11 @@ DELTA=$((CURRENT_TIME - ${UPDATE_TIME:-0}))               # seconds since last u
 
 # The seconds since last update must exceed INTERVAL to trigger an API call
 if [ $DELTA -ge $INTERVAL ]; then
-  WTTR=$(curl -s --max-time 5 "wttr.in/${LOCATION}?${UNIT}&format=%C\n%t")
+  WTTR=$(curl -s --max-time 5 "wttr.in/${LOCATION}?${UNIT}&format=%t\n%C")
   # The API call must succeed and return a non-empty string to update the tmux variables
   if [ $? -eq 0 ] && [ -n "$WTTR" ]; then
-    CONDITION=$(echo "$WTTR" | sed -n '1p')
-    TEMPERATURE=$(echo "$WTTR" | sed -n '2p')
+    TEMPERATURE=$(echo "$WTTR" | sed -n '1p')
+    CONDITION=$(echo "$WTTR" | sed -n '2p')
     tmux set-option -gq @weather-update-time "$CURRENT_TIME"
     tmux set-option -gq @weather "$TEMPERATURE $CONDITION"
   fi
