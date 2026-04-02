@@ -61,66 +61,6 @@ rm -rf ~/.tmux/plugins
 tmux source-file ~/.config/tmux/tmux.conf
 ```
 
-## Pass
-I use `pass` as my preferred password & secrets manager. The setup script should already install `pass` and `gnupg`.
-
-To initialize the password store, create a GPG key (if you don't have one). Choose RSA, 4096 bits, set an expiry, and enter your name/email.
-```bash
-gpg --full-generate-key
-```
-Find your key ID.
-```bash
-gpg --list-secret-keys --keyid-format LONG
-sec    rsa4096/ABCD1234EFGH5678 2026-01-01
-       Key fingerprint = ...
-uid    Your Name <your@gmail.com>
-```
-
-Initialize the password store which creates `~/.password-store/`.
-```bash
-pass init ABCD1234EFGH5678
-```
-Store your secrets and retrieve them.
-```bash
-pass insert github/personal-pat
-pass github/personal-pat
-```
-
-## Git
-Github recommends using SSH for authentication and signing.
-
-Generate an SSH key.
-```bash
-ssh-keygen -t ed25519 -C "your@email.com"
-```
-Add to ssh-agent.
-```bash
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519_personal
-```
-Add the public key to GitHub. Create two keys: authentication and signing.
-```bash
-pbcopy < ~/.ssh/id_ed25519_personal.pub
-```
-Update git global config to use SSH signing.
-```bash
-git config --global user.signingkey ~/.ssh/id_ed25519_personal.pub
-git config --global gpg.format ssh
-git config --global commit.gpgsign true
-```
-To persist across reboots, add to `~/.ssh/config`.
-```bash
-Host github-personal
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_ed25519_personal
-    AddKeysToAgent yes
-```
-Test the connection.
-```bash
-ssh -T github-personal
-```
-
 ## Tmux Development Scripts
 To easily spin up Tmux sessions, use the `./tmux/dev-template` file to write a script that creates a tmux session for your development environment.
 Add this script to your `$PATH` so you can use the script globally.
