@@ -7,7 +7,7 @@ These are the config files for my MacOS workspace.
 - **Shell:** zsh + antidote
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
-- **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit` `fd` `pass` `gnupg`
+- **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit` `fd` `pass` `gnupg` `claude`
 
 ## Installation
 Install homebrew.
@@ -30,6 +30,7 @@ Install the apps/packages.
 Generate symlinks.
 ```bash
 stow .
+stow -t ~ claude
 ```
 Restart WezTerm and reload its config. Then, install tmux plugins and reload tmux.
 ```bash
@@ -83,3 +84,13 @@ nvim/
 ## LSPs and Mason
 Issues with LSPs can be viewed in the `~/.local/state/nvim/lsp.log` file. When working with ruby and rbenv, Mason will use the global rbenv shim to
 install the LSP.
+
+## Claude Code
+Claude Code stores config at `~/.claude/` and does not respect `XDG_CONFIG_HOME`, so it needs its own stow package with `-t ~`.
+
+Custom skills live in `~/.claude/skills/` as `.md` files. Add new commands to `claude/.claude/skills/` in this repo and they will be symlinked via stow.
+
+To add a new skill, create `claude/.claude/skills/your-skill.md` and re-run:
+```bash
+stow -t ~ claude
+```

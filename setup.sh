@@ -19,6 +19,7 @@ brew install --cask font-jetbrains-mono-nerd-font
 
 # Install apps
 brew install starship tmux neovim ripgrep fzf lsd zoxide bat lazygit fd pass gnupg
+brew install --cask claude-code
 
 # Install languages
 brew install go lua node
