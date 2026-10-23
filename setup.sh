@@ -10,11 +10,7 @@ tempfile=$(mktemp) \
   && tic -x -o ~/.terminfo $tempfile \
   && rm $tempfile
 
-# Install shell and change default shell
-brew install zsh && chsh -s $(which zsh)
-
 # Install font
-brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 
 # Install apps (neovim 0.12+ is required for the built-in vim.pack plugin manager)
@@ -36,7 +32,7 @@ brew install go lua node
 
 # Install plugin managers
 brew install antidote
-git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+[ -d "$HOME/.tmux/plugins/tpm" ] || git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 
 # Add source line to ~/.zshenv
 if ! grep -Fxq "source ~/.config/zsh/.zshenv" "$HOME/.zshenv"; then
