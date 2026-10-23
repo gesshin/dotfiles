@@ -46,26 +46,6 @@ alias dce="docker compose exec"
 alias dca="docker compose attach"
 
 # Functions
-theme() {
-  local VALID_NAMES=("everforest" "gruvbox-material")
-  local name=$1
-
-  if [[ -z $name || ! " ${VALID_NAMES[@]} " =~ " $name " ]]; then
-    echo "Usage: theme [everforest|gruvbox-material]"
-    return 1
-  fi
-
-  sed -i '' "s|export GLOBAL_THEME=\".*\"|export GLOBAL_THEME=\"$name\"|" "$XDG_CONFIG_HOME/zsh/.zshenv"
-  sed -i '' "s|themes/[^.]*\.conf|themes/$name.conf|" "$XDG_CONFIG_HOME/tmux/tmux.conf"
-  sed -i '' 's|themes\["[^"]*"\]|themes["'"$name"'"]|' "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
-  sed -i '' "s|palette = '[^']*'|palette = '$name'|" "$XDG_CONFIG_HOME/starship/starship.toml"
-
-  source "$XDG_CONFIG_HOME/zsh/.zshenv"
-  tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf" 2>/dev/null
-
-  echo "Theme switched to $name"
-}
-
 git_push() {
   if [[ $# -gt 1 ]]; then
     echo "Usage: gph [branch]"

@@ -39,15 +39,30 @@ Crtl + a -> I
 Crtl + a -> R
 ```
 
-## Switching Themes
-Supported themes: `dracula` `everforest` `gruvbox-material`
+## Colorschemes
+Palettes defined in this repo: `dracula` `everforest` `gruvbox-material`.
+Every app uses the same color names: `bg` `fg` `line` `comment` `red` `orange` `yellow` `green` `blue` `purple` `pink`.
 
-Change themes using:
-```bash
-theme [everforest|gruvbox-material]
-```
+### Changing the active colorscheme
+Change the name in each of these places, then reload:
 
-Restart neovim to refresh the theme.
+| App      | File                                | Change                                      |
+|----------|-------------------------------------|---------------------------------------------|
+| Neovim   | `nvim/lua/core/highlights/init.lua` | `local theme = "<name>"`                    |
+| WezTerm  | `wezterm/wezterm.lua`               | `config.colors = themes["<name>"]`          |
+| tmux     | `tmux/tmux.conf`                    | `source-file ".../tmux/themes/<name>.conf"` |
+| Starship | `starship/starship.toml`            | `palette = '<name>'`                        |
+
+Reload with: restart neovim, `Ctrl + Shift + R` in WezTerm, `Ctrl + a -> R` in tmux, open a new shell for Starship.
+
+### Adding a new colorscheme
+1. **Neovim**
+   - Add the colorscheme plugin to `nvim/lua/plugins/colorscheme.lua`. Its `:colorscheme` name must match `<name>`.
+   - Add a `M["<name>"]` palette to `nvim/lua/core/highlights/themes.lua`. It needs the base colors plus `bg_red` `bg_green` `bg_yellow` `bg_blue`, which `mappings.lua` uses.
+2. **WezTerm**: add `M["<name>"]` to `wezterm/themes.lua` with `background`, `foreground`, the `cursor_*` keys, and 8-color `ansi` and `brights` lists.
+3. **tmux**: copy an existing file in `tmux/themes/` to `<name>.conf` and replace the `status-bg` and `@<color>` values.
+4. **Starship**: add a `[palettes.<name>]` table to `starship/starship.toml`.
+5. Follow the steps in "Changing the active colorscheme" above.
 
 ## Plugin Managers
 These are some snippets for using the plugin managers.

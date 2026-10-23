@@ -1,6 +1,8 @@
 local themes = require("core.highlights.themes")
 local mappings = require("core.highlights.mappings")
 
+local theme = "gruvbox-material"
+
 --- Takes a table of mappings and automatically configures them as vim highlight groups
 ---
 --- @param theme string Name of the selected theme used to get the corresponding palette
@@ -21,12 +23,9 @@ end
 vim.api.nvim_create_autocmd("VimEnter", {
 	group = vim.api.nvim_create_augroup("Highlights", {}),
 	callback = function()
-		local theme = vim.env.GLOBAL_THEME
-		local colorscheme = theme
-
 		vim.o.background = "dark"
 
-		vim.cmd.colorscheme(colorscheme)
+		vim.cmd.colorscheme(theme)
 		set_highlights(theme, mappings.base)
 		set_highlights(theme, mappings.blink)
 		set_highlights(theme, mappings.diagnostic)
