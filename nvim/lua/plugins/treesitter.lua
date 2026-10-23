@@ -1,30 +1,35 @@
 -- Treesitter configurations and abstraction layer
 return {
 	"nvim-treesitter/nvim-treesitter",
-	tag = "v0.10.0",
-	dependencies = "windwp/nvim-ts-autotag",
-	event = { "BufReadPre", "BufNewFile" },
+	branch = "main",
+	lazy = false, -- This plugin does not support lazy-loading
 	build = ":TSUpdate",
 	config = function()
-		local nvim_treesitter = require("nvim-treesitter.configs")
+		local nvim_treesitter = require("nvim-treesitter")
 
-		nvim_treesitter.setup({
-			highlight = { enable = true }, -- Enables/disables highlights
-			indent = { enable = true }, -- Enables/disables indendation
-			autotag = { enable = false }, -- Enables/disables auto tagging
-			ensure_installed = { -- List of parsers to automatically install
-				"bash",
-				"comment",
-				"diff",
-				"json",
-				"lua",
-				"markdown",
-				"markdown_inline",
-				"regex",
-				"toml",
-				"vim",
-				"yaml",
-			},
+		-- List of parsers to automatically install
+		nvim_treesitter.install({
+			"bash",
+			"comment",
+			"diff",
+			"json",
+			"lua",
+			"markdown",
+			"markdown_inline",
+			"regex",
+			"toml",
+			"vim",
+			"yaml",
+		})
+
+		-- Enables highlights and indentation for buffers that have a parser
+		vim.api.nvim_create_autocmd("FileType", {
+			group = vim.api.nvim_create_augroup("Treesitter", {}),
+			callback = function(args)
+				if pcall(vim.treesitter.start, args.buf) then
+					vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				end
+			end,
 		})
 	end,
 }

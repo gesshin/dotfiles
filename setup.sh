@@ -18,7 +18,8 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 
 # Install apps
-brew install starship tmux neovim ripgrep fzf lsd zoxide bat lazygit fd pass gnupg
+# tree-sitter-cli builds the nvim-treesitter parsers, which also need a C compiler (xcode-select --install)
+brew install starship tmux neovim ripgrep fzf lsd zoxide bat lazygit fd pass gnupg tree-sitter-cli
 brew install --cask claude-code
 
 # Install languages

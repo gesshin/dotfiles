@@ -11,6 +11,7 @@ macOS dotfiles managed with GNU Stow. See `README.md` for setup and per-app deta
 
 ## Conventions
 - **Neovim:** lazy.nvim, with one file per plugin in `nvim/lua/plugins/`, auto-discovered. Lua is formatted with stylua via conform. Do not hand-edit `nvim/lazy-lock.json`.
+- **Treesitter:** parsers are listed in `nvim/lua/plugins/treesitter.lua`. A `FileType` autocmd starts highlighting and indent per buffer. The plugin does not support lazy loading.
 - **Colors:** there is no theme switcher. Palettes are constants in `nvim/lua/core/highlights/themes.lua`, `wezterm/themes.lua`, `tmux/themes/*.conf` and `starship/starship.toml`. The active theme is a hardcoded name in each app's config; the README lists exactly where. Keep the palette color names consistent across apps.
 - **Generated, git-ignored:** `zsh/.zsh_plugins.zsh`. Regenerate it with the `antidote bundle` command in the README. Edit `zsh/.zsh_plugins.txt` instead.
 - **Commits:** Conventional Commits, `type(scope): lowercase message`, e.g. `feat(starship): add virtual env for python`, `fix(neovim): set rounded border`, `refactor(theme): ...`.

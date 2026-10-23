@@ -7,7 +7,7 @@ These are the config files for my MacOS workspace.
 - **Shell:** zsh + antidote
 - **Text Editor:** neovim
 - **Font:** JetBrains Mono Nerd Font
-- **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit` `fd` `pass` `gnupg` `claude`
+- **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit` `fd` `pass` `gnupg` `tree-sitter-cli` `claude`
 
 ## Installation
 Install homebrew.
@@ -95,6 +95,9 @@ nvim/
     │   └── highlights/ # Custom highlight groups and theme palette mappings
     └── plugins/        # One file per plugin, auto-discovered by lazy.nvim
 ```
+
+## Treesitter
+Parsers are installed by `nvim-treesitter` (main branch), which needs `tree-sitter-cli` and a C compiler. Update parsers with `:TSUpdate`.
 
 ## LSPs and Mason
 Issues with LSPs can be viewed in the `~/.local/state/nvim/lsp.log` file. When working with ruby and rbenv, Mason will use the global rbenv shim to
