@@ -12,6 +12,21 @@ lsp.config("*", {
 	capabilities = blink_cmp.get_lsp_capabilities(), -- Connect LSP with completion engine
 })
 
+-- Language servers to enable. Install them by hand (see setup.sh)
+lsp.enable({
+	"lua_ls",
+	-- JSON and YAML
+	"jsonls",
+	"yamlls",
+	-- Rails
+	"ruby_lsp",
+	-- React
+	"ts_ls",
+	-- Python
+	"basedpyright",
+	"ruff",
+})
+
 diagnostic.config({
 	virtual_text = true, -- Enables/disables diagnostic virtual text
 	signs = { -- Customize diagnostic signs

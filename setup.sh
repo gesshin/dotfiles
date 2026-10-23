@@ -22,6 +22,12 @@ brew install --cask font-jetbrains-mono-nerd-font
 brew install starship tmux neovim ripgrep fzf lsd zoxide bat lazygit fd pass gnupg tree-sitter-cli
 brew install --cask claude-code
 
+# Install language servers and formatters (neovim enables the servers in nvim/lua/plugins/lspconfig.lua)
+brew install lua-language-server vscode-langservers-extracted yaml-language-server typescript-language-server basedpyright ruff prettier stylua
+if command -v rbenv > /dev/null; then
+  gem install ruby-lsp rubocop
+fi
+
 # Install languages
 brew install go lua node
 

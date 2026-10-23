@@ -24,9 +24,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
 local plugins = {
 	"colorscheme",
 	"treesitter",
-	"mason",
-	"mason-lspconfig",
-	"mason-tool-installer",
 	"blink-cmp",
 	"lspconfig",
 	"auto-session",

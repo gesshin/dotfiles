@@ -50,8 +50,6 @@ local which_key = require("which-key")
 	{ "<leader>wx" },
       -- File Explorer
       { "<leader>-", icon = { icon = "", hl = "ThemeFg" } },
-	-- Configs
-	{ "<leader>M", icon = { icon = "", hl = "ThemeFg" } },
 })
 -- stylua: ignore end
 

@@ -12,6 +12,7 @@ macOS dotfiles managed with GNU Stow. See `README.md` for setup and per-app deta
 ## Conventions
 - **Neovim:** requires 0.12+ and uses the built-in `vim.pack`, with one file per plugin in `nvim/lua/plugins/`. A new plugin needs a file there that calls `vim.pack.add()` with a pinned `version`, *and* an entry in the ordered list in `nvim/lua/core/pack.lua`. Plugins load at startup, with no lazy loading. Lua is formatted with stylua via conform. To bump a plugin, change `version` in its file, then run `vim.pack.update({ "<name>" })` and confirm; the README has the full workflow. Do not hand-edit `nvim/nvim-pack-lock.json`.
 - **Treesitter:** parsers are listed in `nvim/lua/plugins/treesitter.lua`. A `FileType` autocmd starts highlighting and indent per buffer. The plugin does not support lazy loading.
+- **LSP:** language servers are enabled explicitly in `nvim/lua/plugins/lspconfig.lua`, with server settings in `nvim/after/lsp/`. Servers and formatters are installed by hand (see `setup.sh`); there is no Mason.
 - **Colors:** there is no theme switcher. Palettes are constants in `nvim/lua/core/highlights/themes.lua`, `wezterm/themes.lua`, `tmux/themes/*.conf` and `starship/starship.toml`. The active theme is a hardcoded name in each app's config; the README lists exactly where. Keep the palette color names consistent across apps.
 - **Generated, git-ignored:** `zsh/.zsh_plugins.zsh`. Regenerate it with the `antidote bundle` command in the README. Edit `zsh/.zsh_plugins.txt` instead.
 - **Commits:** Conventional Commits, `type(scope): lowercase message`, e.g. `feat(starship): add virtual env for python`, `fix(neovim): set rounded border`, `refactor(theme): ...`.
@@ -25,5 +26,5 @@ macOS dotfiles managed with GNU Stow. See `README.md` for setup and per-app deta
 
 ## Cautions
 - This repo is the user's live configuration. Do not run `stow` without `-n` unless asked.
-- Do not install, remove or upgrade packages (`brew`, Mason) unless asked.
+- Do not install, remove or upgrade packages (`brew`, `gem`) unless asked.
 - Never commit secrets. `pass` and `gnupg` hold credentials outside this repo.

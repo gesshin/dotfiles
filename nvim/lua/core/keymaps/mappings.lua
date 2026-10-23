@@ -108,8 +108,6 @@ M.plugin = {
 		["<leader>wx"] = { ":close<CR>", "Close current window" },
     -- Explorer
     ["<leader>-"] = { ":Oil --float<CR>", "Open file explorer" },
-		-- Configs
-		["<leader>M"] = { ":Mason<CR>", "Open Mason" },
 	},
 }
 
