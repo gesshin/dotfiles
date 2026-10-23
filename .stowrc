@@ -8,3 +8,5 @@
 --ignore=README.md
 --ignore=setup.sh
 --ignore=claude
+--ignore=AGENTS.md
+--ignore=CLAUDE.md
