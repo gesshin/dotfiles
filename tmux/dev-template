@@ -14,29 +14,29 @@ fi
 
 SESSION_NAME="dev-$1"
 
-if tmux has-session -t $SESSION_NAME 2>/dev/null; then
-  tmux switch-client -t $SESSION_NAME
-  exit 1
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+  tmux switch-client -t "$SESSION_NAME"
+  exit 0
 fi
 
 # Code window
-tmux new-session -d -s $SESSION_NAME -n code -c $PROJECT_DIR
-tmux send-keys -t $SESSION_NAME:code.0 'vi' Enter
+tmux new-session -d -s "$SESSION_NAME" -n code -c "$PROJECT_DIR"
+tmux send-keys -t "$SESSION_NAME:code.0" 'vi' Enter
 
 # Agent window
-tmux new-window -t $SESSION_NAME -n ai -c $PROJECT_DIR
-tmux send-keys -t $SESSION_NAME:ai.0 'claude' Enter
+tmux new-window -t "$SESSION_NAME" -n ai -c "$PROJECT_DIR"
+tmux send-keys -t "$SESSION_NAME:ai.0" 'claude' Enter
 
 # Test window
-tmux new-window -t $SESSION_NAME -n test -c $PROJECT_DIR
-tmux send-keys -t $SESSION_NAME:test.0 'guard' Enter
+tmux new-window -t "$SESSION_NAME" -n test -c "$PROJECT_DIR"
+tmux send-keys -t "$SESSION_NAME:test.0" 'guard' Enter
 
 # App window
-tmux new-window -t $SESSION_NAME -n app -c $PROJECT_DIR
-tmux send-keys -t $SESSION_NAME:app.0 'docker-compose up' Enter
+tmux new-window -t "$SESSION_NAME" -n app -c "$PROJECT_DIR"
+tmux send-keys -t "$SESSION_NAME:app.0" 'docker compose up' Enter
 
 # Set default window to code window
-tmux select-window -t $SESSION_NAME:code
+tmux select-window -t "$SESSION_NAME:code"
 
 # Change to dev session
-tmux switch-client -t $SESSION_NAME
+tmux switch-client -t "$SESSION_NAME"
