@@ -24,8 +24,11 @@ brew install --cask claude-code
 
 # Install language servers and formatters (neovim enables the servers in nvim/lua/plugins/lspconfig.lua)
 brew install lua-language-server vscode-langservers-extracted yaml-language-server typescript-language-server basedpyright ruff prettier stylua
+# ruby-lsp runs under each project's Ruby, so install it in every rbenv Ruby (re-run after installing a new Ruby)
 if command -v rbenv > /dev/null; then
-  gem install ruby-lsp rubocop
+  for version in $(rbenv versions --bare); do
+    RBENV_VERSION=$version gem install ruby-lsp rubocop || echo "Failed to install ruby-lsp and rubocop for Ruby $version"
+  done
 fi
 
 # Install languages

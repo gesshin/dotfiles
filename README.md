@@ -115,7 +115,7 @@ nvim/
 Parsers are installed by `nvim-treesitter` (main branch), which needs `tree-sitter-cli` and a C compiler. Update parsers with `:TSUpdate`.
 
 ## LSPs and Formatters
-Language servers and formatters are installed by hand, with `brew` or `gem`, and are listed in `setup.sh`. Neovim enables the servers in `nvim/lua/plugins/lspconfig.lua`. Issues with LSPs can be viewed in the `~/.local/state/nvim/lsp.log` file.
+Language servers and formatters are installed by hand, with `brew` or `gem`, and are listed in `setup.sh`. Neovim enables the servers in `nvim/lua/plugins/lspconfig.lua`. `ruby-lsp` runs under each project's Ruby, so it must be installed in every rbenv Ruby you use (`setup.sh` does this, and a new Ruby needs `gem install ruby-lsp rubocop` too). A `rbenv: ruby-lsp: command not found` error in the LSP log means the project's Ruby is missing it. Issues with LSPs can be viewed in the `~/.local/state/nvim/lsp.log` file.
 
 To add a language:
 1. Install the language server and formatter, then check that they are on your `PATH`.
