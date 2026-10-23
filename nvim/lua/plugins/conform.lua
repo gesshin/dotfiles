@@ -1,25 +1,22 @@
 -- Manages formatters and automates the process of running external formatters
-return {
-	"stevearc/conform.nvim",
-	tag = "v9.1.0",
-	event = { "BufReadPre", "BufNewFile" },
-	config = function()
-		local conform = require("conform")
+vim.pack.add({
+	{ src = "https://github.com/stevearc/conform.nvim", version = "v9.1.0" },
+})
 
-		conform.setup({
-			formatters_by_ft = { -- Mapping of formatters by filetype
-				json = { "prettier" },
-				lua = { "stylua" },
-				yaml = { "prettier" },
-			},
-		})
+local conform = require("conform")
 
-		-- Trigger format on buffer write
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = "*",
-			callback = function(args)
-				conform.format({ bufnr = args.buf })
-			end,
-		})
+conform.setup({
+	formatters_by_ft = { -- Mapping of formatters by filetype
+		json = { "prettier" },
+		lua = { "stylua" },
+		yaml = { "prettier" },
+	},
+})
+
+-- Trigger format on buffer write
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		conform.format({ bufnr = args.buf })
 	end,
-}
+})

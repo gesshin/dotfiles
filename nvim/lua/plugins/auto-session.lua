@@ -1,19 +1,17 @@
 -- Automatically reopen the files and windows you had open
-return {
-	"rmagatti/auto-session",
-	commit = "6cde387",
-	config = function()
-		local auto_session = require("auto-session")
+vim.pack.add({
+	{ src = "https://github.com/rmagatti/auto-session", version = "6cde3874a9283c2db55627acca5f28e4fa402320" },
+})
 
-		auto_session.setup({
-			auto_restore = false, -- Enables/disables auto restoring session on start
-			suppressed_dirs = { -- Suppress session restore/create in certain directories
-				"/",
-				"~/",
-				"~/Downloads",
-				"~/Documents",
-				"~/Desktop",
-			},
-		})
-	end,
-}
+local auto_session = require("auto-session")
+
+auto_session.setup({
+	auto_restore = false, -- Enables/disables auto restoring session on start
+	suppressed_dirs = { -- Suppress session restore/create in certain directories
+		"/",
+		"~/",
+		"~/Downloads",
+		"~/Documents",
+		"~/Desktop",
+	},
+})

@@ -1,11 +1,8 @@
 -- Visualize and resolve Git merge conflicts
-return {
-	"akinsho/git-conflict.nvim",
-	tag = "v2.1.0",
-	event = "BufReadPre",
-	config = function()
-		local git_conflict = require("git-conflict")
+vim.pack.add({
+	{ src = "https://github.com/akinsho/git-conflict.nvim", version = "v2.1.0" },
+})
 
-		git_conflict.setup()
-	end,
-}
+local git_conflict = require("git-conflict")
+
+git_conflict.setup()

@@ -1,28 +1,25 @@
 -- LSP configuration framework
-return {
-	"neovim/nvim-lspconfig",
-	tag = "v2.10.0",
-	event = { "BufReadPre", "BufNewFile" },
-	config = function()
-		local blink_cmp = require("blink.cmp")
+vim.pack.add({
+	{ src = "https://github.com/neovim/nvim-lspconfig", version = "v2.10.0" },
+})
 
-		local lsp = vim.lsp
-		local diagnostic = vim.diagnostic
+local blink_cmp = require("blink.cmp")
 
-		lsp.config("*", {
-			capabilities = blink_cmp.get_lsp_capabilities(), -- Connect LSP with completion engine
-		})
+local lsp = vim.lsp
+local diagnostic = vim.diagnostic
 
-		diagnostic.config({
-			virtual_text = true, -- Enables/disables diagnostic virtual text
-			signs = { -- Customize diagnostic signs
-				text = {
-					[diagnostic.severity.ERROR] = "",
-					[diagnostic.severity.WARN] = "",
-					[diagnostic.severity.INFO] = "",
-					[diagnostic.severity.HINT] = "",
-				},
-			},
-		})
-	end,
-}
+lsp.config("*", {
+	capabilities = blink_cmp.get_lsp_capabilities(), -- Connect LSP with completion engine
+})
+
+diagnostic.config({
+	virtual_text = true, -- Enables/disables diagnostic virtual text
+	signs = { -- Customize diagnostic signs
+		text = {
+			[diagnostic.severity.ERROR] = "",
+			[diagnostic.severity.WARN] = "",
+			[diagnostic.severity.INFO] = "",
+			[diagnostic.severity.HINT] = "",
+		},
+	},
+})

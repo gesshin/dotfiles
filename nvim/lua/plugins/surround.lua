@@ -1,11 +1,8 @@
 -- Add, change, and delete surrounding pairs
-return {
-	"kylechui/nvim-surround",
-	tag = "v4.0.5",
-	event = "VeryLazy",
-	config = function()
-		local nvim_surround = require("nvim-surround")
+vim.pack.add({
+	{ src = "https://github.com/kylechui/nvim-surround", version = "v4.0.5" },
+})
 
-		nvim_surround.setup()
-	end,
-}
+local nvim_surround = require("nvim-surround")
+
+nvim_surround.setup()

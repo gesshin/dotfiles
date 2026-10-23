@@ -5,7 +5,7 @@ These are the config files for my MacOS workspace.
 - **Package Manager:** homebrew
 - **Terminal:** wezterm
 - **Shell:** zsh + antidote
-- **Text Editor:** neovim
+- **Text Editor:** neovim (0.12+, plugins via the built-in `vim.pack`)
 - **Font:** JetBrains Mono Nerd Font
 - **Tools:** `starship` `tmux` `ripgrep` `fzf` `lsd` `zoxide` `bat` `lazygit` `fd` `pass` `gnupg` `tree-sitter-cli` `claude`
 
@@ -76,6 +76,12 @@ When there are issues with tmux plugins, delete all folders in `~/.tmux/plugins`
 rm -rf ~/.tmux/plugins
 tmux source-file ~/.config/tmux/tmux.conf
 ```
+Neovim plugins are managed by the built-in `vim.pack` and install on first launch. Update them with `:lua vim.pack.update()`, then confirm with `:w` or discard with `:q`.
+To remove a plugin, delete its file in `nvim/lua/plugins/` and its line in `nvim/lua/core/pack.lua`, then remove it from disk.
+```vim
+:lua vim.pack.del({ "<name>" })
+```
+Commit `nvim/nvim-pack-lock.json` after changing plugins.
 
 ## Tmux Development Scripts
 To easily spin up Tmux sessions, use the `./tmux/dev-template` file to write a script that creates a tmux session for your development environment.
@@ -89,11 +95,11 @@ nvim/
 │   └── lsp/            # Per-LSP server settings, auto-loaded by lspconfig
 └── lua/
     ├── core/
-    │   ├── lazy.lua    # Bootstraps lazy.nvim and auto-loads lua/plugins/
+    │   ├── pack.lua    # Registers build hooks and loads lua/plugins/ in order
     │   ├── options.lua # Vim options (tabs, search, splits, etc.)
     │   ├── keymaps/    # Keymap definitions and registration
     │   └── highlights/ # Custom highlight groups and theme palette mappings
-    └── plugins/        # One file per plugin, auto-discovered by lazy.nvim
+    └── plugins/        # One file per plugin, required in order by core/pack.lua
 ```
 
 ## Treesitter

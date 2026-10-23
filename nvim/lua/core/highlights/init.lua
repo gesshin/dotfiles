@@ -35,5 +35,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		set_highlights(theme, mappings.noice)
 		set_highlights(theme, mappings.snacks)
 		set_highlights(theme, mappings.which_key)
+
+		-- Plugins now load before the colorscheme is applied, so let them refresh their colors (e.g. lualine)
+		vim.schedule(function()
+			vim.api.nvim_exec_autocmds("ColorScheme", { pattern = theme })
+		end)
 	end,
 })

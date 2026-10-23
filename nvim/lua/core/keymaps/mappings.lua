@@ -109,7 +109,6 @@ M.plugin = {
     -- Explorer
     ["<leader>-"] = { ":Oil --float<CR>", "Open file explorer" },
 		-- Configs
-		["<leader>L"] = { ":Lazy<CR>", "Open Lazy" },
 		["<leader>M"] = { ":Mason<CR>", "Open Mason" },
 	},
 }
