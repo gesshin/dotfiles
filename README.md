@@ -76,12 +76,21 @@ When there are issues with tmux plugins, delete all folders in `~/.tmux/plugins`
 rm -rf ~/.tmux/plugins
 tmux source-file ~/.config/tmux/tmux.conf
 ```
-Neovim plugins are managed by the built-in `vim.pack` and install on first launch. Update them with `:lua vim.pack.update()`, then confirm with `:w` or discard with `:q`.
-To remove a plugin, delete its file in `nvim/lua/plugins/` and its line in `nvim/lua/core/pack.lua`, then remove it from disk.
+Neovim plugins are managed by the built-in `vim.pack` and install on first launch. Each plugin has a file in `nvim/lua/plugins/` and a line in the ordered list in `nvim/lua/core/pack.lua`. `nvim/nvim-pack-lock.json` records the installed revisions, so commit it after any plugin change.
+
+To add a plugin, create `nvim/lua/plugins/<name>.lua` that calls `vim.pack.add()` with a pinned `version` (a tag, or a full commit SHA), then add `"<name>"` to `core/pack.lua`. List it after any plugin it depends on, because `vim.pack` does not resolve dependencies. Restart nvim to install it.
+
+To bump a plugin, change its `version` in its file, restart nvim, then review and apply the update. Confirm with `:w` or discard with `:q`.
+```vim
+:lua vim.pack.update({ "<name>" })
+```
+If you discard, revert the `version` change too, or you will be prompted again. Plugins pinned to an exact tag or commit never update on their own, so a plain `vim.pack.update()` only moves the ones tracking a branch, like `nvim-treesitter`.
+
+To remove a plugin, delete its file and its line in `core/pack.lua`, then remove it from disk.
 ```vim
 :lua vim.pack.del({ "<name>" })
 ```
-Commit `nvim/nvim-pack-lock.json` after changing plugins.
+To sync another machine, pull, restart nvim to install the plugins in the lockfile, then run `:lua vim.pack.update(nil, { target = "lockfile" })` and confirm. Remove plugins that are no longer in the lockfile with `vim.pack.del`.
 
 ## Tmux Development Scripts
 To easily spin up Tmux sessions, use the `./tmux/dev-template` file to write a script that creates a tmux session for your development environment.
