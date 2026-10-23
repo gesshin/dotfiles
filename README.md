@@ -103,9 +103,6 @@ install the LSP.
 ## Claude Code
 Claude Code stores config at `~/.claude/` and does not respect `XDG_CONFIG_HOME`, so it needs its own stow package with `-t ~`.
 
-Custom skills live in `~/.claude/skills/` as `.md` files. Add new commands to `claude/.claude/skills/` in this repo and they will be symlinked via stow.
+Only `claude/.claude/settings.json` is tracked. Everything else in `~/.claude/` is runtime state and stays untracked.
 
-To add a new skill, create `claude/.claude/skills/your-skill.md` and re-run:
-```bash
-stow -t ~ claude
-```
+Skills come from the [superpowers](https://github.com/obra/superpowers#installation) plugin. Follow its install instructions.

@@ -1,0 +1,20 @@
+{
+  "model": "opusplan",
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline",
+    "padding": 0,
+    "refreshInterval": 10
+  },
+  "effortLevel": "medium",
+  "awaySummaryEnabled": false,
+  "theme": "dark-ansi",
+  "skipAutoPermissionPrompt": true,
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  }
+}

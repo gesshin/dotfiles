@@ -5,7 +5,7 @@ macOS dotfiles managed with GNU Stow. See `README.md` for setup and per-app deta
 ## Layout and stow
 - `.stowrc` sets the stow target to `~/.config`. Running `stow .` symlinks each top-level directory (`nvim`, `zsh`, `tmux`, `wezterm`, `starship`, `lazygit`) to `~/.config/<dir>`.
 - A new top-level directory is symlinked automatically. If it should not be (docs, scripts), add `--ignore=<name>` to `.stowrc`.
-- `claude/` is ignored by `.stowrc` and stowed separately with `stow -t ~ claude`.
+- `claude/` is ignored by `.stowrc` and stowed separately with `stow -t ~ claude`. It holds only `.claude/settings.json`. Treat that file as the user's live config.
 - The `~/.config/<dir>` entries are symlinks into this repo, so editing either path edits the repo file.
 - Zsh is loaded through source lines that `setup.sh` adds to `~/.zshenv` and `~/.zshrc`. Edit the files in `zsh/`.
 
@@ -13,7 +13,7 @@ macOS dotfiles managed with GNU Stow. See `README.md` for setup and per-app deta
 - **Neovim:** lazy.nvim, with one file per plugin in `nvim/lua/plugins/`, auto-discovered. Lua is formatted with stylua via conform. Do not hand-edit `nvim/lazy-lock.json`.
 - **Colors:** there is no theme switcher. Palettes are constants in `nvim/lua/core/highlights/themes.lua`, `wezterm/themes.lua`, `tmux/themes/*.conf` and `starship/starship.toml`. The active theme is a hardcoded name in each app's config; the README lists exactly where. Keep the palette color names consistent across apps.
 - **Generated, git-ignored:** `zsh/.zsh_plugins.zsh`. Regenerate it with the `antidote bundle` command in the README. Edit `zsh/.zsh_plugins.txt` instead.
-- **Commits:** Conventional Commits, `type(scope): lowercase message`, e.g. `feat(claude): add review skill`, `fix(neovim): set rounded border`, `refactor(theme): ...`.
+- **Commits:** Conventional Commits, `type(scope): lowercase message`, e.g. `feat(starship): add virtual env for python`, `fix(neovim): set rounded border`, `refactor(theme): ...`.
 
 ## Verifying changes
 - `stow -n -v .` for a dry run of the symlinks. It must not report conflicts.
