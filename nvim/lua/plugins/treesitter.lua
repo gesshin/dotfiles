@@ -18,6 +18,16 @@ nvim_treesitter.install({
 	"toml",
 	"vim",
 	"yaml",
+	-- Rails
+	"embedded_template",
+	"ruby",
+	-- React
+	"html",
+	"javascript",
+	"tsx",
+	"typescript",
+	-- Python
+	"python",
 })
 
 -- Enables highlights and indentation for buffers that have a parser
