@@ -106,3 +106,6 @@ Claude Code stores config at `~/.claude/` and does not respect `XDG_CONFIG_HOME`
 Only `claude/.claude/settings.json` is tracked. Everything else in `~/.claude/` is runtime state and stays untracked.
 
 Skills come from the [superpowers](https://github.com/obra/superpowers#installation) plugin. Follow its install instructions.
+
+## Working with AI Agents
+Instructions for AI coding agents live in `AGENTS.md`, a tool-neutral file that most agent harnesses read. `CLAUDE.md` only imports it with `@AGENTS.md`, so edit `AGENTS.md` and leave `CLAUDE.md` alone.
