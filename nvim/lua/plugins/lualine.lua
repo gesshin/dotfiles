@@ -29,6 +29,12 @@ local filename = {
 	path = 1,
 }
 
+local lsp_status = {
+	"lsp_status",
+	icon = "󰒋",
+	symbols = { spinner = { "" }, done = "" }, -- Progress is already shown by noice
+}
+
 lualine.setup({
 	options = {
 		theme = "auto", -- Specify colorscheme to use
@@ -43,9 +49,9 @@ lualine.setup({
 		lualine_a = { "mode" },
 		lualine_b = { branch, diff, diagnostics },
 		lualine_c = { filename },
-		lualine_x = { "filetype" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
+		lualine_x = { lsp_status },
+		lualine_y = {},
+		lualine_z = {},
 	},
 	inactive_sections = { -- Customize statusline inactive sections
 		lualine_a = {},
