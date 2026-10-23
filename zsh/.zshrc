@@ -96,6 +96,16 @@ setopt hist_find_no_dups
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load $XDG_CONFIG_HOME/zsh/.zsh_plugins.txt
 
+# Node
+export NVM_DIR="$HOME/.nvm"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh" --no-use # --no-use skips auto-selecting a version, which is slow
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+  # Put the default Node version on the PATH directly instead
+  nvm_default_bin="$NVM_DIR/versions/node/v$(<"$NVM_DIR/alias/default")/bin"
+  [ -d "$nvm_default_bin" ] && path=("$nvm_default_bin" $path)
+fi
+
 # Start-up Programs
 [ -z "$TMUX" ] && tmux new-session -A -s main
 eval "$(starship init zsh)"

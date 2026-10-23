@@ -32,6 +32,7 @@ Generate symlinks.
 stow .
 stow -t ~ claude
 ```
+The shell config loads nvm itself, so remove the nvm loader lines that nvm's installer adds to `~/.zshrc`. Otherwise nvm loads twice and the shell starts slowly.
 Restart WezTerm and reload its config. Then, install tmux plugins and reload tmux.
 ```bash
 Crtl + Shift + R
