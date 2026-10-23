@@ -13,13 +13,14 @@ if [ $DELTA -ge $INTERVAL ]; then
   WTTR=$(curl -s --max-time 5 "wttr.in/${LOCATION}?${UNIT}&format=%t\n%C")
   # The API call must succeed and return a non-empty string to update the tmux variables
   if [ $? -eq 0 ] && [ -n "$WTTR" ]; then
-    TEMPERATURE=$(echo "$WTTR" | sed -n '1p')
-    CONDITION=$(echo "$WTTR" | sed -n '2p')
+    # The API pads each line with trailing whitespace, so trim it
+    TEMPERATURE=$(echo "$WTTR" | sed -n 's/[[:space:]]*$//;1p')
+    CONDITION=$(echo "$WTTR" | sed -n 's/[[:space:]]*$//;2p')
     tmux set-option -gq @weather-update-time "$CURRENT_TIME"
     tmux set-option -gq @weather "$TEMPERATURE $CONDITION"
   fi
 fi
 
 # Display the weather from the stored tmux variable; if it's empty or unset, display an error message
-WEATHER=$(tmux show-option -gqv @weather)
+WEATHER=$(tmux show-option -gqv @weather | sed 's/[[:space:]]*$//')
 echo "${WEATHER:-$ERROR_MESSAGE}"
